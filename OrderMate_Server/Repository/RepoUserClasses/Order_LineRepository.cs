@@ -32,14 +32,6 @@ namespace Repository.RepoUserClasses
                 .ToList();
         }
 
-        public IEnumerable<OrderLine> GetAllOrderLinesByOrderId(int orderId)
-        {
-            return FindByCondition(ol => ol.OrderIdFk.Equals(orderId))
-                .Include(x => x.MenuItemIdFkNavigation).ThenInclude(x => x.MenuItemPrice)
-                .OrderBy(x => x.OrderIdFk)
-                .ToList();
-        }
-
         public OrderLine GetOrderLineById(int orderLineId)
         {
             return FindByCondition(ol => ol.OrderLineId.Equals(orderLineId))

@@ -1,16 +1,19 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <a [routerLink]="['/home']" routerLinkActive="active" 
+    [routerLinkActiveOptions]="{exact: true}">
     <h1 class="example-app-name">Order-Mate</h1>
     
+    </a>
     <span class="spacer"></span>
-    <h2 >{{userDetails.userName}}</h2>
+    <h1>{{userName}}</h1>
     <button mat-icon-button class="favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>message</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="onLogout()">
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="onLogout()">
       <mat-icon>logout</mat-icon>
-  </button>
+    </button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -25,17 +28,20 @@
             [routerLinkActiveOptions]="{exact: true}">Order Management</a>
         <a mat-list-item [routerLink]="['/menumanage']" routerLinkActive="active" 
             [routerLinkActiveOptions]="{exact: true}">Menu Management</a>
-        <a mat-list-item [routerLink]="['/inventory']" routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact: true}">inventory Management</a>
-            <a mat-list-item [routerLink]="['/usermanage']" routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact: true}">User Management</a>
-        <a mat-list-item [routerLink]="['/employeemanage']" routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact: true}">Employee Management</a>
         <a mat-list-item [routerLink]="['/reservationmanage']" routerLinkActive="active" 
             [routerLinkActiveOptions]="{exact: true}">Reservation Management</a>
+        <a mat-list-item [routerLink]="['/usermanage']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">User Management</a>
+        <a mat-list-item [routerLink]="['/inventory']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">inventory Management</a>  
+        <!--
+          
+        <a mat-list-item [routerLink]="['/employeemanage']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">Employee Management</a>
         <a mat-list-item [routerLink]="['/shiftmanage']" routerLinkActive="active" 
             [routerLinkActiveOptions]="{exact: true}">Shift Management</a>
-         
+
+        -->
       </mat-nav-list>
     </mat-sidenav>
 

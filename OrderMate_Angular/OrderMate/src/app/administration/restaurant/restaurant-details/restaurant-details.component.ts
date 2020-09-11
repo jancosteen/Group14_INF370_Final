@@ -42,8 +42,8 @@ export class RestaurantDetailsComponent implements OnInit {
     this.router.navigate([updateUrl]); 
   }
 
-  public redirectToDeletePage = (restaurantId) => { 
-    const deleteUrl: string = '/restaurant/delete/' + restaurantId; 
+  public redirectToDeletePage = () => { 
+    const deleteUrl: string = '/restaurant/list'; 
     this.router.navigate([deleteUrl]); 
   }
 

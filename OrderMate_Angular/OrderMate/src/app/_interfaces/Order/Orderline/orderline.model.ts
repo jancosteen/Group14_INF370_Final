@@ -5,11 +5,12 @@ import {Special} from '../../../_interfaces/Order/Special/special.model'
 
 export interface OrderLine{
     orderLineId: number;
-    itemQuantity:number; 
-    special: Special; 
-    menuItem: MenuItem;
-    Order: Order;
-    Employee: Employee;
+    itemQty:number; 
+    itemComments: string;
+    specialIdFk: number; 
+    menuItemIdFk: string;
+    orderIdFk: number;
+    employeeIdFk: Employee;
 }
 
 

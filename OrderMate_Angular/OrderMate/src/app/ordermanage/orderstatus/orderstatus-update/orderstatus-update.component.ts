@@ -79,8 +79,8 @@ export class OrderstatusUpdateComponent implements OnInit {
   private executeUpdate = (Value) => {
   
     this.orderStatus.orderStatusId =  Value.orderStatusId,
-    this.orderStatus.orderStatus = Value.orderStatus,
-    this.orderStatus.orderId = Value.orderId
+    this.orderStatus.orderStatus1 = Value.orderStatus,
+    this.orderStatus.orderIdFk = Value.orderId
    
     let apiUrl = 'api/orderstatus/' + this.orderStatus.orderStatusId;
     this.repository.update(apiUrl, this.orderStatus)

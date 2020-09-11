@@ -1,4 +1,4 @@
-<div class="card card-body bg-light mb-2 mt-2">
+<div class="card card-body bg-light mb-2 mt-2 offset-2 col-md-8">
     <div class="row">
       <div class="col-md-3">
         <strong>Restaurant Id:</strong>
@@ -81,22 +81,17 @@
           {{restaurant?.restaurantCountry}}
         </div>
     </div>
+
     <div class="row">
-        <div class="col-md-3">
-          <strong>Country:</strong>
-        </div>
-        <div class="col-md-4">
-          {{restaurant?.restaurantStatus}}
-        </div>
-    </div>
+      <div class="col-md-3">
+          <button type="button" id="update" class="btn btn-success" 
+          (click)="redirectToUpdatePage(restaurant.restaurantId)">Update</button>
+      </div>
+      <div class="col-md-3">
+          <button type="button" id="delete" class="btn btn-danger" 
+          (click)="redirectToDeletePage()">Back</button>
+      </div>
   </div>
-  <div class="row">
-    <div class="col-md-3">
-        <button type="button" id="update" class="btn btn-success" 
-        (click)="redirectToUpdatePage(restaurant.restaurantId)">Update</button>
-    </div>
-    <div class="col-md-3">
-        <button type="button" id="delete" class="btn btn-danger" 
-        (click)="redirectToDeletePage(restaurant.restaurantId)">Delete</button>
-    </div>
-</div>
+  
+  </div>
+ 

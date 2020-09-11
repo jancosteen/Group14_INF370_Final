@@ -60,29 +60,11 @@ export class ReservationListComponent implements OnInit, OnDestroy {
                     if(resevation.reservationStatusIdFk == status.reservationStatusId){
                       //match found              
                      resevation.reservationStatusName = status.reservationStatus1;
-     
+                     this.reservations.push(resevation);
                     }
                   })
             });
-         
-            let userAddress: string = "api/user";
-              this.repository.getData(userAddress)
-                .subscribe(res => {
-                  this.users = res as User[];
-                  this.users.forEach(user=>{
-                    if(resevation.userIdFk == user.id){
-                      resevation.userName = user.userName;
-                      this.reservations.push(resevation);
-                      console.log('users',this.reservations)
-                    }
-                  })
-            });
-            
-         
-          
-            
-        
-            
+       
           })
 
           this.dtTrigger.next();

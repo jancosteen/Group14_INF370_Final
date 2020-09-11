@@ -41,8 +41,8 @@ export class SpecialDetailsComponent implements OnInit {
     this.router.navigate([updateUrl]); 
   }
 
-  public redirectToDeletePage = (specialId) => { 
-    const deleteUrl: string = '/special/delete/' + specialId; 
+  public redirectToDeletePage = () => { 
+    const deleteUrl: string = '/special/list';
     this.router.navigate([deleteUrl]); 
   }
 

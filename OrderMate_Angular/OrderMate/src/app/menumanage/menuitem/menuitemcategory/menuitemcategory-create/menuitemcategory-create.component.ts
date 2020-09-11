@@ -23,7 +23,7 @@ export class MenuitemcategoryCreateComponent implements OnInit {
   ngOnInit(): void {
  
     this.menuItemCategoryForm = new FormGroup({
-      menuItemCategory: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
+      menuItemCategory1: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
     });
 
   }
@@ -51,7 +51,7 @@ export class MenuitemcategoryCreateComponent implements OnInit {
 
     const MenuItemCategory: CreateMenuItemCategory = {
     //supplierId: supplierFormValue.Id,
-    menuItemCategory:Value.menuItemCategory
+    menuItemCategory1:Value.menuItemCategory1
     
     }
  

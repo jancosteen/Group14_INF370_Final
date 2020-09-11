@@ -33,7 +33,7 @@ namespace Repository.RepoUserClasses
                 .ToList();
         }
 
-        public User GetUserById(int userId)
+        public User GetUserById(string userId)
         {
             return FindByCondition(u => u.Id.Equals(userId))
                 .FirstOrDefault();
@@ -44,7 +44,7 @@ namespace Repository.RepoUserClasses
                 .FirstOrDefault();
         }
 
-        public User GetUserWithDetails(int userRoleId)//typo, keep as is
+        public User GetUserWithDetails(string userRoleId)//typo, keep as is
         {
             return FindByCondition(u => u.Id.Equals(userRoleId))
                 .Include(u => u.EmployeeIdFkNavigation)

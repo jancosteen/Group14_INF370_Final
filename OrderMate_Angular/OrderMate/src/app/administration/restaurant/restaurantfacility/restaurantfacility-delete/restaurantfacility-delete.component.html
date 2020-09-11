@@ -1,4 +1,4 @@
-<div class="card card-body bg-light mb-2 mt-2">
+<div class="card card-body bg-light mb-2 mt-2 offset-2 col-md-8">
     <div class="row">
       <div class="col-md-3">
         <strong>Restaurant Facility Id:</strong>
@@ -12,19 +12,21 @@
         <strong>Restaurant Facility:</strong>
       </div>
       <div class="col-md-4">
-        {{restaurantFacility?.restaurantFacility}} 
+        {{restaurantFacility?.restaurantFacility1}} 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-offset-8 col-md-1">
+        <button type="submit" class="btn btn-info" (click)="deleterestaurantFacility()">Delete</button>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-danger" (click)="redirectTorestaurantFacilityList()">Cancel</button>
       </div>
     </div>
   </div>
   
-  <div class="row">
-    <div class="col-md-offset-8 col-md-1">
-      <button type="submit" class="btn btn-info" (click)="deleterestaurantFacility()">Delete</button>
-    </div>
-    <div class="col-md-1">
-      <button type="button" class="btn btn-danger" (click)="redirectTorestaurantFacilityList()">Cancel</button>
-    </div>
-  </div>
+  
   
   
   <app-success-modal [modalHeaderText]="'Success message'" 

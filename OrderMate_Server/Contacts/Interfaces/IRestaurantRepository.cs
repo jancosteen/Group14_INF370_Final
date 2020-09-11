@@ -10,7 +10,6 @@ namespace Contacts.Interfaces
         IEnumerable<Restaurant> GetAllRestaurants();
         Restaurant GetRestaurantById(int restaurantId);
         Restaurant GetRestaurantWithDetails(int restaurantId);
-        Restaurant GetRestaurantByQrCode(int qrCodeId);
         void CreateRestaurant(Restaurant restaurant);
         void UpdateRestaurant(Restaurant restaurant);
         void DeleteRestaurant(Restaurant restaurant);

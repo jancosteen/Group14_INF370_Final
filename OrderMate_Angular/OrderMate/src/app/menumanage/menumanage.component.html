@@ -12,6 +12,21 @@
               [routerLinkActiveOptions]="{exact: true}">
                 <li class="list-group-item">Manage Menu Items</li>
             </a>
+            <a [routerLink]="['/special/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Manage Specials</li>
+            </a>
         </ul>
     </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        Category And Types
+      </div>
+      <ul class="list-group list-group-flush">
+          <a [routerLink]="['/menuitemcategory/list']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">
+              <li class="list-group-item">Manage Menu Item Categories</li>
+          </a>
+      </ul>
+  </div>
 </div>

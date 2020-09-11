@@ -42,8 +42,8 @@ export class MenuitemcategoryDetailsComponent implements OnInit {
     this.router.navigate([updateUrl]); 
   }
 
-  public redirectToDeletePage = (menuItemCategoryId) => { 
-    const deleteUrl: string = '/menuitemcategory/delete/' + menuItemCategoryId; 
+  public redirectToDeletePage = () => { 
+    const deleteUrl: string = '/menuitemcategory/list' ;
     this.router.navigate([deleteUrl]); 
   }
 

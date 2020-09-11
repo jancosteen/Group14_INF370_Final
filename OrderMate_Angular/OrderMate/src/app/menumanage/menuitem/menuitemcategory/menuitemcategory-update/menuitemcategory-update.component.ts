@@ -26,7 +26,7 @@ export class MenuitemcategoryUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.MenuItemCategoryForm = new FormGroup({
       menuItemCategoryId: new FormControl(''),
-      menuItemCategory: new FormControl('',[Validators.required, Validators.maxLength(100)]),
+      menuItemCategory1: new FormControl('',[Validators.required, Validators.maxLength(100)]),
     });
 
     this.getById();
@@ -80,7 +80,7 @@ export class MenuitemcategoryUpdateComponent implements OnInit {
   private executeUpdate = (Value) => { 
   
     this.menuItemCategory.menuItemCategoryId =  Value.menuItemCategoryId,
-    this.menuItemCategory.menuItemCategory = Value.menuItemCategory
+    this.menuItemCategory.menuItemCategory1 = Value.menuItemCategory1
     
    
     let apiUrl = 'api/menuitemcategory/' + this.menuItemCategory.menuItemCategoryId;

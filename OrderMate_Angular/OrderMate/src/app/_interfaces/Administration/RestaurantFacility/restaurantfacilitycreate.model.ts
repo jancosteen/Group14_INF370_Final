@@ -1,4 +1,4 @@
 export interface CreateRestaurantFacility {
   
-    restaurantFacility: string;
+    restaurantFacility1: string;
 }

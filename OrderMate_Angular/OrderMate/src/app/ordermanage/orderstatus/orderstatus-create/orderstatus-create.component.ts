@@ -50,8 +50,8 @@ export class OrderstatusCreateComponent implements OnInit {
   private executeCreation = (Value) => {
   
     const orderstatus : CreateOrderStatus = {
-      orderStatus: Value.orderStatus, 
-      orderId:Value.orderId
+      orderStatus1: Value.orderStatus, 
+      orderIdFk:Value.orderId
     }
   
     const apiUrl = 'api/orderstatus';

@@ -658,10 +658,10 @@ namespace Entities.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-               /* entity.HasOne(d => d.OrderIdFkNavigation)
+                entity.HasOne(d => d.OrderIdFkNavigation)
                     .WithMany(p => p.OrderStatus)
                     .HasForeignKey(d => d.OrderIdFk)
-                    .HasConstraintName("Order_Status_Order_FK");*/
+                    .HasConstraintName("Order_Status_Order_FK");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -1251,16 +1251,13 @@ namespace Entities.Models
                     .HasName("AK_Seating_SeatingId")
                     .IsUnique();
 
-                entity.Property(e => e.Reservation_Id_Fk).HasColumnName("Reservation_Id_FK");
+                entity.Property(e => e.ReservationIdFk).HasColumnName("Reservation_Id_FK");
 
                 entity.Property(e => e.SeatingDate).HasColumnType("date");
 
-                //entity.Property(e => e.SeatingTime).HasColumnType("string");
-
-
                 entity.HasOne(d => d.ReservationIdFkNavigation)
                     .WithMany(p => p.Seating)
-                    .HasForeignKey(d => d.Reservation_Id_Fk)
+                    .HasForeignKey(d => d.ReservationIdFk)
                     .HasConstraintName("Seating_Reservation_FK");
             });
 

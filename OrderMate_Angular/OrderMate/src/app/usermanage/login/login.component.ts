@@ -1,3 +1,4 @@
+import { CurrentUser } from './../../shared/services/data-types';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { RepositoryService } from 'src/app/shared/services/repository.service';
@@ -10,6 +11,7 @@ import { Toast, ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  currentUser;
 
   public loginModel: FormGroup; 
 
@@ -44,12 +46,16 @@ export class LoginComponent implements OnInit {
   login(value){
     this.respository.login(value).subscribe(
       (res:any) => {
+        this.currentUser = res as CurrentUser
+        localStorage.setItem('token',this.currentUser.token)//do not delete
         this.router.navigateByUrl('/home');
+        
       },
       err => {
         if(err.status == 404){
           this.toast.error('Incorrect Username Or Password.','Authentication Failed.');
         }else{
+          this.toast.error('Incorrect Username Or Password.','Authentication Failed.');
           console.log(err);
         }
       }

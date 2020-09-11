@@ -1,5 +1,5 @@
-<h3>Update Supplier</h3>
-<div class="container-fluid">
+
+<div class="container-fluid offset-2 col-md-8">
     <form [formGroup]="restaurantfacilityForm" autocomplete="off" novalidate (ngSubmit)="updaterestaurantfacility(restaurantfacilityForm.value)">
         <div class="form-horizontal card card-body bg-light mb-2 mt-2">
             <div class="form-group row">
@@ -10,13 +10,13 @@
         
               </div>
               <div class="form-group row">
-                  <label for="restaurantFacility" class="control-label col-md-2">Restaurant Facility : </label>
+                  <label for="restaurantFacility1" class="control-label col-md-2">Restaurant Facility : </label>
                   <div class="col-md-5">
-                    <input type="text" formControlName="restaurantFacility" id="restaurantFacility" class="form-control" />
+                    <input type="text" formControlName="restaurantFacility1" id="restaurantFacility1" class="form-control" />
                   </div>
                   <div class="col-md-5">
-                    <em *ngIf="validateControl('restaurantFacility') && hasError('restaurantFacility', 'required')">Restaurant Facility is required</em>
-                    <em *ngIf="validateControl('restaurantFacility') && hasError('restaurantFacility', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                    <em *ngIf="validateControl('restaurantFacility1') && hasError('restaurantFacility1', 'required')">Restaurant Facility is required</em>
+                    <em *ngIf="validateControl('restaurantFacility1') && hasError('restaurantFacility1', 'maxlength')">Maximum allowed length is 50 characters.</em>
                   </div>
               </div>
               

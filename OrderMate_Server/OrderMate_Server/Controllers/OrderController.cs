@@ -23,6 +23,7 @@ namespace OrderMate_Server.Controllers
         {
             _logger = logger;
             _repository = repository;
+
             _mapper = mapper;
         }
 
@@ -60,33 +61,6 @@ namespace OrderMate_Server.Controllers
                 else
                 {
                     _logger.LogInfo($"Returned order with id: {id}");
-
-                    var orderResult = _mapper.Map<OrderDto>(order);
-                    return Ok(orderResult);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong inside GetOrderById action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet("{qrCodeId}/qrCode", Name = "OrderByQrCode")]
-        public IActionResult GetOrderByQrCodeId(int qrCodeId)
-        {
-            try
-            {
-                var order = _repository.Order.GetOrderByQrCodeId(qrCodeId);
-
-                if (order == null)
-                {
-                    _logger.LogError($"order with id: {qrCodeId}, hasn't been found in db.");
-                    return NotFound();
-                }
-                else
-                {
-                    _logger.LogInfo($"Returned order with id: {qrCodeId}");
 
                     var orderResult = _mapper.Map<OrderDto>(order);
                     return Ok(orderResult);

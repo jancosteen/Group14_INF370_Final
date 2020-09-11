@@ -8,8 +8,8 @@ namespace Contacts.Interfaces
     public interface IUserRepository: IRepositoryBase<User>
     {
         IEnumerable<User> GetAllUsers();
-        User GetUserById(int userId);
-        User GetUserWithDetails(int userRoleId);
+        User GetUserById(string userId);
+        User GetUserWithDetails(string userRoleId);
 
         User GetUserByUsername(string Username);
         void CreateUser(User user);

@@ -1,31 +1,50 @@
 <div class="d-flex justify-content-around" style="padding-top: 20px;">
+  
     <div class="card" style="width: 18rem;">
         <div class="card-header">
-          Restuarant
+          Reporting
         </div>
         <ul class="list-group list-group-flush">
-            <a [routerLink]="['/restuarant/list']" routerLinkActive="active" 
+            <a [routerLink]="['/salesbymenuitem']" routerLinkActive="active" 
               [routerLinkActiveOptions]="{exact: true}">
-                <li class="list-group-item">Restuarant</li>
+                <li class="list-group-item">Sales By Menu Item</li>
             </a>
-            <a [routerLink]="['/restaurantfacility/list']" routerLinkActive="active" 
-              [routerLinkActiveOptions]="{exact: true}">
-                <li class="list-group-item">Restaurant Facility</li>
-            </a>   
+            <a [routerLink]="['/ordersbetween']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">
+              <li class="list-group-item">Orders Between</li>
+            </a>  
+            <a [routerLink]="['/salesRestaurant']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">
+              <li class="list-group-item">Sales by Restaurant</li>
+            </a>  
         </ul>
     </div>
     <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          Advertisements
-        </div>
-        <ul class="list-group list-group-flush">
-            <a [routerLink]="['/advertisement/list']" routerLinkActive="active" 
-              [routerLinkActiveOptions]="{exact: true}">
-                <li class="list-group-item">Advertisments</li>
-            </a>
-            
-        </ul>
+      <div class="card-header">
+        Restaurant
+      </div>
+      <ul class="list-group list-group-flush">
+          <a [routerLink]="['/restaurant/list']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">
+              <li class="list-group-item">Restaurant Management</li>
+          </a>
+          <a [routerLink]="['/restaurantfacility/list']" routerLinkActive="active" 
+          [routerLinkActiveOptions]="{exact: true}">
+            <li class="list-group-item">Restaurant Facility</li>
+          </a>  
+      </ul>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      Advertisement
     </div>
+    <ul class="list-group list-group-flush">
+        <a [routerLink]="['/advertisement/list']" routerLinkActive="active" 
+          [routerLinkActiveOptions]="{exact: true}">
+            <li class="list-group-item">Advertisement Management</li>
+        </a>
+    </ul>
+</div>
 
 </div>
 

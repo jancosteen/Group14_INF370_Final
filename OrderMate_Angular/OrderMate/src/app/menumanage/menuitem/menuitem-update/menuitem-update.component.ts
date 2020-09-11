@@ -5,6 +5,7 @@ import { RepositoryService } from './../../../shared/services/repository.service
 import { Router, ActivatedRoute } from '@angular/router';  
 
 import {MenuItem} from '../../../_interfaces/menumange/MenuItem/menuitem.model';
+import { MenuItemCategory } from 'src/app/_interfaces/menumange/menuitemcategory/menuitemcategory.model';
 
 @Component({
   selector: 'app-menuitem-update',
@@ -12,6 +13,8 @@ import {MenuItem} from '../../../_interfaces/menumange/MenuItem/menuitem.model';
   styleUrls: ['./menuitem-update.component.css']
 })
 export class MenuitemUpdateComponent implements OnInit {
+  categories : MenuItemCategory[];
+  selectedCat: MenuItemCategory;
 
   public errorMessage: string = '';
  
@@ -23,11 +26,13 @@ export class MenuitemUpdateComponent implements OnInit {
     private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getCategories()
+
     this.menuItemForm = new FormGroup({
       menuItemId: new FormControl(''),
-      menuItemName: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
-      menu: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
-      menuItemCategory: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
+      menuItemName: new FormControl('',[Validators.required, Validators.maxLength(50)]), 
+      menuItemCategoryIdFk: new FormControl('',[Validators.required, Validators.maxLength(50)]), 
+      menuItemDescription: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
     });
     this.getById();
   }
@@ -35,7 +40,7 @@ export class MenuitemUpdateComponent implements OnInit {
   private getById = () => {
     let ProductCategoryId: string = this.activeRoute.snapshot.params['id'];
       
-    let productCategoryIdByIdUrl: string = 'api/menuItem/'+ProductCategoryId;
+    let productCategoryIdByIdUrl: string = 'api/menuitem/'+ProductCategoryId;
    
     this.repository.getData(productCategoryIdByIdUrl)
       .subscribe(res => {
@@ -64,8 +69,17 @@ export class MenuitemUpdateComponent implements OnInit {
     return false;
   }
 
+  getCategories(){
+    let apiAddress: string = "api/menuItemCategory";
+      this.repository.getData(apiAddress)
+      .subscribe(res => {
+        this.categories = res as MenuItemCategory[];
+        console.log('categories', this.categories)
+      });
+  }
+
   public redirectToList(){
-    this.router.navigate(['/menuItemType/list']);
+    this.router.navigate(['/menuitem/list']);
   }
 
   public update = (Value) => {
@@ -78,11 +92,11 @@ export class MenuitemUpdateComponent implements OnInit {
   
     this.menuItem.menuItemId =  Value.menuItemId,
     this.menuItem.menuItemName =  Value.menuItemName,
-      this.menuItem.menu =  Value.menu,
-      this.menuItem.menuItemCategory =  Value.menuItemCategory
+      this.menuItem.menuIdFk =  Value.menu,
+      this.menuItem.menuItemCategoryIdFk =  Value.menuItemCategory
     
    
-    let apiUrl = 'api/menuItemType/' + this.menuItem.menuItemId;
+    let apiUrl = 'api/menuitem/' + this.menuItem.menuItemId;
     this.repository.update(apiUrl, this.menuItem)
       .subscribe(res => {
         $('#successModal').modal();
@@ -91,7 +105,7 @@ export class MenuitemUpdateComponent implements OnInit {
         this.errorHandler.handleError(error); 
         this.errorMessage = this.errorHandler.errorMessage;
       })
-    )
+    ) 
   } 
 
 

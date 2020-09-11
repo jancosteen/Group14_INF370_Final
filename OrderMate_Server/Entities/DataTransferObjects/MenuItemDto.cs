@@ -11,6 +11,5 @@ namespace Entities.DataTransferObjects
         public string MenuItemDescription { get; set; }
         public int? MenuIdFk { get; set; }
         public int? MenuItemCategoryIdFk { get; set; }
-        public virtual ICollection<MenuItem_PriceDto> MenuItemPrice { get; set; }
     }
 }

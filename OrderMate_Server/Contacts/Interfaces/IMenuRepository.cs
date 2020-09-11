@@ -10,7 +10,6 @@ namespace Contacts.Interfaces
         IEnumerable<Menu> GetAllMenus();
         Menu GetMenuById(int menuId);
         Menu GetMenuWithDetails(int menuId);
-        Menu GetMenuByResId(int resId);
         void CreateMenu(Menu menu);
         void UpdateMenu(Menu menu);
         void DeleteMenu(Menu menu);

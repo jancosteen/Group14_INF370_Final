@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OrderMate_Server.Controllers
 {
-    [Route("api/restaurantr")]
+    [Route("api/restaurant")]
     [ApiController]
     public class RestaurantController : ControllerBase
     {
@@ -60,33 +60,6 @@ namespace OrderMate_Server.Controllers
                 else
                 {
                     _logger.LogInfo($"Returned restaurant with id: {id}");
-
-                    var restaurantResult = _mapper.Map<RestaurantDto>(restaurant);
-                    return Ok(restaurantResult);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong inside GetRestaurantById action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet("qrCode/{qrCodeId}", Name = "RestaurantByQrCode")]
-        public IActionResult GetRestaurantByQrCode(int qrCodeId)
-        {
-            try
-            {
-                var restaurant = _repository.Restaurant.GetRestaurantByQrCode(qrCodeId);
-
-                if (restaurant == null)
-                {
-                    _logger.LogError($"restaurant with id: {qrCodeId}, hasn't been found in db.");
-                    return NotFound();
-                }
-                else
-                {
-                    _logger.LogInfo($"Returned restaurant with id: {qrCodeId}");
 
                     var restaurantResult = _mapper.Map<RestaurantDto>(restaurant);
                     return Ok(restaurantResult);

@@ -1,4 +1,4 @@
 export interface RestaurantFacility {
     restaurantFacilityId: number;
-    restaurantFacility: string;
+    restaurantFacility1: string;
 }

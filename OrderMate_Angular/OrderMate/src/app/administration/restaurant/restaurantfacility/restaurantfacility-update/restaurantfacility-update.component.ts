@@ -23,7 +23,7 @@ constructor(private repository: RepositoryService, private errorHandler: ErrorHa
 ngOnInit(): void {
   this.restaurantfacilityForm = new FormGroup({
     restaurantFacilityId: new FormControl(''),
-    restaurantFacility: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+    restaurantFacility1: new FormControl('',[Validators.required, Validators.maxLength(50)]),
   });
 
   this.getrestaurantFacilityById();
@@ -75,7 +75,7 @@ public updaterestaurantfacility = (restaurantfacilityFormValue) => {
 private executerestaurantfacilityUpdate = (restaurantfacilityFormValue) => {
 
   this.restaurantFacility.restaurantFacilityId =  restaurantfacilityFormValue.restaurantFacilityId,
-  this.restaurantFacility.restaurantFacility = restaurantfacilityFormValue.restaurantFacility
+  this.restaurantFacility.restaurantFacility1 = restaurantfacilityFormValue.restaurantFacility
   
  
   let apiUrl = 'api/restaurantfacility/' + this.restaurantFacility.restaurantFacilityId;

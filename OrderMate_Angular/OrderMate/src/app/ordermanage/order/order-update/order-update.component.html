@@ -11,23 +11,24 @@
               <div class="form-group row">
                   <label for="orderDateCreated" class="control-label col-md-2">Date Created: </label>
                   <div class="col-md-5">
-                    <input type="text" formControlName="orderDateCreated" id="orderDateCreated" class="form-control" type="datetime-local"/>
+                    <input type="text" formControlName="orderDateCreated" id="orderDateCreated" class="form-control" type="datetime-local" readonly/>
                   </div>
                   <div class="col-md-5">
                     <em *ngIf="validateControl('orderDateCreated') && hasError('orderDateCreated', 'required')">Date Created is required</em>
-
                   </div>
               </div>
               <div class="form-group row">
-                <label for="QrCodeSeating" class="control-label col-md-2">Qr Code Seating: </label>
-                <div class="col-md-5">
-                  <input type="text" formControlName="QrCodeSeating" id="QrCodeSeating" class="form-control" />
-                </div>
-                <div class="col-md-5">
-                  <em *ngIf="validateControl('QrCodeSeating') && hasError('QrCodeSeating', 'required')">Qr Code Seating is required</em>
-                </div>
-            </div>
-               
+                <label for="orderStatus1" class="control-label col-md-2">Order Status: </label>
+                  <div class="col-md-5">
+                    <select formControlName="orderStatus1" id="orderStatus1" class="form-control" [(ngModel)]="selectedStatus"  placeholder="select" >
+                      <option disabled selected value> -- select an option -- </option>
+                      <option *ngFor=" let x of statuses" [ngvalue]="x.orderStatusId">{{x.orderStatus1}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('orderStatus1') && hasError('orderStatus1', 'required')">Order Status is required</em>
+                  </div>
+              </div> 
                 <br><br>
                 <div class="form-group row">
                     <div class="offset-5 col-md-1">

@@ -4,7 +4,9 @@ import {Menu} from '../Menu/menu.model';
 export interface CreateMenuItem {
  
     menuItemName:string;
-    menu: Menu;
-    menuItemCategory: MenuItemCategory;
+    menuItemDescription:string;
+    menuIdFk:  number;
+    menuItemCategoryIdFk: number;
+    menuItemCategoryName?: string; 
 }
 

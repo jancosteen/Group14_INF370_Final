@@ -9,7 +9,6 @@ namespace Contacts.Interfaces
     {
         IEnumerable<Order> GetAllOrders();
         Order GetOrderById(int orderId);
-        Order GetOrderByQrCodeId(int qrCodeId);
         Order GetOrderWithDetails(int orderId);
         void CreateOrder(Order order);
         void UpdateOrder(Order order);

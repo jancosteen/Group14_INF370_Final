@@ -55,8 +55,8 @@ reserve: Reservation;
     this.router.navigate([updateUrl]); 
   }
 
-  public redirectToDeletePage = (reservationId) => { 
-    const deleteUrl: string = '/reservation/delete/' + reservationId; 
+  public redirectToDeletePage = () => { 
+    const deleteUrl: string = '/reservationmanage/';
     this.router.navigate([deleteUrl]); 
   }
 

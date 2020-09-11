@@ -36,7 +36,11 @@
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
               "./node_modules/jqueryui/jquery-ui.min.js",
               "./node_modules/datatables.net/js/jquery.dataTables.js"
-            ]
+          
+            ],
+            "allowedCommonJsDependencies": [
+              "lodash"
+           ]
           },
           "configurations": {
             "production": {

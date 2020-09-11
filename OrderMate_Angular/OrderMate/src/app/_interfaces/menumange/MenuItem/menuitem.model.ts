@@ -5,8 +5,9 @@ export interface MenuItem {
     menuItemId: string; 
     menuItemName:string;
     menuItemDescription:string;
-    menuIdFk:  Menu;
-    menuItemCategoryIdFk: MenuItemCategory;
+    menuIdFk:  number;
+    menuItemCategoryIdFk: number;
+    menuItemCategoryName?: string;
 }
  
  

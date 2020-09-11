@@ -2,6 +2,6 @@
 
 export interface RestaurantStatus{
     restaurantstatusId: number;
-    restaurantStatus:string;
+    restaurantStatus1:string;
    // restaurantId?: Restaurant;
 }

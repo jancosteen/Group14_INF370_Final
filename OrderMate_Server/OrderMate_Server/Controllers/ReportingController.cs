@@ -18,26 +18,56 @@ namespace OrderMate_Server.Controllers
     public class ReportingController : ControllerBase
     {
         private ILoggerManager _logger;
-        //private IRepositoryWrapper _repository;
+        private IRepositoryWrapper _repository;
         private IMapper _mapper;
 
 
         protected OrderMateDbFinalContext RepositoryContext { get; set; }
 
-        public ReportingController(OrderMateDbFinalContext repositoryContext, ILoggerManager logger, IMapper mapper)
+        public ReportingController(OrderMateDbFinalContext repositoryContext, ILoggerManager logger, IMapper mapper, IRepositoryWrapper repository)
         {
             this.RepositoryContext = repositoryContext;
             _logger = logger;            
             _mapper = mapper;
+            _repository = repository;
+        }
+
+        [HttpGet("ordersBetween/{Datefrom}/{DateTo}", Name ="ordersBetween")]
+        [Route("ordersBetween")]
+        public IActionResult GetOrdersBetween(DateTime Datefrom, DateTime DateTo)
+        {
+            try
+            {
+                var orderList = _repository.Order.GetAllOrders();
+                var results = new List<Order>();
+                foreach(Order order in orderList)
+                {
+                    if(order.OrderDateCompleted >= Datefrom && order.OrderDateCompleted <= DateTo)
+                    {
+                        results.Add(order);
+                    }
+                }
+
+             
+
+                _logger.LogInfo($"Returned SalesByMenutemResults from db.");
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went work inside the GetSalesByMenuItemReport action: {ex.InnerException.Message}");
+                return StatusCode(500, "Internal server error");
+            }
         }
         
 
-        [HttpGet("salesByMenuItem/{menuItemId}/{Datefrom}/{DateTo}", Name = "SalesByMenuItem")]
+        [HttpGet("salesByMenuItem/{menuItemId}/{Datefrom}/{DateTo}", Name = "salesByMenuItem")]
+        [Route("salesByMenuItem")]
         public IActionResult GetSalesByMenuItemReport(int menuItemId, DateTime Datefrom, DateTime DateTo)
         {
             try
             {
-                var results = RepositoryContext.SalesByMenuItemReport.FromSqlRaw("EXEC dbo.SP_SALES_BY_MENUITEM @MenuItemId = {0}, @OrderDateFrom = {1}, @OrdeDateTo = {2}", menuItemId, Datefrom, DateTo);
+                var results = RepositoryContext.SalesByMenuItemReport.FromSqlRaw("EXEC dbo.SP_SALES_BY_MENUITEM @menuItemId = {0}, @DateFrom = {1}, @DateTo = {2}", menuItemId, Datefrom, DateTo);
                 _logger.LogInfo($"Returned SalesByMenutemResults from db.");
                 return Ok(results);
             }
@@ -48,12 +78,12 @@ namespace OrderMate_Server.Controllers
             }           
         }
 
-        [HttpGet("salesRestaurant/{restaurantId}/{orderDateFrom}/{ordeDateTo}", Name = "SalesByRestaurant")]
+        [HttpGet("salesRestaurant/{restaurantId}/{orderDateFrom}/{ordeDateTo}", Name = "salesByRestaurant")]
         public IActionResult GetSalesByRestaurantReport(int restaurantId, DateTime orderDateFrom, DateTime ordeDateTo)
         {
             try
             {
-                var results = RepositoryContext.SalesByRestaurantReport.FromSqlRaw("EXEC dbo.SP_SALES_BY_RESTAURANT @RestaurantId = {0}, @OrderDateFrom = {1}, @OrdeDateTo = {2}", restaurantId, orderDateFrom, ordeDateTo);
+                var results = RepositoryContext.SalesByRestaurantReport.FromSqlRaw("EXEC dbo.SP_SALES_BY_RESTAURANT @restaurantId = {0}, @DateFrom = {1}, @DateTo = {2}", restaurantId, orderDateFrom, ordeDateTo);
                 _logger.LogInfo($"Returned SalesByRestaurantResults from db.");
                 return Ok(results);
             }

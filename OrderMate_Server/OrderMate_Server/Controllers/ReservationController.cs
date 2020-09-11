@@ -45,25 +45,6 @@ namespace OrderMate_Server.Controllers
             }
         }
 
-        [HttpGet("{userId}/userId", Name = "ReservationByUserId")]
-        public IActionResult GetAllReservationsByUserId(string userId)
-        {
-            try
-            {
-                var reservations = _repository.Reservation.GetAllReservationByUserId(userId);
-                _logger.LogInfo($"Returned all reservations from db.");
-
-                var reservationsResult = _mapper.Map<IEnumerable<ReservationDto>>(reservations);
-                return Ok(reservationsResult);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went work inside the GetAllReservations action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
-
-            }
-        }
-
         [HttpGet("{id}", Name = "ReservationById")]
         public IActionResult GetReservationById(int id)
         {

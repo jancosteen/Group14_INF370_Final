@@ -38,13 +38,6 @@ namespace Repository.RepoUserClasses
                 .FirstOrDefault();
         }
 
-        public MenuItemPrice GetMenuITemPriceByMenuItemId(int menuItem)
-        {
-            return FindByCondition(mip => mip.MenuItemIdFk.Equals(menuItem))
-                .FirstOrDefault();
-                
-        }
-
         public MenuItemPrice GetMenuItemPriceWithDetails(int menuItemPriceId)
         {
             return FindByCondition(mip => mip.MenuItemPriceId.Equals(menuItemPriceId))

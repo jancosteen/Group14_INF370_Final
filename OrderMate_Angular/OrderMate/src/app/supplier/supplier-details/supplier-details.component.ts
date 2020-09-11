@@ -48,8 +48,8 @@ export class SupplierDetailsComponent implements OnInit {
     this.router.navigate([updateUrl]); 
   }
 
-  public redirectToDeletePage = (supplierId) => { 
-    const deleteUrl: string = '/supplier/delete/' + supplierId; 
+  public redirectToDeletePage = () => { 
+    const deleteUrl: string = '/supplier/list'; 
     console.log('thiseee',deleteUrl);
     this.router.navigate([deleteUrl]); 
   }

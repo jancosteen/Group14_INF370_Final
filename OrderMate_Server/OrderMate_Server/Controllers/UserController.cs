@@ -112,7 +112,7 @@ namespace OrderMate_Server.Controllers
         }
 
         [HttpGet("{id}", Name = "UserById")]
-        public IActionResult GetUserById(int id)
+        public IActionResult GetUserById(string id)
         {
             try
             {
@@ -127,33 +127,6 @@ namespace OrderMate_Server.Controllers
                 {
                     _logger.LogInfo($"Returned user with id: {id}");
 
-                    var userResult = _mapper.Map<UserDto>(user);
-                    return Ok(userResult);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong inside GetUserById action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet("detail/{username}", Name = "UserByusername")]
-        public IActionResult GetUserByUsername(string username)
-        {
-            try
-            {
-                var user = _repository.User.GetUserByUsername(username);
-
-                if (user == null)
-                {
-                    _logger.LogError($"user with id: {username}, hasn't been found in db.");
-                    return NotFound();
-                }
-                else
-                {
-                    _logger.LogInfo($"Returned user with id: {username}");
-
                     var userResult = _mapper.Map<User>(user);
                     return Ok(userResult);
                 }
@@ -166,7 +139,7 @@ namespace OrderMate_Server.Controllers
         }
 
         [HttpGet("{id}/detail")]
-        public IActionResult GetUserWithDetails(int id)
+        public IActionResult GetUserWithDetails(string id)
         {
             try
             {
@@ -181,7 +154,7 @@ namespace OrderMate_Server.Controllers
                 {
                     _logger.LogInfo($"user with details for id: {id}");
 
-                    var userResult = _mapper.Map<UserDetailsDto>(user);
+                    var userResult = _mapper.Map<User>(user);
                     return Ok(userResult);
                 }
             }
@@ -245,7 +218,7 @@ namespace OrderMate_Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateUser(int id, [FromBody] UserForUpdateDto user)
+        public IActionResult UpdateUser(string id, [FromBody] UserForUpdateDto user)
         {
             try
             {
@@ -283,7 +256,7 @@ namespace OrderMate_Server.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteUser(int id)
+        public IActionResult DeleteUser(string id)
         {
             try
             {

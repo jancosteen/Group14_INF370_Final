@@ -4,7 +4,7 @@
     </div>
   </div>
   <br>
-  <div class="row"> 
+  <div class="row offset-2 col-md-8"> 
     <div class="col-md-12">
       <div class="table-responsive">
         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
@@ -21,7 +21,7 @@
           <tbody>
             <tr *ngFor="let x of menuitemcategories">
               <td>{{x.menuItemCategoryId}}</td>
-              <td>{{x.menuItemCategory}}</td> 
+              <td>{{x.menuItemCategory1}}</td> 
    
   
               <td><button type="button" id="details" class="btn btn-light" 

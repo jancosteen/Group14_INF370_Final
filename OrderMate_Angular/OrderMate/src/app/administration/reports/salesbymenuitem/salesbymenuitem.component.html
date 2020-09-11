@@ -1,0 +1,50 @@
+<form class=" offset-2 col-md-8 mt-5"[formGroup]="salesbyMenuItemForm" autocomplete="off" novalidate (ngSubmit)="report(salesbyMenuItemForm.value)">
+    <h1>Sales By Menu Item</h1>
+    <div class="form-row align-items-center">
+      <div class="col-sm-3">
+        <div class="input-group mb-2">
+          <select formControlName="menuItemId" id="menuItemId" class="form-control" [(ngModel)]="selectedMenuItem"  placeholder="select" >
+            <option *ngFor=" let x of menuitems" [ngvalue]="x.menuItemId">{{x.menuItemName}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group mb-2">
+          <input type="text" formControlName="dateFrom" class="form-control" id="dateFrom" placeholder="Date From:" type="date">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group mb-2">
+          <input type="text" formControlName="dateTo" class="form-control" id="dateTo" placeholder="Date To:" type="date">
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row offset-2" id="Content">
+    <div class="col-md-8">
+      <strong><p>Menu Items:</p></strong>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead >
+            <th>ID</th>
+            <th>Menu Item Name</th>
+            <th>Menu Item Price</th>
+            <th>Order Date Created</th>
+          </thead>
+          <tbody >
+            <tr *ngFor="let x of stuff">
+                <td>{{x.menu_Item_Id}}</td> 
+                <td>{{x.menu_Item_Name}}</td> 
+                <td>{{x.menu_Item_Price}}</td> 
+                <td>{{x.order_Date_Created}}</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary offset-2 col col-md-7" (click)="DownloadReport()">Download Report</button>

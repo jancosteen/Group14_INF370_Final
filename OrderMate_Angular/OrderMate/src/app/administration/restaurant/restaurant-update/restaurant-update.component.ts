@@ -1,3 +1,4 @@
+import { RestaurantStatus } from 'src/app/_interfaces/Administration/RestaurantStatus/restaurantstatus.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ErrorHandlerService } from './../../../shared/services/error-handler.service';
@@ -17,23 +18,27 @@ export class RestaurantUpdateComponent implements OnInit {
 
   public restaurantForm: FormGroup; 
 public restaurant: Restaurant;
+restaurantStatus: RestaurantStatus
+statuses: RestaurantStatus[]
 
 constructor(private repository: RepositoryService, private errorHandler: ErrorHandlerService, private router: Router,
   private activeRoute: ActivatedRoute) { }
 
 ngOnInit(): void {
+  this.getStatuses();
   this.restaurantForm = new FormGroup({
     restaurantId: new FormControl(''),
     restaurantUrl: new FormControl('',[Validators.required, Validators.maxLength(50)]),
     restaurantDescription: new FormControl('',[Validators.required, Validators.maxLength(50)]),
     restaurantCoordinates: new FormControl('',[Validators.required, Validators.maxLength(50)]),
-    restaurantDateCreated: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+
     restaurantAddressLine1: new FormControl('',[Validators.required, Validators.maxLength(50)]),
-    restaurantAddressLine2: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+
     restaurantAddressLine3: new FormControl('',[Validators.required, Validators.maxLength(50)]),
     restaurantCity: new FormControl('',[Validators.required, Validators.maxLength(50)]),
     restaurantPostalCode: new FormControl('',[Validators.required, Validators.maxLength(50)]),
     restaurantCountry: new FormControl('',[Validators.required, Validators.maxLength(50)]),
+    restaurantProvince: new FormControl('',[Validators.required, Validators.maxLength(50)]),
     restaurantStatus: new FormControl('',[Validators.required, Validators.maxLength(50)]),
   }); 
 
@@ -48,6 +53,7 @@ private getrestaurantById = () => {
   this.repository.getData(restaurantIdByIdUrl)
     .subscribe(res => {
       this.restaurant = res as Restaurant;
+      
    
       this.restaurantForm.patchValue(this.restaurant); 
 
@@ -77,6 +83,14 @@ public redirectToList(){
   this.router.navigate(['/restaurant/list']);
 }
 
+getStatuses(){
+  let statusaddress: string = 'api/restaurantstatus'
+      this.repository.getData(statusaddress)
+        .subscribe(res =>{
+          this.statuses = res as RestaurantStatus[];
+        })
+}
+
 
 public updaterestaurant = (restaurantFormValue) => {
   if (this.restaurantForm.valid) {
@@ -86,18 +100,26 @@ public updaterestaurant = (restaurantFormValue) => {
 
 
 private executerestaurantUpdate = (restaurantFormValue) => {
+let statusId : number
+this.statuses.forEach(status =>{
+  if(status.restaurantStatus1 == restaurantFormValue.restaurantStatus){
+    statusId = status.restaurantstatusId
+  }
+})
+
+
   this.restaurant.restaurantId =  restaurantFormValue.restaurantId,
   this.restaurant.restaurantUrl = restaurantFormValue.restaurantUrl,
   this.restaurant.restaurantDescription = restaurantFormValue.restaurantDescription,
   this.restaurant.restaurantCoordinates = restaurantFormValue.restaurantCoordinates,
-  this.restaurant.restaurantDateCreated = restaurantFormValue.restaurantDateCreated,
+
   this.restaurant.restaurantAddressLine1 = restaurantFormValue.restaurantAddressLine1,
-  this.restaurant.restaurantAddressLine2 = restaurantFormValue.restaurantAddressLine2,
+
   this.restaurant.restaurantAddressLine3 = restaurantFormValue.restaurantAddressLine3,
   this.restaurant.restaurantCity = restaurantFormValue.restaurantCity,
   this.restaurant.restaurantPostalCode = restaurantFormValue.restaurantPostalCode,
   this.restaurant.restaurantCountry = restaurantFormValue.restaurantCountry,
-  this.restaurant.restaurantStatus = restaurantFormValue.restaurantStatus
+  this.restaurant.restaurantStatus = statusId
 
  
   let apiUrl = 'api/restaurant/' + this.restaurant.restaurantId;

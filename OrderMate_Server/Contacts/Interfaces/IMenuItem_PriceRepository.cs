@@ -9,7 +9,6 @@ namespace Contacts.Interfaces
     {
         IEnumerable<MenuItemPrice> GetAllMenuItemPrices();
         MenuItemPrice GetMenuITemPriceById(int menuItemPriceId);
-        MenuItemPrice GetMenuITemPriceByMenuItemId(int menuItem);
         MenuItemPrice GetMenuItemPriceWithDetails(int menuItemPriceId);
         void CreateMenuItemPrice(MenuItemPrice menuItemPrice);
         void UpdateMenuItemPrice(MenuItemPrice menuItemPrice);

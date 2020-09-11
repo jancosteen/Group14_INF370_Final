@@ -1,4 +1,4 @@
 export interface MenuItemCategory{
     menuItemCategoryId: number;
-    menuItemCategory:string;
+    menuItemCategory1:string; 
 } 

@@ -1,4 +1,4 @@
-<div class="card card-body bg-light mb-2 mt-2">
+<div class="card card-body bg-light mb-2 mt-2 offset-2 col-md-8">
     <div class="row">
       <div class="col-md-3">
         <strong>User Id:</strong>
@@ -47,22 +47,18 @@
           {{user?.user_Surname}}
         </div>
       </div>
+
+
+
       <div class="row">
         <div class="col-md-3">
-          <strong>User Role:</strong>
+            <button type="button" id="update" class="btn btn-success" 
+            (click)="redirectToUpdatePage(user.id)">Update</button>
         </div>
-        <div class="col-md-4">
-          {{user?.userRoleIdFk}}
+        <div class="col-md-3">
+            <button type="button" id="delete" class="btn btn-danger" 
+            (click)="redirectToDeletePage()">Go Back</button>
         </div>
-      </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-        <button type="button" id="update" class="btn btn-success" 
-        (click)="redirectToUpdatePage(user.id)">Update</button>
     </div>
-    <div class="col-md-3">
-        <button type="button" id="delete" class="btn btn-danger" 
-        (click)="redirectToDeletePage(user.id)">Delete</button>
-    </div>
-</div>
+  </div> 
+  

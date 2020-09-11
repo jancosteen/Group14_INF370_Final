@@ -190,7 +190,7 @@ namespace OrderMate_Server.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside DeleteMenuItem action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, "MenItem belongs to Menu");
             }
         }
     }

@@ -8,7 +8,6 @@ namespace Contacts.Interfaces
     public interface IOrder_LineRepository: IRepositoryBase<OrderLine>
     {
         IEnumerable<OrderLine> GetAllOrderLines();
-        IEnumerable<OrderLine> GetAllOrderLinesByOrderId(int orderId);
         OrderLine GetOrderLineById(int orderLineId);
         OrderLine GetOrderLineWithDetails(int orderLineId);
         void CreateOrderLine(OrderLine orderLine);

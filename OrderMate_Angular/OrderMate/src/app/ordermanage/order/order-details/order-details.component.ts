@@ -44,7 +44,7 @@ export class OrderDetailsComponent implements OnInit {
 
   public redirectToDeletePage = (orderId) => { 
     const deleteUrl: string = '/order/delete/' + orderId; 
-    this.router.navigate([deleteUrl]); 
+    this.router.navigate([deleteUrl]);  
   }
 
 }

@@ -99,33 +99,6 @@ namespace OrderMate_Server.Controllers
             }
         }
 
-        [HttpGet("{id}/res")]
-        public IActionResult GetMenuByRestaurant(int id)
-        {
-            try
-            {
-                var menu = _repository.Menu.GetMenuByResId(id);
-
-                if (menu == null)
-                {
-                    _logger.LogError($"menu with id: {id}, hasn't been found in db.");
-                    return NotFound();
-                }
-                else
-                {
-                    _logger.LogInfo($"menu with details for id: {id}");
-
-                    var menuResult = _mapper.Map<MenuDetailsDto>(menu);
-                    return Ok(menuResult);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong inside GetMenuWithDetails action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
         [HttpPost]
         public IActionResult CreateMenu([FromBody] MenuForCreationDto menu)
         {

@@ -38,12 +38,6 @@ namespace Repository.RepoUserClasses
                 .FirstOrDefault();
         }
 
-        public Restaurant GetRestaurantByQrCode(int qrCodeId)
-        {
-            return FindByCondition(r => r.QrCodeIdFk.Equals(qrCodeId))
-                .FirstOrDefault();
-        }
-
         public Restaurant GetRestaurantWithDetails(int restaurantId)
         {
             return FindByCondition(r => r.RestaurantId.Equals(restaurantId))
@@ -57,7 +51,6 @@ namespace Repository.RepoUserClasses
                 .Include(r => r.SeatingLayout)
                 .Include(r => r.SocialMedia)
                 .Include(r => r.UserComment)
-                .Include(r => r.QrCode)
                 .FirstOrDefault();
         }
 

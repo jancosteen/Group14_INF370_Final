@@ -72,33 +72,6 @@ namespace OrderMate_Server.Controllers
             }
         }
 
-        [HttpGet("{id}/menuItem", Name = "MenuItemPriceByMenuItem")]
-        public IActionResult GetMenuItemPriceByMenuItem(int id)
-        {
-            try
-            {
-                var menuItemPrice = _repository.MenuItem_Price.GetMenuITemPriceByMenuItemId(id);
-
-                if (menuItemPrice == null)
-                {
-                    _logger.LogError($"menuItemPrice with id: {id}, hasn't been found in db.");
-                    return NotFound();
-                }
-                else
-                {
-                    _logger.LogInfo($"Returned menuItemPrice with id: {id}");
-
-                    var menuItemPriceResult = _mapper.Map<MenuItem_PriceDto>(menuItemPrice);
-                    return Ok(menuItemPrice);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong inside GetMenuItemPriceById action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
         [HttpGet("{id}/detail")]
         public IActionResult GetMenuItemPriceWithDetails(int id)
         {

@@ -520,6 +520,9 @@ namespace Entities.Migrations
                         .HasColumnName("QrCode_Seating_Id_FK")
                         .HasColumnType("int");
 
+                    b.Property<int?>("orderStatus1")
+                        .HasColumnType("int");
+
                     b.HasKey("OrderId")
                         .HasName("PK_Order_Order_Id")
                         .HasAnnotation("SqlServer:Clustered", false);
@@ -597,9 +600,6 @@ namespace Entities.Migrations
                         .HasColumnName("Order_Id_FK")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OrderIdFkNavigationOrderId")
-                        .HasColumnType("int");
-
                     b.Property<string>("OrderStatus1")
                         .IsRequired()
                         .HasColumnName("Order_Status")
@@ -611,7 +611,7 @@ namespace Entities.Migrations
                         .HasName("PK_Table_1_Order_Status_Id")
                         .HasAnnotation("SqlServer:Clustered", false);
 
-                    b.HasIndex("OrderIdFkNavigationOrderId");
+                    b.HasIndex("OrderIdFk");
 
                     b.HasIndex("OrderStatusId")
                         .IsUnique()
@@ -1248,18 +1248,21 @@ namespace Entities.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Reservation_Id_Fk")
+                    b.Property<int?>("ReservationIdFk")
                         .HasColumnName("Reservation_Id_FK")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SeatingDate")
                         .HasColumnType("date");
 
+                    b.Property<TimeSpan>("SeatingTime")
+                        .HasColumnType("time");
+
                     b.HasKey("SeatingId")
                         .HasName("PK_Seating_SeatingId")
                         .HasAnnotation("SqlServer:Clustered", false);
 
-                    b.HasIndex("Reservation_Id_Fk");
+                    b.HasIndex("ReservationIdFk");
 
                     b.HasIndex("SeatingId")
                         .IsUnique()
@@ -1940,15 +1943,15 @@ namespace Entities.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f350ae72-afdb-4bda-a06f-c8ef05530137",
-                            ConcurrencyStamp = "4c79e162-a3ef-401c-bdca-91e5965ae101",
+                            Id = "a6cecabe-f5e7-414b-ad89-01749121472a",
+                            ConcurrencyStamp = "e185c758-65bf-45c4-9b05-efa106f29caf",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
-                            Id = "713f0e57-318a-4476-b1a9-106277bb0a4b",
-                            ConcurrencyStamp = "c4660d36-2411-40bc-94e6-320256052a3f",
+                            Id = "e2158619-dd22-49cb-b6c1-5cdb86c3024e",
+                            ConcurrencyStamp = "c1e05f1e-5bdc-4657-8d41-5c1932aabcda",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -2334,8 +2337,9 @@ namespace Entities.Migrations
             modelBuilder.Entity("Entities.Models.OrderStatus", b =>
                 {
                     b.HasOne("Entities.Models.Order", "OrderIdFkNavigation")
-                        .WithMany()
-                        .HasForeignKey("OrderIdFkNavigationOrderId");
+                        .WithMany("OrderStatus")
+                        .HasForeignKey("OrderIdFk")
+                        .HasConstraintName("Order_Status_Order_FK");
                 });
 
             modelBuilder.Entity("Entities.Models.Product", b =>
@@ -2502,7 +2506,7 @@ namespace Entities.Migrations
                 {
                     b.HasOne("Entities.Models.Reservation", "ReservationIdFkNavigation")
                         .WithMany("Seating")
-                        .HasForeignKey("Reservation_Id_Fk")
+                        .HasForeignKey("ReservationIdFk")
                         .HasConstraintName("Seating_Reservation_FK");
                 });
 

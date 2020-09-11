@@ -5,13 +5,14 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-md-12">
+    <div class="offset-2 col-md-8">
       <div class="table-responsive">
         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
           <thead>
             <tr>
               <th>ID</th>
               <th>Date Created</th>
+              <th>Order Status</th>
               <th>QR Code Seating</th>
     
               <th>Details</th>
@@ -23,6 +24,7 @@
             <tr *ngFor="let x of orders">
               <td>{{x.orderId}}</td> 
               <td>{{x.orderDateCreated}}</td> 
+              <td>{{x.orderStatus}}</td> 
               <td>{{x.QrCodeSeating}}</td>
           
   

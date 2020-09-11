@@ -68,7 +68,16 @@ export class UserListComponent implements OnDestroy, OnInit {
 
      
   
-        searchingfunction();
+        $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
+          const id = parseFloat(data[0]) || 0; // use data for the id column
+          if ((isNaN(this.min) && isNaN(this.max)) ||
+            (isNaN(this.min) && id <= this.max) ||
+            (this.min <= id && isNaN(this.max)) ||
+            (this.min <= id && id <= this.max)) {
+            return true;
+          }
+          return false;
+        });
   
     }
    
@@ -108,18 +117,6 @@ export class UserListComponent implements OnDestroy, OnInit {
     this.router.navigate([deleteUrl]); 
   }
 
-}
-function searchingfunction() {
-  $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
-    const id = parseFloat(data[0]) || 0; // use data for the id column
-    if ((isNaN(this.min) && isNaN(this.max)) ||
-      (isNaN(this.min) && id <= this.max) ||
-      (this.min <= id && isNaN(this.max)) ||
-      (this.min <= id && id <= this.max)) {
-      return true;
-    }
-    return false;
-  });
 }
 
 

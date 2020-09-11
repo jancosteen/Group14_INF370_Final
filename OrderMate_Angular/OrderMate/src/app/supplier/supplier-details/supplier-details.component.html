@@ -1,4 +1,4 @@
-<div class="card card-body bg-light mb-2 mt-2">
+<div class="card card-body bg-light mb-2 mt-2 offset-2 col-md-8">
     <div class="row">
       <div class="col-md-3">
         <strong>Supplier Name:</strong>
@@ -65,14 +65,17 @@
           {{supplier?.supplierCountry}}
         </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-3">
+          <button type="button" id="update" class="btn btn-success" 
+          (click)="redirectToUpdatePage(supplier.supplierId)">Update</button>
+      </div>
+      <div class="col-md-3">
+          <button type="button" id="delete" class="btn btn-danger" 
+          (click)="redirectToDeletePage()">Back</button>
+      </div>
   </div>
-  <div class="row">
-    <div class="col-md-3">
-        <button type="button" id="update" class="btn btn-success" 
-        (click)="redirectToUpdatePage(supplier.supplierId)">Update</button>
-    </div>
-    <div class="col-md-3">
-        <button type="button" id="delete" class="btn btn-danger" 
-        (click)="redirectToDeletePage(supplier.supplierId)">Delete</button>
-    </div>
-</div>
+  
+  </div>
+  

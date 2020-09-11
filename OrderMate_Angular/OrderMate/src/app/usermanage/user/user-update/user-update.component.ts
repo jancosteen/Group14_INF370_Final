@@ -63,7 +63,7 @@ export class UserUpdateComponent implements OnInit {
     this.repository.getData(userIdByIdUrl)
       .subscribe(res => {
         this.user = res as User;
-     
+        console.log('upate user',this.user)
         this.userForm.patchValue(this.user);
 
       },
@@ -121,6 +121,8 @@ export class UserUpdateComponent implements OnInit {
     this.user.user_Surname = userFormValue.user_Surname,
     this.user.user_Contact_Number = userFormValue.user_Contact_Number,
     this.user.userRoleIdFk = userRole
+
+    console.log('user',this.user)
 
        
    

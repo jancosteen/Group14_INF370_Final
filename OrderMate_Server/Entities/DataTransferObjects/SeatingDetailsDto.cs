@@ -8,7 +8,7 @@ namespace Entities.DataTransferObjects
     {
         public int SeatingId { get; set; }
         public DateTime SeatingDate { get; set; }
-        //public TimeSpan SeatingTime { get; set; }
+        public TimeSpan SeatingTime { get; set; }
         public int? ReservationIdFk { get; set; }
 
         public virtual ReservationDto ReservationIdFkNavigation { get; set; }

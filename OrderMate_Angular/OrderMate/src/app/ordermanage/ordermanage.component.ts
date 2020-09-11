@@ -8,6 +8,7 @@ import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { datepicker } from 'jquery';
 import { ConvertActionBindingResult } from '@angular/compiler/src/compiler_util/expression_converter';
+import { OrderLine } from '../_interfaces/Order/Orderline/orderline.model';
 
 @Component({
   selector: 'app-ordermanage',
@@ -18,6 +19,7 @@ export class OrdermanageComponent implements OnInit {
   orders: Order[];
   orderStatuses: OrderStatus[];
   ordersFromServer:Order[];
+  orderlines: OrderLine[]
 
   selectedOrderStatus: Order;
 
@@ -31,31 +33,58 @@ export class OrdermanageComponent implements OnInit {
       this.repository.getData(apiAddress)
         .subscribe(res => {
           this.ordersFromServer = res as Order[];
-          console.log('from serve', this.ordersFromServer)
+     
           //iterate through the list, for each statusId find match in status list and retrive status name
           this.orders =[];
           this.ordersFromServer.forEach(order=>{
-            //formet date here
-            //call method and pass reservation here
-            let apiAddress: string = "api/orderstatus";
-        this.repository.getData(apiAddress)
-        .subscribe(res => {
-          this.orderStatuses = res as OrderStatus[];
-          this.orderStatuses.forEach(status=>{
-            if(order.orderId == status.orderId){
-              //match found              
-              order.orderStatus = status.orderStatus;
-              this.orders.push(order);
-              console.log('reservations',this.orders)
-            }
-          })
-        });
-  
+            let statusAddress: string ="api/orderstatus";
+            this.repository.getData(statusAddress)
+            .subscribe(res => {
+              this.orderStatuses = res as OrderStatus[];
+              this.orderStatuses.forEach(status =>{
+                console.log(order.orderStatus1)
+                if(order.orderStatus1 == status.orderStatusId){
+                
+                  order.orderStatusName = status.orderStatus1
+                  this.orders.push(order)
+                  console.log('orders',this.orders)
+               
+                }
+              })
+            })
             
           })
     
         });
-     
+      
+    }
+
+
+    public goToOrder(value){
+   
+      let orderlineId
+      //get all orderlines
+      let apiAddress: string = "api/orderline";
+        this.repository.getData(apiAddress)
+        .subscribe(res => {
+          this.orderlines = res as OrderLine[];
+
+          this.orderlines.forEach(orderline=>{
+         
+            if(orderline.orderIdFk == value){
+        
+              orderlineId = orderline.orderLineId
+         
+              const OrderLineUrl: string = '/orderline/details/' + orderlineId; 
+  
+              this.router.navigate([OrderLineUrl]); 
+            }
+          
+          })
+        });
+        
+        
+      
     }
 
 }

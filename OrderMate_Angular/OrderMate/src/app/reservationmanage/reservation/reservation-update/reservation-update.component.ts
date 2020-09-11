@@ -51,14 +51,16 @@ export class ReservationUpdateComponent implements OnInit {
     
     this.repository.getData(apiUrl)
     .subscribe(res => {
+      //fetch the vihicle
       this.reservation = res as Reservation; 
       this.x = this.reservation.reservationStatusIdFk;
       this.userId = this.reservation.userIdFk;
       let apiAddress: string = "api/reservationstatus";
       this.repository.getData(apiAddress)
       .subscribe(res => { 
+        //fetch the status
         this.statuses = res as ReservationStatus[];
-        console.log('check',this.statuses);
+        //foreach vehicle check where id vehicle == id status if true give vehicle status name = status
         this.statuses.forEach((status)=>{
           if(status.reservationStatusId == this.x){
             this.reserve = this.reservation;

@@ -80,11 +80,11 @@ export class OrderlineUpdateComponent implements OnInit {
   private executeUpdate = (Value) => {
   
     this.orderLine.orderLineId =  Value.orderLineId,
-    this.orderLine.itemQuantity = Value.itemQuantity,
-    this.orderLine.special = Value.special,
-    this.orderLine.menuItem = Value.menuItem,
-    this.orderLine.Order = Value.Order,
-    this.orderLine.Employee = Value.Employee
+    this.orderLine.itemQty = Value.itemQuantity,
+    this.orderLine.specialIdFk = Value.special,
+    this.orderLine.menuItemIdFk = Value.menuItemIdFk,
+    this.orderLine.orderIdFk = Value.Order,
+    this.orderLine.employeeIdFk = Value.Employee
    
     let apiUrl = 'api/orderline/' + this.orderLine.orderLineId;
     this.repository.update(apiUrl, this.orderLine)

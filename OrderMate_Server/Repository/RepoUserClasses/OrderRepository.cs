@@ -38,17 +38,11 @@ namespace Repository.RepoUserClasses
                 .FirstOrDefault();
         }
 
-        public Order GetOrderByQrCodeId(int qrCodeId)
-        {
-            return FindByCondition(o => o.QrCodeSeatingIdFk.Equals(qrCodeId))
-                .FirstOrDefault();
-        }
-
         public Order GetOrderWithDetails(int orderId)
         {
             return FindByCondition(o => o.OrderId.Equals(orderId))
                 .Include(o => o.OrderLine)
-                //.Include( o=> o.OrderStatus)
+                .Include( o=> o.OrderStatus)
                 .Include( o => o.QrCodeSeating)
                 .FirstOrDefault();
         }

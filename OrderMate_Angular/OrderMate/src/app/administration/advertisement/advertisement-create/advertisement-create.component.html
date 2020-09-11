@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid offset-2 col-md-8">
     <form [formGroup]="advertisementForm" autocomplete="off" novalidate (ngSubmit)="create(advertisementForm.value)">
         <div class="form-horizontal card card-body bg-light mb-2 mt-2">
             <div class="form-group row">
@@ -28,16 +28,7 @@
                     <em *ngIf="validateControl('advertisementDescription') && hasError('advertisementDescription', 'maxlength')">Maximum allowed length is 50 characters.</em>
                   </div>
               </div>
-              <div class="form-group row">
-                  <label for="advertisementFile" class="control-label col-md-2">File: </label>
-                  <div class="col-md-5">
-                    <input type="text" formControlName="advertisementFile" id="advertisementFile" class="form-control" type="file" />
-                  </div>
-                  <div class="col-md-5">
-                    <em *ngIf="validateControl('advertisementFile') && hasError('advertisementFile', 'required')">File is required</em>
-                    <em *ngIf="validateControl('advertisementFile') && hasError('advertisementFile', 'maxlength')">Maximum allowed length is 20 characters.</em>
-                  </div>
-              </div>
+
 
                 <br><br>
                 <div class="form-group row">

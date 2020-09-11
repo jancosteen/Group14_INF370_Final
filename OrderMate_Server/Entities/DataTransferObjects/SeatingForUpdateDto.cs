@@ -7,7 +7,7 @@ namespace Entities.DataTransferObjects
     public class SeatingForUpdateDto
     {
         public DateTime SeatingDate { get; set; }
-        //public TimeSpan SeatingTime { get; set; }
+        public TimeSpan SeatingTime { get; set; }
         public int? ReservationIdFk { get; set; }
     }
 }

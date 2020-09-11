@@ -1,16 +1,16 @@
-<p>menuitemcategory-create works!</p><div class="container-fluid">
+<div class="container-fluid offset-2 col-md-8">
     <form [formGroup]="menuItemCategoryForm" autocomplete="off" novalidate (ngSubmit)="create(menuItemCategoryForm.value)">
    
       <div class="form-horizontal card card-body bg-light mb-2 mt-2">
         
         <div class="form-group row">
-          <label for="menuItemCategory" class="control-label col-md-2">Menu Item Category: </label>
+          <label for="menuItemCategory1" class="control-label col-md-2">Menu Item Category: </label>
           <div class="col-md-5">
-            <input type="text" formControlName="menuItemCategory" id="menuItemCategory" class="form-control" />
+            <input type="text" formControlName="menuItemCategory1" id="menuItemCategory1" class="form-control" />
           </div>
           <div class="col-md-5">
-            <em *ngIf="validateControl('menuItemCategory') && hasError('menuItemCategory', 'required')">Menu Item Category is required</em>
-            <em *ngIf="validateControl('menuItemCategory') && hasError('menuItemCategory', 'maxlength')">Maximum allowed length is 100 characters.</em>
+            <em *ngIf="validateControl('menuItemCategory1') && hasError('menuItemCategory1', 'required')">Menu Item Category is required</em>
+            <em *ngIf="validateControl('menuItemCategory1') && hasError('menuItemCategory1', 'maxlength')">Maximum allowed length is 100 characters.</em>
           </div>
         </div>
        

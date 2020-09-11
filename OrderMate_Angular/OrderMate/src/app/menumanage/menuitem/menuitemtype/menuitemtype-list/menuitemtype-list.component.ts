@@ -36,7 +36,7 @@ export class MenuitemtypeListComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       pageLength: 5
     };
-      let apiAddress: string = "api/menuitemtype";
+      let apiAddress: string = "api/menuItemType";
       this.repository.getData(apiAddress)
       .subscribe(res => {
         this.menuitemtypes = res as MenuItemType[];

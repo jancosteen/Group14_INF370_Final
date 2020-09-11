@@ -102,12 +102,12 @@ namespace OrderMate_Server.Controllers
             }
         }
 
-        [HttpPost("{qrCodeIdFk}/{seatingIdFk}")]
-        public IActionResult CreateQrCodeSeating([FromRoute] int qrCodeIdFk, int seatingIdFk)
+        [HttpPost]
+        public IActionResult CreateQrCodeSeating([FromBody] QrCode_SeatingForCreationDto qrCodeSeating)
         {
             try
             {
-                if (qrCodeIdFk==0 || seatingIdFk==0)
+                if (qrCodeSeating == null)
                 {
                     _logger.LogError("qrCodeSeating object sent from client is null.");
                     return BadRequest("qrCodeSeating object is null");
@@ -117,13 +117,6 @@ namespace OrderMate_Server.Controllers
                     _logger.LogError("Invalid qrCodeSeating object sent from client.");
                     return BadRequest("Invalid model object");
                 }
-
-                var qrCodeSeating = new QrCodeSeating()
-                {
-                    QrCodeIdFk = qrCodeIdFk,
-                    SeatingIdFk = seatingIdFk,
-                    NrOfPeople = 1
-                };
 
                 var qrCodeSeatingEntity = _mapper.Map<QrCodeSeating>(qrCodeSeating);
 

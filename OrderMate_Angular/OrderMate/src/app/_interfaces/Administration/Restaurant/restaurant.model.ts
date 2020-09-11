@@ -2,6 +2,7 @@ import { RestaurantStatus } from "../RestaurantStatus/restaurantstatus.model";
 
 export interface Restaurant{
     restaurantId:number;
+    restaurantName:string;
     restaurantUrl:string;
     restaurantDescription:string;
     restaurantCoordinates:string;
@@ -13,5 +14,5 @@ export interface Restaurant{
     restaurantPostalCode:string;
     restaurantProvince:string;
     restaurantCountry:string;
-    restaurantStatus?: RestaurantStatus;
+    restaurantStatus?: number;
 }

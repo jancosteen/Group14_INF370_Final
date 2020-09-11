@@ -76,7 +76,7 @@ export class RestaurantstatusUpdateComponent implements OnInit {
   private executerestaurantstatusUpdate = (restaurantstatusFormValue) => {
   
     this.restaurantStatus.restaurantstatusId =  restaurantstatusFormValue.restaurantstatusId,
-    this.restaurantStatus.restaurantStatus = restaurantstatusFormValue.restaurantStatus
+    this.restaurantStatus.restaurantStatus1 = restaurantstatusFormValue.restaurantStatus
     
    
     let apiUrl = 'api/restaurantstatus/' + this.restaurantStatus.restaurantstatusId;

@@ -1,5 +1,4 @@
-<h3>Update Supplier</h3>
-<div class="container-fluid">
+<div class="container-fluid offset-2 col-md-8">
     <form [formGroup]="restaurantForm" autocomplete="off" novalidate (ngSubmit)="updaterestaurant(restaurantForm.value)">
         <div class="form-horizontal card card-body bg-light mb-2 mt-2">
             <div class="form-group row">
@@ -40,16 +39,6 @@
                   </div>
               </div>
               <div class="form-group row">
-                  <label for="restaurantDateCreated" class="control-label col-md-2">Date Created: </label>
-                  <div class="col-md-5">
-                    <input type="text" formControlName="restaurantDateCreated" id="restaurantDateCreated" class="form-control" />
-                  </div>
-                  <div class="col-md-5">
-                    <em *ngIf="validateControl('restaurantDateCreated') && hasError('restaurantDateCreated', 'required')">Contact Number is required</em>
-                    <em *ngIf="validateControl('restaurantDateCreated') && hasError('restaurantDateCreated', 'maxlength')">Maximum allowed length is 10 characters.</em>
-                  </div>
-              </div>
-              <div class="form-group row">
                 <label for="restaurantAddressLine1" class="control-label col-md-2">Address Line 1: </label>
                 <div class="col-md-5">
                   <input type="text" formControlName="restaurantAddressLine1" id="restaurantAddressLine1" class="form-control" />
@@ -59,16 +48,7 @@
                         <em *ngIf="validateControl('restaurantAddressLine1') && hasError('restaurantAddressLine1', 'maxlength')">Maximum allowed length is 50 characters.</em>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="restaurantAddressLine2" class="control-label col-md-2">Address Line 2: </label>
-                    <div class="col-md-5">
-                        <input type="text" formControlName="restaurantAddressLine2" id="restaurantAddressLine2" class="form-control" />
-                    </div>
-                    <div class="col-md-5">
-                        <em *ngIf="validateControl('restaurantAddressLine2') && hasError('restaurantAddressLine2', 'required')">Address line 2 is required</em>
-                        <em *ngIf="validateControl('restaurantAddressLine2') && hasError('restaurantAddressLine2', 'maxlength')">Maximum allowed length is 50 characters.</em>
-                    </div>
-                </div>
+ 
                 <div class="form-group row">
                     <label for="restaurantAddressLine3" class="control-label col-md-2">Address Line 3: </label>
                     <div class="col-md-5">
@@ -118,7 +98,9 @@
                 <div class="form-group row">
                     <label for="restaurantStatus" class="control-label col-md-2">Status: </label>
                     <div class="col-md-5">
-                        <input type="text" formControlName="restaurantStatus" id="restaurantStatus" class="form-control" />
+                        <select formControlName="restaurantStatus" id="restaurantStatus" class="form-control" [(ngModel)]="restaurantStatus"  placeholder="select" >
+                            <option *ngFor=" let x of statuses" [ngvalue]="x.restaurantstatusId">{{x.restaurantStatus1}}</option>
+                          </select>
                     </div>
                     <div class="col-md-5">
                         <em *ngIf="validateControl('restaurantStatus') && hasError('restaurantStatus', 'required')">Status is required</em>

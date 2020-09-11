@@ -43,7 +43,7 @@ export class MenuitemDeleteComponent implements OnInit {
 
 
   public delete = () => {
-    const deleteUrl: string = 'api/menuItem/' + this.menuItem.menuItemId ;
+    const deleteUrl: string = 'api/menuitem/' + this.menuItem.menuItemId ;
 
     this.repository.delete(deleteUrl)
       .subscribe(res => {
@@ -57,7 +57,7 @@ export class MenuitemDeleteComponent implements OnInit {
   }
 
   public redirectToList(){
-    this.router.navigate(['/menuItem/list']);
+    this.router.navigate(['/menuitem/list']);
   }
 
 }

@@ -8,7 +8,7 @@ namespace Entities.Models
         public Order()
         {
             OrderLine = new HashSet<OrderLine>();
-           // OrderStatus = new HashSet<OrderStatus>();
+            OrderStatus = new HashSet<OrderStatus>();
             QrCodeSeating = new HashSet<QrCodeSeating>();
         }
 
@@ -16,10 +16,10 @@ namespace Entities.Models
         public DateTime OrderDateCreated { get; set; }
         public DateTime? OrderDateCompleted { get; set; }
         public int? QrCodeSeatingIdFk { get; set; }
-        //public int? orderStatus { get; set; }
+        public int? orderStatus1 { get; set; }
 
         public virtual ICollection<OrderLine> OrderLine { get; set; }
-        //public virtual ICollection<OrderStatus> OrderStatus { get; set; }
+        public virtual ICollection<OrderStatus> OrderStatus { get; set; }
         public virtual ICollection<QrCodeSeating> QrCodeSeating { get; set; }
     }
 }

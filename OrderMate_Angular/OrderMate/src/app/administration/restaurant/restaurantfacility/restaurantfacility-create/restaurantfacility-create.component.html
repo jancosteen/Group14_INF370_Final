@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid offset-2 col-md-8">
     <form [formGroup]="restaurantfacilityForm" autocomplete="off" novalidate (ngSubmit)="createRestaurantFacility(restaurantfacilityForm.value)">
    
       <div class="form-horizontal card card-body bg-light mb-2 mt-2">
@@ -6,7 +6,7 @@
         <div class="form-group row">
           <label for="restaurantFacility" class="control-label col-md-2">Restaurant Facility: </label>
           <div class="col-md-5">
-            <input type="text" formControlName="RestaurantFacility" id="restaurantFacility" class="form-control" />
+            <input type="text" formControlName="restaurantFacility" id="restaurantFacility" class="form-control" />
           </div>
           <div class="col-md-5">
             <em *ngIf="validateControl('restaurantFacility') && hasError('restaurantFacility', 'required')">Restaurant Facility is required</em>

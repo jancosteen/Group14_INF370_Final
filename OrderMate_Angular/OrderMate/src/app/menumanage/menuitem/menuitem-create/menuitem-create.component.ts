@@ -1,3 +1,4 @@
+import { MenuItemCategory } from './../../../_interfaces/menumange/menuitemcategory/menuitemcategory.model';
 import { Component, OnInit } from '@angular/core'; 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorHandlerService } from './../../../shared/services/error-handler.service';
@@ -12,6 +13,8 @@ import {CreateMenuItem} from '../../../_interfaces/menumange/MenuItem/menuitemcr
   styleUrls: ['./menuitem-create.component.css']
 })
 export class MenuitemCreateComponent implements OnInit {
+  categories : MenuItemCategory[];
+  selectedCat: MenuItemCategory;
 
   public errorMessage: string = '';
  
@@ -21,11 +24,14 @@ export class MenuitemCreateComponent implements OnInit {
      private router: Router ) { }
 
   ngOnInit(): void {
+    this.getCategories()
  
     this.menuItemForm = new FormGroup({
-      menuItemName: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
-      menu: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
-      menuItemCategory: new FormControl('',[Validators.required, Validators.maxLength(100)]), 
+      menuItemName: new FormControl('',[Validators.required, Validators.maxLength(50)]), 
+      menuItemCategoryIdFk: new FormControl('',[Validators.required, Validators.maxLength(50)]), 
+      menuItemDescription: new FormControl('',[Validators.required, Validators.maxLength(50)]), 
+      
+
     });
 
   }
@@ -44,6 +50,15 @@ export class MenuitemCreateComponent implements OnInit {
     return false;
   }
 
+  getCategories(){
+    let apiAddress: string = "api/menuItemCategory";
+      this.repository.getData(apiAddress)
+      .subscribe(res => {
+        this.categories = res as MenuItemCategory[];
+        console.log('categories', this.categories)
+      });
+  }
+ 
   public create = (Value) => {
     if (this.menuItemForm.valid) {
       this.executeCreation(Value);
@@ -51,17 +66,28 @@ export class MenuitemCreateComponent implements OnInit {
   }
   private executeCreation = (Value) => {
 
-    const MenuItemCategory: CreateMenuItem = {
-    //supplierId: supplierFormValue.Id,
-  
+    let cat : number;
+    console.log('value', Value.menuItemCategoryIdFk)
+    this.categories.forEach(x=>{
+      console.log('x',x.menuItemCategory1)
+      if(Value.menuItemCategoryIdFk == x.menuItemCategory1) 
+      {
+        console.log('id',x.menuItemCategoryId)
+        cat = x.menuItemCategoryId
+        console.log('cat',cat)
+      } 
+    })
+
+    const menuitem: CreateMenuItem = {  
       menuItemName: Value.menuItemName,
-      menu:Value.menu,
-      menuItemCategory: Value.menuItemCategory
+      menuItemDescription: Value.menuItemDescription,
+      menuIdFk: Value.menuIdFk,
+      menuItemCategoryIdFk: cat,
     
     }
  
     const apiUrl = 'api/menuitem';
-    this.repository.create(apiUrl, MenuItemCategory)
+    this.repository.create(apiUrl, menuitem)
       .subscribe(res => {
         $('#successModal').modal();
       },

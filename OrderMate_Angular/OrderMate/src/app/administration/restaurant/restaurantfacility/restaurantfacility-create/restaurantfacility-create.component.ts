@@ -51,7 +51,7 @@ export class RestaurantfacilityCreateComponent implements OnInit {
 private executeRestaurantFacilityCreation = (RestaurantFacilityValue) => {
 
   const restaurantfacility: CreateRestaurantFacility = {
-    restaurantFacility: RestaurantFacilityValue.restaurantFacility
+    restaurantFacility1: RestaurantFacilityValue.restaurantFacility
   
   }
 

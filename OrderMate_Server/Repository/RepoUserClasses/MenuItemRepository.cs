@@ -45,8 +45,7 @@ namespace Repository.RepoUserClasses
                 .Include(m => m.MenuItemAllergy)
                 .Include(m => m.MenuItemCategoryIdFkNavigation)
                 .Include(m => m.MenuItemSpecial)
-                .Include(m => m.OrderLine)
-                .Include(m => m.MenuItemPrice)
+                //.Include(m => m.OrderLine)
                 .FirstOrDefault();
         }
 

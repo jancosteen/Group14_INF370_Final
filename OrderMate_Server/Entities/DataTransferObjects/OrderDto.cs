@@ -9,11 +9,7 @@ namespace Entities.DataTransferObjects
         public int OrderId { get; set; }
         public DateTime OrderDateCreated { get; set; }
         public DateTime? OrderDateCompleted { get; set; }
+        public int? orderStatus1 { get; set; }
         public int? QrCodeSeatingIdFk { get; set; }
-        //public int? orderStatus { get; set; }
-
-        /*public virtual ICollection<OrderLine> OrderLine { get; set; }
-        public virtual ICollection<OrderStatus> OrderStatus { get; set; }
-        public virtual ICollection<QrCodeSeating> QrCodeSeating { get; set; }*/
     }
 }

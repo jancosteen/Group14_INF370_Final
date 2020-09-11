@@ -5,9 +5,11 @@
           <div class="card-body">
             <h5 class="card-title">{{x.menuName}}</h5>
             <p class="card-text">{{x.menuDescription}}</p>
-            <a (click)="redirectToItemsPage(x.menuId)">See Menu Items</a>
           </div>
-      </div>
+          <div class="card-footer">
+            <button class="btn btn-small" style="text-justify: right;" (click)="redirectToItemsPage(x.menuId)">See Menu Items</button>
+          </div>
+      </div> 
     </div>
   </div>
 

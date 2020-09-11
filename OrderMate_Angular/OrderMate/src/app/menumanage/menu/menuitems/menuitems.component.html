@@ -4,9 +4,11 @@
       Items Belonging to Menu
     </h3>
   </div>
+  <!--
     <div class="offset-10 col-md-2" style="padding-top: 10px;">
-      <a class="btn btn-primary small" [routerLink]="['/menuitemtype/create']">Add Menu Item</a>
+      <a class="btn btn-primary small" [routerLink]="['/addtomenu/create']">Add Item To Menu</a>
     </div>
+  -->
   </div>
   <br>
   <div class="row">
@@ -17,21 +19,17 @@
             <tr>
               <th>ID</th>
               <th>Item Name</th> 
-              <th>Menu</th>
-              <th>Item Category</th>
+              <th>Category</th> 
               <th>Details</th>
               <th>Update</th>
               <th>Delete</th> 
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let x of items">
+            <tr *ngFor="let x of itemsformenu">
               <td>{{x.menuItemId}}</td>
-              <td>{{x.menuItemName}}</td> 
-              <td>{{x.menu}}</td> 
-              <td>{{x.menuItemCategory}}</td> 
-   
-  
+              <td>{{x.menuItemName}}</td>  
+              <td>{{x.menuItemCategoryName}}</td> 
               <td><button type="button" id="details" class="btn btn-light" 
                 (click)="getDetailsPage(x.menuItemId)">Details</button></td>
               <td><button type="button" id="update" class="btn btn-success" 

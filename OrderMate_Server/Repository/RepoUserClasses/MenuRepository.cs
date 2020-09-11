@@ -38,13 +38,6 @@ namespace Repository.RepoUserClasses
                 .FirstOrDefault();
         }
 
-        public Menu GetMenuByResId(int resId)
-        {
-            return FindByCondition(m => m.RestaurantIdFk.Equals(resId))
-                .Include(m => m.MenuItem).ThenInclude(m => m.MenuItemPrice)
-                .FirstOrDefault();
-        }
-
         public Menu GetMenuWithDetails(int menuId)
         {
             return FindByCondition(m => m.MenuId.Equals(menuId))

@@ -20,7 +20,5 @@ namespace Entities.DataTransferObjects
         public string RestaurantProvince { get; set; }
         public string RestaurantCountry { get; set; }
         public int? RestaurantStatusIdFk { get; set; }
-
-        public int? QrCodeIdFk { get; set; }
     }
 }

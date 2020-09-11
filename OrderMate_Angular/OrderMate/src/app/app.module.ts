@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { JwtModule } from "@auth0/angular-jwt";
@@ -36,7 +37,29 @@ import {MenuComponent} from './menumanage/menu/menu.component';
 import {MenuitemsComponent} from './menumanage/menu/menuitems/menuitems.component';
 import { MenuitemListComponent } from './menumanage/menuitem/menuitem-list/menuitem-list.component';
 import { MenuitemComponent } from './menumanage/menuitem/menuitem.component';
+import {MenuitemUpdateComponent} from './menumanage/menuitem/menuitem-update/menuitem-update.component';
+import {MenuitemDeleteComponent} from './menumanage/menuitem/menuitem-delete/menuitem-delete.component';
+import { MenuitemCreateComponent} from './menumanage/menuitem/menuitem-create/menuitem-create.component';
+import { SalesbymenuitemComponent } from './administration/reports/salesbymenuitem/salesbymenuitem.component';
+import { OrdersbetweenComponent } from './administration/reports/ordersbetween/ordersbetween.component';
+import { SalesbyrestaurantComponent } from './administration/reports/salesbyrestaurant/salesbyrestaurant.component';
+import { SupplierreportComponent } from './administration/reports/supplierreport/supplierreport.component';
+import { AdvertisementCreateComponent } from './administration/advertisement/advertisement-create/advertisement-create.component';
+import { AdvertisementListComponent } from './administration/advertisement/advertisement-list/advertisement-list.component';
+import { AdvertisementDeleteComponent } from './administration/advertisement/advertisement-delete/advertisement-delete.component';
+import { AdvertisementUpdateComponent } from './administration/advertisement/advertisement-update/advertisement-update.component';
+import { MenuitemtypeDetailsComponent } from './menumanage/menuitem/menuitemtype/menuitemtype-details/menuitemtype-details.component';
+import { MenuitemtypeListComponent } from './menumanage/menuitem/menuitemtype/menuitemtype-list/menuitemtype-list.component';
+import { MenuitemtypeDeleteComponent } from './menumanage/menuitem/menuitemtype/menuitemtype-delete/menuitemtype-delete.component';
 
+import { MenuitemcategoryDeleteComponent } from './menumanage/menuitem/menuitemcategory/menuitemcategory-delete/menuitemcategory-delete.component';
+import { MenuitemcategoryDetailsComponent } from './menumanage/menuitem/menuitemcategory/menuitemcategory-details/menuitemcategory-details.component';
+import { MenuitemcategoryCreateComponent } from './menumanage/menuitem/menuitemcategory/menuitemcategory-create/menuitemcategory-create.component';
+import { MenuitemcategoryUpdateComponent } from './menumanage/menuitem/menuitemcategory/menuitemcategory-update/menuitemcategory-update.component';
+import { MenuitemcategoryListComponent } from './menumanage/menuitem/menuitemcategory/menuitemcategory-list/menuitemcategory-list.component';
+
+
+    
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -62,7 +85,27 @@ export function tokenGetter(){
     LoginComponent,
     MenuitemsComponent,
     MenuitemListComponent,
-    MenuitemComponent
+    MenuitemComponent,
+    MenuitemDeleteComponent,
+    MenuitemUpdateComponent,
+    MenuitemCreateComponent,
+    SalesbymenuitemComponent,
+    OrdersbetweenComponent,
+    SalesbyrestaurantComponent,
+    SupplierreportComponent,
+    AdvertisementCreateComponent,
+    AdvertisementListComponent,
+    AdvertisementDeleteComponent,
+    AdvertisementUpdateComponent,
+    MenuitemtypeDeleteComponent,
+    MenuitemtypeListComponent,
+    MenuitemtypeDetailsComponent,
+    MenuitemcategoryDeleteComponent,
+    MenuitemcategoryDetailsComponent,
+    MenuitemcategoryCreateComponent,
+    MenuitemcategoryUpdateComponent,
+    MenuitemcategoryListComponent
+  
     
 
 
@@ -82,12 +125,12 @@ export function tokenGetter(){
     MatButtonModule,
     DataTablesModule,
     MatListModule,
+   
+   
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         allowedDomains: ["http://localhost:5000"],
-        throwNoTokenError: true,
-        skipWhenExpired: true,
       }
     }),
   

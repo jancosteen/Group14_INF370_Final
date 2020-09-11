@@ -26,7 +26,7 @@ export class AdvertisementCreateComponent implements OnInit {
     advertisementId: new FormControl(''),
     advertisementName: new FormControl('',[Validators.required, Validators.maxLength(50)]),
     advertisementDescription: new FormControl('',[Validators.required, Validators.maxLength(50)]),
-    advertisementFile: new FormControl('',[Validators.required, Validators.maxLength(50)])
+
 
    });
 

@@ -5,7 +5,7 @@
 </div>
 <br> 
 <div class="row">
-  <div class="col-md-12">
+  <div class="offset-2 col-md-8">
     <div class="table-responsive">
       <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
         <thead>
@@ -13,7 +13,7 @@
             <th>ID</th>
             <th>Name</th> 
             <th>Description</th>
-            <th>File</th>
+          
             <th>Details</th>
             <th>Update</th>
             <th>Delete</th>
@@ -24,7 +24,7 @@
             <td>{{x.advertisementId}}</td>
             <td>{{x.advertisementName}}</td>
             <td>{{x.advertisementDescription}}</td> 
-            <td>{{x.advertisementFile}}</td>
+
             <td><button type="button" id="details" class="btn btn-light" 
               (click)="getDetailsPage(x.advertisementId)">Details</button></td>
             <td><button type="button" id="update" class="btn btn-success" 

@@ -1,3 +1,19 @@
+import { MenuitemtypeDetailsComponent } from './../menumanage/menuitem/menuitemtype/menuitemtype-details/menuitemtype-details.component';
+import { MenuitemtypeListComponent } from './../menumanage/menuitem/menuitemtype/menuitemtype-list/menuitemtype-list.component';
+import { MenuitemtypeDeleteComponent } from './../menumanage/menuitem/menuitemtype/menuitemtype-delete/menuitemtype-delete.component';
+import { MenuitemcategoryDeleteComponent } from './../menumanage/menuitem/menuitemcategory/menuitemcategory-delete/menuitemcategory-delete.component';
+import { MenuitemcategoryDetailsComponent } from './../menumanage/menuitem/menuitemcategory/menuitemcategory-details/menuitemcategory-details.component';
+import { MenuitemcategoryCreateComponent } from './../menumanage/menuitem/menuitemcategory/menuitemcategory-create/menuitemcategory-create.component';
+import { MenuitemcategoryUpdateComponent } from './../menumanage/menuitem/menuitemcategory/menuitemcategory-update/menuitemcategory-update.component';
+import { MenuitemcategoryListComponent } from './../menumanage/menuitem/menuitemcategory/menuitemcategory-list/menuitemcategory-list.component';
+import { AdvertisementUpdateComponent } from './../administration/advertisement/advertisement-update/advertisement-update.component';
+import { AdvertisementDeleteComponent } from './../administration/advertisement/advertisement-delete/advertisement-delete.component';
+import { AdvertisementDetailsComponent } from './../administration/advertisement/advertisement-details/advertisement-details.component';
+import { AdvertisementListComponent } from './../administration/advertisement/advertisement-list/advertisement-list.component';
+import { AdvertisementCreateComponent } from './../administration/advertisement/advertisement-create/advertisement-create.component';
+import { RestaurantfacilityDetailsComponent } from './../administration/restaurant/restaurantfacility/restaurantfacility-details/restaurantfacility-details.component';
+import { MenuitemDetailsComponent } from './../menumanage/menuitem/menuitem-details/menuitem-details.component';
+import { OrderstatusUpdateComponent } from './../ordermanage/orderstatus/orderstatus-update/orderstatus-update.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -48,12 +64,43 @@ import { ReservationstatusDetailsComponent } from '../reservationmanage/reservat
 import { ReservationstatusUpdateComponent } from '../reservationmanage/reservationstatus/reservationstatus-update/reservationstatus-update.component';
 import { ReservationstatusDeleteComponent } from '../reservationmanage/reservationstatus/reservationstatus-delete/reservationstatus-delete.component';
 import { MenuitemListComponent} from '../menumanage/menuitem/menuitem-list/menuitem-list.component';
+import {MenuitemUpdateComponent} from '../menumanage/menuitem/menuitem-update/menuitem-update.component';
+import {MenuitemDeleteComponent} from '../menumanage/menuitem/menuitem-delete/menuitem-delete.component';
+import { MenuitemCreateComponent} from '../menumanage/menuitem/menuitem-create/menuitem-create.component';
 import { UserrolesListComponent } from '../usermanage/userroles/userroles-list/userroles-list.component';
 import { UserrolesCreateComponent } from '../usermanage/userroles/userroles-create/userroles-create.component';
 import { UserrolesUpdateComponent } from '../usermanage/userroles/userroles-update/userroles-update.component';
 import { UserrolesDeleteComponent } from '../usermanage/userroles/userroles-delete/userroles-delete.component';
 import { UserrolesDetailsComponent } from '../usermanage/userroles/userroles-details/userroles-details.component';
 import { UserCreateComponent } from '../usermanage/user/user-create/user-create.component';
+import { OrderComponent } from '../ordermanage/order/order.component';
+import { OrderListComponent } from '../ordermanage/order/order-list/order-list.component';
+import { OrderstatusComponent } from '../ordermanage/orderstatus/orderstatus.component';
+import { OrderstatusDeleteComponent } from '../ordermanage/orderstatus/orderstatus-delete/orderstatus-delete.component';
+import { OrderstatusListComponent } from '../ordermanage/orderstatus/orderstatus-list/orderstatus-list.component';
+import { OrderlineListComponent } from '../ordermanage/orderline/orderline-list/orderline-list.component';
+import { OrderlineCreateComponent } from '../ordermanage/orderline/orderline-create/orderline-create.component';
+import { OrderlineComponent } from '../ordermanage/orderline/orderline.component';
+import { OrderlineUpdateComponent } from '../ordermanage/orderline/orderline-update/orderline-update.component';
+import { OrderlineDetailsComponent } from '../ordermanage/orderline/orderline-details/orderline-details.component';
+import { OrderlineDeleteComponent } from '../ordermanage/orderline/orderline-delete/orderline-delete.component';
+import { SalesbymenuitemComponent } from '../administration/reports/salesbymenuitem/salesbymenuitem.component';
+import { OrdersbetweenComponent } from '../administration/reports/ordersbetween/ordersbetween.component';
+import { SalesbyrestaurantComponent} from '../administration/reports/salesbyrestaurant/salesbyrestaurant.component';
+import { RestaurantCreateComponent } from '../administration/restaurant/restaurant-create/restaurant-create.component';
+import { RestaurantUpdateComponent } from '../administration/restaurant/restaurant-update/restaurant-update.component';
+import { RestaurantfacilityCreateComponent } from '../administration/restaurant/restaurantfacility/restaurantfacility-create/restaurantfacility-create.component';
+import { RestaurantfacilityDeleteComponent } from '../administration/restaurant/restaurantfacility/restaurantfacility-delete/restaurantfacility-delete.component';
+import { RestaurantfacilityUpdateComponent } from '../administration/restaurant/restaurantfacility/restaurantfacility-update/restaurantfacility-update.component';
+import { RestaurantDetailsComponent } from '../administration/restaurant/restaurant-details/restaurant-details.component';
+import { RestaurantDeleteComponent } from '../administration/restaurant/restaurant-delete/restaurant-delete.component';
+import { RestaurantfacilityListComponent } from '../administration/restaurant/restaurantfacility/restaurantfacility-list/restaurantfacility-list.component';
+import { SupplierComponent } from '../supplier/supplier.component';
+import { SupplierCreateComponent } from '../supplier/supplier-create/supplier-create.component';
+import { SupplierListComponent } from '../supplier/supplier-list/supplier-list.component';
+import { SupplierUpdateComponent } from '../supplier/supplier-update/supplier-update.component';
+import { SupplierDeleteComponent } from '../supplier/supplier-delete/supplier-delete.component';
+import { SupplierDetailsComponent } from '../supplier/supplier-details/supplier-details.component';
 
 
 const routes: Routes = [
@@ -77,6 +124,27 @@ const routes: Routes = [
   children: [{
     path: '', component:InventoryComponent
   }]},
+  {path: 'supplier/create', component:HomeComponent,
+  children: [{
+    path: '', component:SupplierCreateComponent
+  }]},
+  {path: 'supplier/list', component:HomeComponent,
+  children: [{
+    path: '', component:SupplierListComponent
+  }]},
+  {path: 'supplier/update/:id', component:HomeComponent,
+  children: [{
+    path: '', component:SupplierUpdateComponent
+  }]},
+  {path: 'supplier/delete/:id', component:HomeComponent,
+  children: [{
+    path: '', component:SupplierDeleteComponent
+  }]},
+  {path: 'supplier/details/:id', component:HomeComponent,
+  children: [{
+    path: '', component:SupplierDetailsComponent
+  }]},
+
 
 
 
@@ -163,11 +231,81 @@ const routes: Routes = [
   children: [{
     path: '', component:AdministrationComponent,
   }]},
+  {path: 'advertisement/create', component:HomeComponent,
+  children: [{
+    path: '', component:AdvertisementCreateComponent,
+  }]},
+  {path: 'advertisement/list', component:HomeComponent,
+  children: [{
+    path: '', component: AdvertisementListComponent,
+  }]},
+  {path: 'advertisement/details/:id', component:HomeComponent,
+  children: [{
+    path: '', component:AdvertisementDetailsComponent,
+  }]},
+  {path: 'advertisement/delete/:id', component:HomeComponent,
+  children: [{
+    path: '', component:AdvertisementDeleteComponent,
+  }]},
+  {path: 'advertisement/update/:id', component:HomeComponent,
+  children: [{
+    path: '', component:AdvertisementUpdateComponent,
+  }]},
+  {path: 'salesbymenuitem', component:HomeComponent,
+  children: [{
+    path: '', component:SalesbymenuitemComponent,
+  }]},
+  {path: 'ordersbetween', component:HomeComponent,
+  children: [{
+    path: '', component:OrdersbetweenComponent,
+  }]},
+  {path: 'salesRestaurant', component:HomeComponent,
+  children: [{
+    path: '', component:SalesbyrestaurantComponent,
+  }]},
 
 
-  {path: 'Restaurant/list', component:HomeComponent,
+
+  {path: 'restaurant/list', component:HomeComponent,
   children:[{
     path: '', component:RestaurantListComponent,
+  }]},
+  {path: 'restaurant/create', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantCreateComponent,
+  }]},
+  {path: 'restaurant/update/:id', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantUpdateComponent,
+  }]},
+  {path: 'restaurant/details/:id', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantDetailsComponent,
+  }]},
+  {path: 'restaurant/delete/:id', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantDeleteComponent,
+  }]},
+
+  {path: 'restaurantfacility/list', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantfacilityListComponent,
+  }]},
+  {path: 'restaurantfacility/create', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantfacilityCreateComponent,
+  }]},
+  {path: 'restaurantfacility/update/:id', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantfacilityUpdateComponent,
+  }]},
+  {path: 'restaurantfacility/details/:id', component:HomeComponent,
+  children:[{
+    path: '', component: RestaurantfacilityDetailsComponent,
+  }]},
+  {path: 'restaurantfacility/delete/:id', component:HomeComponent,
+  children:[{
+    path: '', component:RestaurantfacilityDeleteComponent,
   }]},
   
   
@@ -208,10 +346,82 @@ const routes: Routes = [
   children: [{
     path: '', component:MenuitemComponent
   }]},
+  {path: 'menuitem/create', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemCreateComponent
+  }]},
   {path: 'menuitem/list', component:HomeComponent,
   
   children: [{
     path: '', component:MenuitemListComponent
+  }]},
+  {path: 'menuitem/details/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component:MenuitemDetailsComponent
+  }]},
+  {path: 'menuitem/update/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemUpdateComponent
+  }]},
+  {path: 'menuitem/delete/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemDeleteComponent
+  }]},
+
+  {path: 'menuitemcategory/list', component:HomeComponent,
+  
+  children: [{
+    path: '', component:MenuitemcategoryListComponent
+  }]},
+  {path: 'menuitemcategory/create', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemcategoryCreateComponent
+  }]},
+  {path: 'menuitemcategory/update/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemcategoryUpdateComponent
+  }]},
+  {path: 'menuitemcategory/details/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemcategoryDetailsComponent
+  }]},
+  {path: 'menuitemcategory/delete/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemcategoryDeleteComponent
+  }]},
+
+  {path: 'menuitemtype/list', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemtypeListComponent
+  }]},
+  {path: 'menuitemtype/create', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemcategoryCreateComponent
+  }]},
+  {path: 'menuitemtype/update/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemcategoryUpdateComponent
+  }]},
+  {path: 'menuitemtype/details/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemtypeDetailsComponent
+  }]},
+  {path: 'menuitemtype/delete/:id', component:HomeComponent,
+  
+  children: [{
+    path: '', component: MenuitemtypeDeleteComponent
   }]},
  
 
@@ -236,6 +446,58 @@ const routes: Routes = [
   children: [{
     path: '', component:OrderUpdateComponent
   }]},
+  {path: 'order/list', component:HomeComponent,
+  children: [{
+    path: '', component:OrderListComponent
+  }]},
+  {path: 'orderline/list', component:HomeComponent,
+  children: [{
+    path: '', component:OrderlineListComponent
+  }]},
+  {path: 'orderline', component:HomeComponent,
+  children: [{
+    path: '', component:OrderlineComponent
+  }]},
+  {path: 'orderline/create', component:HomeComponent,
+  children: [{
+    path: '', component:OrderlineCreateComponent
+  }]},
+  {path: 'orderline/update/:id', component:HomeComponent,
+  children: [{
+    path: '', component:OrderlineUpdateComponent
+  }]},
+  {path: 'orderline/details/:id', component:HomeComponent,
+  children: [{
+    path: '', component:OrderlineDetailsComponent
+  }]},
+  {path: 'orderline/details/:id/menuitem', component:HomeComponent,
+  children: [{
+    path: '', component:OrderlineDetailsComponent
+  }]},
+  {path: 'orderline/delete/:id', component:HomeComponent,
+  children: [{
+    path: '', component:OrderlineDeleteComponent
+  }]},
+  {path: 'orderstatus', component:HomeComponent,
+  children: [{
+    path: '', component:OrderstatusComponent
+  }]},
+  {path: 'orderstatus/create', component:HomeComponent,
+  children: [{
+    path: '', component:OrderstatusComponent
+  }]},
+  {path: 'orderstatus/update/:id', component:HomeComponent,
+  children: [{
+    path: '', component:OrderstatusUpdateComponent
+  }]},
+  {path: 'orderstatus/delete/:id', component:HomeComponent,
+  children: [{
+    path: '', component:OrderstatusDeleteComponent
+  }]},
+  {path: 'orderstatus/list', component:HomeComponent,
+  children: [{
+    path: '', component:OrderstatusListComponent
+  }]},
   {path: 'special/create/:id', component:HomeComponent,
   children: [{
     path: '', component:SpecialCreateComponent
@@ -258,6 +520,11 @@ const routes: Routes = [
   }]},
   {path: 'special', loadChildren:()=> import('../ordermanage/special/special.module').then(x => x.SpecialModule)},
   {path: 'specialprice', loadChildren: ()=> import('../ordermanage/specialprice/specialprice.module').then(x => x.SpecialpriceModule)},
+  {path: 'order', component:HomeComponent,
+  children: [{
+    path: '', component:OrderComponent
+  }]},
+  
   {path: 'order', loadChildren: ()=> import('../ordermanage/order/order.module').then(x => x.OrderModule)},
   {path: 'orderstatus', loadChildren: ()=> import('../ordermanage/orderstatus/orderstatus.module').then(x => x.OrderstatusModule)},
   {path: 'orderline', loadChildren: ()=> import('../ordermanage/orderline/orderline.module').then(x => x.OrderlineModule)},

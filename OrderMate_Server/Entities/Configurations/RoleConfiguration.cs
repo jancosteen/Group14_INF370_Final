@@ -18,8 +18,8 @@ namespace Entities.Configurations
             {
               
              
-                Name = "Visitor",
-                NormalizedName = "VISITOR"
+                Name = "Customer",
+                NormalizedName = "CUSTOMER"
             },
             new IdentityRole
             {

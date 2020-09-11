@@ -13,6 +13,6 @@ export interface User {
     userRoleName:string;
     userRoleIdFk?:string; 
     employeeIdFk?:Employee;
-    token?:string;
+    token?:string; 
     
 }

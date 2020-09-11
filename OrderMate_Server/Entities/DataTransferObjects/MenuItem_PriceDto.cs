@@ -9,6 +9,6 @@ namespace Entities.DataTransferObjects
         public int MenuItemPriceId { get; set; }
         public double MenuItemPrice1 { get; set; }
         public DateTime MenuItemDateUpdated { get; set; }
-        //public int? MenuItemIdFk { get; set; }
+        public int? MenuItemIdFk { get; set; }
     }
 }

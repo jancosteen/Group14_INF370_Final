@@ -41,8 +41,8 @@ export class AdvertisementDetailsComponent implements OnInit {
     this.router.navigate([updateUrl]); 
   }
 
-  public redirectToDeletePage = (advertisementId) => { 
-    const deleteUrl: string = '/advertisement/delete/' + advertisementId; 
+  public redirectToDeletePage = () => { 
+    const deleteUrl: string = '/advertisement/list';
     this.router.navigate([deleteUrl]); 
   }
 

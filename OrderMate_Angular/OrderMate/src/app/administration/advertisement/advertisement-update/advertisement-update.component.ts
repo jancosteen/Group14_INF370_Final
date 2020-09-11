@@ -26,7 +26,8 @@ export class AdvertisementUpdateComponent implements OnInit {
         advertisementId: new FormControl(''),
         advertisementName: new FormControl('',[Validators.required, Validators.maxLength(50)]),
         advertisementDescription: new FormControl('',[Validators.required, Validators.maxLength(50)]),
-        advertisementFile: new FormControl('',[Validators.required, Validators.maxLength(50)])
+
+        
       }); 
     
       this.getadvertisementById();
@@ -35,7 +36,7 @@ export class AdvertisementUpdateComponent implements OnInit {
     private getadvertisementById = () => {
       let advertisementId: string = this.activeRoute.snapshot.params['id'];
         
-      let IdByIdUrl: string = 'api/restaurant/'+advertisementId;
+      let IdByIdUrl: string = 'api/advertisement/'+advertisementId;
      
       this.repository.getData(IdByIdUrl)
         .subscribe(res => {
@@ -77,8 +78,8 @@ export class AdvertisementUpdateComponent implements OnInit {
     private executeadvertisementUpdate = (Value) => {
       this.advertisement.advertisementId =  Value.advertisementId,
       this.advertisement.advertisementName = Value.advertisementName,
-      this.advertisement.advertisementDescription = Value.advertisementDescription,
-      this.advertisement.advertisementFile = Value.advertisementFile
+      this.advertisement.advertisementDescription = Value.advertisementDescription
+     
     
      
       let apiUrl = 'api/restaurant/' + this.advertisement.advertisementId;

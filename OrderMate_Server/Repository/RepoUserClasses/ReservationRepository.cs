@@ -25,13 +25,6 @@ namespace Repository.RepoUserClasses
             Delete(reservation);
         }
 
-        public IEnumerable<Reservation> GetAllReservationByUserId(string userId)
-        {
-            return FindByCondition(r => r.UserIdFk.Equals(userId))
-                .OrderBy(r => r.ReservationDateReserved)
-                .ToList();
-        }
-
         public IEnumerable<Reservation> GetAllReservations()
         {
             return FindAll()

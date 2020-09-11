@@ -20,12 +20,10 @@ namespace Entities.DataTransferObjects
         public string RestaurantProvince { get; set; }
         public string RestaurantCountry { get; set; }
         public int? RestaurantStatusIdFk { get; set; }
-        public int? QrCodeIdFk { get; set; }
 
         public virtual Restaurant_StatusDto RestaurantStatusIdFkNavigation { get; set; }
         public virtual ICollection<EmployeeDto> Employee { get; set; }
         public virtual ICollection<MenuDto> Menu { get; set; }
-        public virtual ICollection<QrCodeDto> QrCode { get; set; }
         public virtual ICollection<Restaurant_Facility_RefDto> ResaurantFacilityRef { get; set; }
         public virtual ICollection<Restaurant_AdvertisementDto> RestaurantAdvertisement { get; set; }
         public virtual ICollection<Restaurant_ImageDto> RestaurantImage { get; set; }

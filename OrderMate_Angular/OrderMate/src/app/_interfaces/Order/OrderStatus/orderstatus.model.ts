@@ -2,6 +2,6 @@ import { Order } from "../Order/order.model"
 
 export interface OrderStatus {
     orderStatusId:number;
-    orderStatus:string;
-    orderId:number
+    orderStatus1:string;
+    orderIdFk:number 
 } 

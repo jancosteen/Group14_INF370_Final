@@ -4,7 +4,8 @@ export interface Order {
     orderId: number;
     orderDateCreated: Date; 
     orderDateCompleted: Date;
-    qrCodeSeating: number;
-    orderStatus?: string;
-}
+    qrCodeSeating: number; 
+    orderStatus1:number;
+    orderStatusName?: string; 
+} 
 

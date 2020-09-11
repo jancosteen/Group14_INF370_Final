@@ -46,25 +46,6 @@ namespace OrderMate_Server.Controllers
             }
         }
 
-        [HttpGet("{orderId}/orderId")]
-        public IActionResult GetAllOrderLinesByOrderId(int orderId)
-        {
-            try
-            {
-                var orderLines = _repository.Order_Line.GetAllOrderLinesByOrderId(orderId);
-                _logger.LogInfo($"Returned all orderLines from db.");
-
-                var orderLinesResult = _mapper.Map<IEnumerable<Order_LineDetailsDto>>(orderLines);
-                return Ok(orderLinesResult);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went work inside the GetAllOrderLines action: {ex.InnerException.Message}");
-                return StatusCode(500, "Internal server error");
-
-            }
-        }
-
         [HttpGet("{id}", Name = "Order_LineById")]
         public IActionResult GetOrder_LineById(int id)
         {

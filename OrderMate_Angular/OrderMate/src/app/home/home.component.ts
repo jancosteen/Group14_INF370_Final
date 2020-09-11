@@ -1,3 +1,4 @@
+import { UsermanageComponent } from './../usermanage/usermanage.component';
 import { CurrentUser } from './../shared/services/data-types';
 import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,6 +17,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class HomeComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   userDetails;
+  userName: string ='';
+  userRole: string = '';
 
   @Output() public sidenavToggle = new EventEmitter()
   public homeText: string;
@@ -33,17 +36,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
-
+    console.log('this is home')
     this.repository.getUserProfile(this.repository.currentUser.userName).subscribe(
       res => {
         this.userDetails = res;
+        this.userName = this.userDetails.userName;
+        this.userRole = this.userDetails.userRole;
        
       },
       err => {
         console.log(err);
       },
     );
+    
 
 
   }

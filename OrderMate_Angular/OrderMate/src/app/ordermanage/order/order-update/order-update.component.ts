@@ -1,3 +1,4 @@
+import { OrderStatus } from './../../../_interfaces/Order/OrderStatus/orderstatus.model';
 import { Component, OnInit } from '@angular/core'; 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ErrorHandlerService } from './../../../shared/services/error-handler.service';
@@ -19,15 +20,17 @@ export class OrderUpdateComponent implements OnInit {
   public orderForm: FormGroup;
 
   public order: Order; 
+  selectedStatus: OrderStatus;
 
   constructor(private repository: RepositoryService, private errorHandler: ErrorHandlerService, private router: Router,
     private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getStatuses();
     this.orderForm = new FormGroup({
       orderId: new FormControl(''),
-      orderDateCreated: new FormControl('',[Validators.required]),
-      QrCodeSeating: new FormControl('',[Validators.required])
+      orderDateCreated: new FormControl(''),
+      orderStatus1: new FormControl('',[Validators.required])
     });
 
     this.getById();
@@ -65,7 +68,7 @@ export class OrderUpdateComponent implements OnInit {
   }
 
   public redirectToList(){
-    this.router.navigate(['/order/list']);
+    this.router.navigate(['/ordermanage']);
   }
 
   public update = (Value) => {
@@ -74,11 +77,27 @@ export class OrderUpdateComponent implements OnInit {
     }
   }
 
+  statuses : OrderStatus[]
+  getStatuses(){
+    let statusurl = 'api/orderstatus';
+    this.repository.getData(statusurl)
+      .subscribe(res =>{
+        this.statuses = res  as OrderStatus[]
+        console.log('statuses',this.statuses)
+      })
+  }
+
   private executeUpdate = (Value) => {
+    let statusId : number;
+    this.statuses.forEach(status =>{
+      if(status.orderStatus1 == Value.orderStatus1){
+        statusId = status.orderStatusId
+      }
+    })
    
     this.order.orderId =  Value.orderId,
     this.order.orderDateCreated = Value.orderDateCreated,
-    this.order.qrCodeSeating = Value.qrCodeSeating
+    this.order.orderStatus1 = statusId
     
     let apiUrl = 'api/order/' + this.order.orderId;
     this.repository.update(apiUrl, this.order)

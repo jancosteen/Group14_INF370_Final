@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid offset-2 col-md-8">
     <form [formGroup]="menuItemForm" autocomplete="off" novalidate (ngSubmit)="update(menuItemForm.value)">
    
       <div class="form-horizontal card card-body bg-light mb-2 mt-2">
@@ -17,25 +17,26 @@
             <em *ngIf="validateControl('menuItemName') && hasError('menuItemName', 'required')">Menu Item Name is required</em>
             <em *ngIf="validateControl('menuItemName') && hasError('menuItemName', 'maxlength')">Maximum allowed length is 100 characters.</em>
           </div>
-        </div>
+        </div> 
         <div class="form-group row">
-            <label for="menu" class="control-label col-md-2">Menu : </label>
+            <label for="menuItemDescription" class="control-label col-md-2">Menu Description : </label>
             <div class="col-md-5">
-              <input type="text" formControlName="menu" id="menu" class="form-control" />
+              <input type="text" formControlName="menuItemDescription" id="menuItemDescription" class="form-control" />
             </div>
             <div class="col-md-5">
-              <em *ngIf="validateControl('menu') && hasError('menu', 'required')">Menu is required</em>
-              <em *ngIf="validateControl('menu') && hasError('menu', 'maxlength')">Maximum allowed length is 100 characters.</em>
+              <em *ngIf="validateControl('menuItemDescription') && hasError('menuItemDescription', 'required')">Menu Description is required</em>
+              <em *ngIf="validateControl('menuItemDescription') && hasError('menuItemDescription', 'maxlength')">Maximum allowed length is 100 characters.</em>
             </div>
           </div>
           <div class="form-group row">
-            <label for="menuItemCategory" class="control-label col-md-2">Menu Item Category: </label>
+            <label for="menuItemCategoryIdFk" class="control-label col-md-2">Menu Item Category: </label>
             <div class="col-md-5">
-              <input type="text" formControlName="menuItemCategory" id="menuItemCategory" class="form-control" type="date"/>
+              <select formControlName="menuItemCategoryIdFk" id="menuItemCategoryIdFk" class="form-control" [(ngModel)]="selectedCat"  placeholder="select" >
+                <option *ngFor=" let x of categories" [ngvalue]="x.menuItemCategoryId">{{x.menuItemCategory1}}</option>
+              </select>
             </div>
             <div class="col-md-5">
-              <em *ngIf="validateControl('menuItemCategory') && hasError('menuItemCategory', 'required')">Menu Item Category Created is required</em>
-  
+              <em *ngIf="validateControl('menuItemCategoryIdFk') && hasError('menuItemCategoryIdFk', 'required')">Menu Item Category Created is required</em>
             </div>
           </div>
       
@@ -44,7 +45,7 @@
                 <button type="submit" class="btn btn-info" [disabled]="!menuItemForm.valid">Save</button>
             </div>
             <div class="col-md-1">
-                <button type="button" class="btn btn-danger" [routerLink]="['/menuItem/list']">Cancel</button>
+                <button type="button" class="btn btn-danger" [routerLink]="['/menuitem/list']">Cancel</button>
             </div>
         </div> 
         
