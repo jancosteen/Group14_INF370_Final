@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/home">Order-Mate</a>
+    </div>
+    <span class="spacer"></span>
+    <button mat-icon-button class="favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>message</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>

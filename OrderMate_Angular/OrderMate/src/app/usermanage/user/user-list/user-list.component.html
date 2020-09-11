@@ -1,0 +1,54 @@
+<div class="row"> 
+    <div class="offset-10 col-md-2" style="padding-top: 10px;">
+      <a class="btn btn-primary small" [routerLink]="['/user/create']">Add User</a>
+    </div>
+  </div>
+  <br> 
+  <div class="row">
+    <div class="offset-2 col-md-8">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>ContactNumber</th>
+      
+           
+           
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+              
+      
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of usersfromserver">
+              <td>{{x.id}}</td>
+              <td>{{x.userName}}</td>
+              <td>{{x.email}}</td>
+              <td>{{x.user_Name}}</td>
+              <td>{{x.user_Surname}}</td>
+              <td>{{x.user_Contact_Number}}</td>
+         
+         
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.id)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.id)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

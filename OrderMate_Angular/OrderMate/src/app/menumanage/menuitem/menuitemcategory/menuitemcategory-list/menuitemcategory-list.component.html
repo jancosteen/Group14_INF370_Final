@@ -1,0 +1,42 @@
+<div class="row"> 
+    <div class="offset-10 col-md-2" style="padding-top: 10px;">
+      <a class="btn btn-primary small" [routerLink]="['/menuitemcategory/create']">Add Menu Item Category</a>
+    </div>
+  </div>
+  <br>
+  <div class="row"> 
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+
+              <th>Menu Item Category</th>
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of menuitemcategories">
+              <td>{{x.menuItemCategoryId}}</td>
+              <td>{{x.menuItemCategory}}</td> 
+   
+  
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.menuItemCategoryId)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.menuItemCategoryId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.menuItemCategoryId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

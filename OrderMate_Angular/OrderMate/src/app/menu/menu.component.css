@@ -1,0 +1,53 @@
+ ul {
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+      color: lightgray;
+    background-color: #111111;
+  }
+
+  a:active{
+    color: lightgray;
+  }
+
+ 
+mat-toolbar{
+    border-radius: 2px;
+}
+ 
+@media(max-width: 959px){
+    mat-toolbar{
+        border-radius: 0px;
+    }
+}
+
+.nav-list{
+    float: right;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-drawer-container{
+    position: unset;
+}
+.mat-drawer-content{
+    position: unset;
+}

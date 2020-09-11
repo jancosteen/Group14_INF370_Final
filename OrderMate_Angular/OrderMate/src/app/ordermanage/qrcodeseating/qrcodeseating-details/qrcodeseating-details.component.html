@@ -1,0 +1,56 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Qr Code SeatingId:</strong>
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.qrCodeSeatingId}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Number Of People:</strong>
+        </div>
+        <div class="col-md-4">
+          {{qrCodeSeating?.numberOfPeople}}
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Qr Code:</strong>
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.qrCode}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Seating:</strong>
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.Seating.seatingId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Seating:</strong>
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.Order.orderId}}
+      </div>
+    </div>
+    
+    
+  
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(qrCodeSeating.qrCodeSeatingId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(qrCodeSeating.qrCodeSeatingId)">Delete</button>
+    </div>
+</div>

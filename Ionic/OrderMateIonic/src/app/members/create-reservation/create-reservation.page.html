@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>      
+    </ion-buttons>
+    <ion-title>Make Reservation</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="text-align: center;">
+    <img src="./../../../assets/robot-order-square.png">
+    <ion-card-title>Make Resevation</ion-card-title>
+    <ion-card-subtitle>Make a reservation at any of our partners</ion-card-subtitle>
+  </ion-card> 
+  <form [formGroup]="reservationForm" ><!--(ngSubmit)="createReservation(reservationForm.value)"-->
+    <mat-vertical-stepper linear="false" #stepper>
+
+      <mat-step [stepControl]="reservationForm">     
+        <ng-template matStepLabel>Select Restaurant</ng-template>
+        <mat-form-field>
+          <mat-label>Choose a restaurant</mat-label>
+          <mat-select *ngIf="resIdFlg === false" formControlName="restaurantId" required>
+            <mat-option *ngFor="let r of restaurants" value={{r?.restaurantId}}>
+              {{r.restaurantName}}
+            </mat-option>
+          </mat-select>
+
+          <mat-select *ngIf="resIdFlg === true" formControlName="restaurantId" required>
+            <mat-option  value={{resId}}>
+              {{resName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-step>
+
+      <mat-step [stepControl]="reservationForm" label="Select Date & Time">      
+        <mat-form-field>
+          <mat-label>Select your reservation date and time</mat-label>
+          <input matInput type="datetime-local"  formControlName="dateTime" required pasword>   
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Enter the number of people in your party</mat-label>
+          <input matInput type="number" placeholder="0" formControlName="partyAmount" required pasword>   
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Enter the number of bills you would like to split</mat-label>
+          <input matInput type="number" placeholder="0" formControlName="bills" required pasword>   
+        </mat-form-field>
+      
+      
+  
+      <mat-step label="Confirm Reservation">
+        By clicking confirm you accept our Terms & Conditions.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button [disabled]="!reservationForm.valid" (click)="createReservation(reservationForm.value)">Confirm</button>
+        </div>
+      </mat-step>
+    </mat-step>
+
+    </mat-vertical-stepper>
+  </form>
+</ion-content>
+  
+  
+
+    
+    
+         
+  
+    
+
+
+  
+  
+ 
+ 

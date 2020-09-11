@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-around" style="padding-top: 20px;">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Menu Management
+        </div>
+        <ul class="list-group list-group-flush">
+            <a [routerLink]="['/menu']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Manage Menus</li>
+            </a>
+            <a [routerLink]="['/menuitem/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Manage Menu Items</li>
+            </a>
+        </ul>
+    </div>
+</div>

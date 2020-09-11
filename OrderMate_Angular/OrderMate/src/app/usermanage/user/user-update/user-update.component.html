@@ -1,0 +1,121 @@
+<h3>Update Supplier</h3>
+<div class="container-fluid">
+    <form [formGroup]="userForm" autocomplete="off" novalidate (ngSubmit)="updateuser(userForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+            <div class="form-group row">
+                <label for="id" class="control-label col-md-2">Id: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="id" id="id" class="form-control" readonly/>
+                </div>
+        
+              </div>
+              <div class="form-group row">
+                <label for="userName" class="control-label col-md-2">Username: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="userName" id="userName" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('userName') && hasError('userName', 'required')">User Name is required</em>
+                  <em *ngIf="validateControl('userName') && hasError('userName', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="control-label col-md-2">Email: </label>
+              <div class="col-md-5">
+                <input type="text" formControlName="email" id="email" class="form-control" />
+              </div>
+              <div class="col-md-5">
+                <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
+              
+                <em *ngIf="validateControl('email') && hasError('email', 'maxlength')">Must be a valid Email <Address></Address>.</em>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="password" class="control-label col-md-2">Password: </label>
+              <div class="col-md-5">
+                <input type="text" formControlName="password" id="password" class="form-control" type="password" />
+              </div>
+              <div class="col-md-5">
+                <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+                <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="confirmPassword" class="control-label col-md-2">Confirm Password: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="confirmPassword" id="confirmPassword" class="form-control" type="password"/>
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('confirmPassword') && hasError('confirmPassword', 'required')">Password is required</em>
+              <em *ngIf="validateControl('confirmPassword') && hasError('confirmPassword', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+        </div>
+          <div class="form-group row">
+              <label for="user_Name" class="control-label col-md-2">Name: </label>
+              <div class="col-md-5">
+                <input type="text" formControlName="user_Name" id="user_Name" class="form-control" />
+              </div>
+              <div class="col-md-5">
+                <em *ngIf="validateControl('user_Name') && hasError('user_Name', 'required')">Name is required</em>
+                <em *ngIf="validateControl('user_Name') && hasError('user_Name', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="user_Surname" class="control-label col-md-2">Surname: </label>
+              <div class="col-md-5">
+                <input type="text" formControlName="user_Surname" id="user_Surname" class="form-control" />
+              </div>
+              <div class="col-md-5">
+                <em *ngIf="validateControl('user_Surname') && hasError('user_Surname', 'required')">Surname is required</em>
+                <em *ngIf="validateControl('user_Surname') && hasError('user_Surname', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="user_Contact_Number" class="control-label col-md-2">Contact Number: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="user_Contact_Number" id="user_Contact_Number" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('user_Contact_Number') && hasError('user_Contact_Number', 'required')">userContactNumber is required</em>
+              <em *ngIf="validateControl('user_Contact_Number') && hasError('user_Contact_Number', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+        </div>
+         
+  
+          <div class="form-group row">
+              <label for="userRoleIdFk" class="control-label col-md-2">User Role: </label>
+              <div class="col-md-5">
+                <select formControlName="userRoleIdFk" id="userRoleIdFk" class="form-control" [(ngModel)]="selected"  placeholder="select" >
+                  <option *ngFor=" let x of userRoles" [ngvalue]="x.userRoleId">{{x.userRole1}}</option>
+                </select>
+              </div>
+              <div class="col-md-5">
+                <em *ngIf="validateControl('userRoleIdFk') && hasError('userRoleIdFk', 'required')">User Role is required</em>
+              </div>
+          </div>
+          
+           
+              
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!userForm.valid">Update</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectTouserList()">Cancel</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectTouserList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>

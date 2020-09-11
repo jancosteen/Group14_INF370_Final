@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>      
+    </ion-buttons>
+    <ion-title>
+      Scan QR Code to Check-In
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-card style="text-align: center;">
+    <img src="./../../assets/qrCode-bg.png" style="width: 100%; height: 100%">
+  </ion-card>
+  <!-- Fallback for iOS PWA -->
+  <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
+ 
+  <!-- Trigger the file input -->
+  <ion-button expand="block" (click)="captureImage()" color="secondary">
+    <ion-icon slot="start" name="camera"></ion-icon>
+    Capture Image
+  </ion-button>
+ 
+  <ion-button expand="block" (click)="startScan()">
+    <ion-icon slot="start" name="qr-scanner"></ion-icon>
+    Start scan
+  </ion-button>
+ 
+  <ion-button expand="block" (click)="reset()" color="warning" *ngIf="scanResult">
+    <ion-icon slot="start" name="refresh"></ion-icon>
+    Reset
+  </ion-button>
+ 
+  <!-- Shows our camera stream -->
+  <video #video [hidden]="!scanActive" width="100%"></video>
+ 
+  <!-- Used to render the camera stream images -->
+  <canvas #canvas hidden></canvas>
+ 
+  <!-- Stop our scanner preview if active -->
+  <ion-button expand="block" (click)="stopScan()" color="danger" *ngIf="scanActive">
+    <ion-icon slot="start" name="close"></ion-icon>
+    Stop scan
+  </ion-button>
+ 
+  <ion-card *ngIf="scanResult">
+    <ion-card-header>
+      <ion-card-title>Double Click Me!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content><!--;navigateToRestaurant(qrCode.restaurantIdFk)-->
+      <h2>Click twice to be taken to the restaurant's menu</h2>
+      <ion-button expand="block" (click)="onClick(qrCodeIdString, seatingIdString)">Click Me</ion-button>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

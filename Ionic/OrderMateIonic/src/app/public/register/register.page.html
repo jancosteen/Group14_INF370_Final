@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="userForm" (ngSubmit)="registerUser(userForm.value)">
+  <mat-vertical-stepper linear="false" #stepper>
+
+    <mat-step [stepControl]="userForm">
+     
+        <ng-template matStepLabel>Personal Data</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Name" formControlName="user_name" required>        
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Surname" formControlName="user_surname" required>        
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Phone Number" formControlName="user_contact_number" required minlength="10" maxlength="10">         
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="user_email" required type="email">        
+        </mat-form-field>
+        <!--<div>
+          <button mat-button matStepperNext>Next</button>
+        </div>-->
+      
+    </mat-step>
+  
+    <mat-step [stepControl]="userForm" label="Username & Password">
+      
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="userName" required>   
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Enter Password" formControlName="password1" required pasword minlength="6">   
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Repeat Password" formControlName="password2" required pasword minlength="6">   
+        </mat-form-field>
+        <div>
+          <!--<button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>-->
+        </div>
+      
+  
+      <mat-step label="Confirm Registration">
+        By clicking confirm you accept our Terms & Conditions.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button [disabled]="!userForm.valid" type="submit"  >Confirm</button><!--(click)="registerUser(userForm)"-->
+        </div>
+      </mat-step>
+    </mat-step>
+  
+  </mat-vertical-stepper>
+</form>
+  
+</ion-content>
+ 

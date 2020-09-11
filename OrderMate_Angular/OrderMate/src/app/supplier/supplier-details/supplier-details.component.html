@@ -1,0 +1,78 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Supplier Name:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplier?.supplierName}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Description:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplier?.supplierDescription}}
+      </div>
+    </div>
+    <div class="row"> <!-- *ngIf='owner?.accounts.length <= 2; else advancedUser'> -->
+      <div class="col-md-3">
+        <strong>ContactNumber:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplier?.supplierContactNumber}}
+      </div>
+    </div>
+    <div class="row"> <!-- *ngIf='owner?.accounts.length <= 2; else advancedUser'> -->
+      <div class="col-md-3">
+        <strong>Email:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplier?.supplierEmail}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Address:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplier?.supplierAddressLine1}},
+        {{supplier?.supplierAddressLine2}},
+        {{supplier?.supplierAddressLine3}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>City:</strong>
+        </div>
+        <div class="col-md-4">
+          {{supplier?.supplierCity}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Postal Code:</strong>
+        </div>
+        <div class="col-md-4">
+          {{supplier?.supplierPostalCode}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Country:</strong>
+        </div>
+        <div class="col-md-4">
+          {{supplier?.supplierCountry}}
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(supplier.supplierId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(supplier.supplierId)">Delete</button>
+    </div>
+</div>

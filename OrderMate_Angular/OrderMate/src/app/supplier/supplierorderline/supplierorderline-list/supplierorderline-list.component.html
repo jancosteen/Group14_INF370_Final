@@ -1,0 +1,47 @@
+<div class="row"> 
+    <div class="offset-10 col-md-2" style="padding-top: 10px;">
+      <a class="btn btn-primary small" [routerLink]="['/supplierorder/create']">Add Supplier</a>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Supplier</th>
+           
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of supplierorderline">
+              <td>{{x.SupplierOrderLineId}}</td>
+              <td>{{x.SupplierOrderId}}</td>
+              <td>{{x.deliveryLeadTime}}</td>
+              <td>{{x.productStandardPrice}}</td>
+              <td>{{x.discountAgreement}}</td>
+              <td>{{x.orderedQty}}</td>
+              <td>{{x.product}}</td>
+
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.SupplierOrderLineId)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.SupplierOrderLineId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.SupplierOrderLineId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

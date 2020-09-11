@@ -1,0 +1,45 @@
+<h3>Update Supplier</h3>
+<div class="container-fluid">
+    <form [formGroup]="shiftstatusForm" autocomplete="off" novalidate (ngSubmit)="updateShiftStatus(shiftstatusForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+            <div class="form-group row">
+                <label for="shiftstatusId" class="control-label col-md-2">Id: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="shiftstatusId" id="shiftstatusId" class="form-control" readonly/>
+                </div>
+        
+              </div>
+              <div class="form-group row">
+                  <label for="shiftstatus" class="control-label col-md-2">Status: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="shiftstatus" id="shiftstatus" class="form-control" />
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('shiftstatus') && hasError('shiftstatus', 'required')">Status is required</em>
+                    <em *ngIf="validateControl('shiftstatus') && hasError('shiftstatus', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                  </div>
+              </div>
+              
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!shiftstatusForm.valid">Update</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectToShiftStatusList()">Cancel</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectToShiftStatusList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>

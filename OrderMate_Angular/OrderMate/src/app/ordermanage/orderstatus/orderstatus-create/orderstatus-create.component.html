@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <form [formGroup]="orderstatusForm" autocomplete="off" novalidate (ngSubmit)="create(orderstatusForm.value)">
+   
+      <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+        <div class="form-group row">
+          <label for="orderStatus" class="control-label col-md-2">Order Status: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="orderStatus" id="orderStatus" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('orderStatus') && hasError('orderStatus', 'required')">Order Status is required</em>
+            <em *ngIf="validateControl('orderStatus') && hasError('orderStatus', 'maxlength')">Maximum allowed length is 100 characters.</em>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Order" class="control-label col-md-2">Order: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="Order" id="Order" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('Order') && hasError('Order', 'required')">Order is required</em>
+            <em *ngIf="validateControl('Order') && hasError('Order', 'maxlength')">Maximum allowed length is 100 characters.</em>
+          </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!orderstatusForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" [routerLink]="['/orderline/list']">Cancel</button>
+            </div>
+        </div>
+        
+      </div> 
+    </form>
+   
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
+    (redirectOnOK)="redirectToList()">
+  </app-success-modal>
+   
+    <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" [okButtonText]="'OK'">
+  </app-error-modal>
+   
+  </div>
+  

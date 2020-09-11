@@ -1,0 +1,132 @@
+<h3>Update Supplier</h3>
+<div class="container-fluid">
+    <form [formGroup]="supplierForm" autocomplete="off" novalidate (ngSubmit)="updateSupplier(supplierForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+            <div class="form-group row">
+                <label for="supplierId" class="control-label col-md-2">Id: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="supplierId" id="supplierId" class="form-control" readonly/>
+                </div>
+        
+              </div>
+            <div class="form-group row">
+                <label for="NamsupplierNamee" class="control-label col-md-2">Name: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="supplierName" id="supplierName" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('supplierName') && hasError('supplierName', 'required')">Name is required</em>
+                  <em *ngIf="validateControl('supplierName') && hasError('supplierName', 'maxlength')">Maximum allowed length is 20 characters.</em>
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label for="supplierDescription" class="control-label col-md-2">Description: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="supplierDescription" id="supplierDescription" class="form-control" />
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('supplierDescription') && hasError('supplierDescription', 'required')">Description is required</em>
+                    <em *ngIf="validateControl('supplierDescription') && hasError('supplierDescription', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="supplierEmail" class="control-label col-md-2">Email: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="supplierEmail" id="supplierEmail" class="form-control" />
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('supplierEmail') && hasError('supplierEmail', 'required')">Email is required</em>
+                    <em *ngIf="validateControl('supplierEmail') && hasError('supplierEmail', 'maxlength')">Maximum allowed length is 20 characters.</em>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="supplierContactNumber" class="control-label col-md-2">Contact Number: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="supplierContactNumber" id="supplierContactNumber" class="form-control" />
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('supplierContactNumber') && hasError('supplierContactNumber', 'required')">Contact Number is required</em>
+                    <em *ngIf="validateControl('supplierContactNumber') && hasError('supplierContactNumber', 'maxlength')">Maximum allowed length is 10 characters.</em>
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="supplierAddressLine1" class="control-label col-md-2">Address Line 1: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="supplierAddressLine1" id="supplierAddressLine1" class="form-control" />
+                </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('supplierAddressLine1') && hasError('supplierAddressLine1', 'required')">Address line 1 is required</em>
+                        <em *ngIf="validateControl('supplierAddressLine1') && hasError('supplierAddressLine1', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="supplierAddressLine2" class="control-label col-md-2">Address Line 2: </label>
+                    <div class="col-md-5">
+                        <input type="text" formControlName="supplierAddressLine2" id="supplierAddressLine2" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('supplierAddressLine2') && hasError('supplierAddressLine2', 'required')">Address line 2 is required</em>
+                        <em *ngIf="validateControl('supplierAddressLine2') && hasError('supplierAddressLine2', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="supplierAddressLine3" class="control-label col-md-2">Address Line 3: </label>
+                    <div class="col-md-5">
+                        <input type="text" formControlName="supplierAddressLine3" id="supplierAddressLine3" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="supplierCity" class="control-label col-md-2">City: </label>
+                    <div class="col-md-5">
+                        <input type="text" formControlName="supplierCity" id="supplierCity" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('supplierCity') && hasError('supplierCity', 'required')">City is required</em>
+                        <em *ngIf="validateControl('supplierCity') && hasError('supplierCity', 'maxlength')">Maximum allowed length is 25 characters.</em>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="supplierPostalCode" class="control-label col-md-2">Postal Code: </label>
+                    <div class="col-md-5">
+                        <input type="text" formControlName="supplierPostalCode" id="supplierPostalCode" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('supplierPostalCode') && hasError('supplierPostalCode', 'required')">Postal Code is required</em>
+                        <em *ngIf="validateControl('supplierPostalCode') && hasError('supplierPostalCode', 'maxlength')">Maximum allowed length is 5 characters.</em>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="supplierCountry" class="control-label col-md-2">Country: </label>
+                    <div class="col-md-5">
+                        <input type="text" formControlName="supplierCountry" id="supplierCountry" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('supplierCountry') && hasError('supplierCountry', 'required')">Country is required</em>
+                        <em *ngIf="validateControl('supplierCountry') && hasError('supplierCountry', 'maxlength')">Maximum allowed length is 25 characters.</em>
+                    </div>
+                </div>
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!supplierForm.valid">Update</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectToSupplierList()">Cancel</button>
+                    </div>
+                </div>
+            
+
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectToSupplierList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>

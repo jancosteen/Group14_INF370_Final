@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>      
+    </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="text-align: center;">
+    <img src="./../../../assets/reservation-calender.png" style="width: auto; height: auto;">
+    <ion-card-header>
+      <ion-card-title>My Upcoming Reservations</ion-card-title>
+      <ion-card-subtitle>View all your upcoming reservations</ion-card-subtitle>
+    </ion-card-header>    
+  </ion-card>
+
+  <ion-card *ngFor="let r of reservations" style="text-align: center;">
+    <h3>Date Created</h3>
+    <ion-card-subtitle>{{r.reservationDateCreated}}</ion-card-subtitle>
+    <h3>Date Reserved</h3>
+    <ion-card-subtitle>{{r.reservationDateReserved}}</ion-card-subtitle>   
+    <h3>Reservation Status</h3>
+    <ion-card-subtitle>{{r.reservationStatusIdFk}}</ion-card-subtitle>    
+    <h3>Party Amount</h3>
+    <ion-card-subtitle>{{r.reservationPartyQty}}</ion-card-subtitle> 
+    <h3>Number of Bills</h3>
+    <ion-card-subtitle>{{r.reservationNumberOfBills}}</ion-card-subtitle>
+  </ion-card>
+
+  
+
+  
+</ion-content>

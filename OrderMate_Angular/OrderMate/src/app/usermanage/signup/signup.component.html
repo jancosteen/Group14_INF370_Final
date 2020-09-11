@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="col-md-8 offset-2">
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <form [formGroup]="formModel" autocomplete="off" (submit)="Register()">
+          <div class="form-group required">
+            <Label>Username</Label>
+            <input class="form-control" formControlName="Username">
+            <div class="col-md-5">
+              <em *ngIf="validateControl('userName') && hasError('userName', 'required')">User Name is required</em>
+              <em *ngIf="validateControl('userName') && hasError('userName', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+          </div>
+          <div class="form-group required">
+            <Label>Email</Label>
+            <input class="form-control" formControlName="Email">
+            <div class="col-md-5">
+              <em *ngIf="validateControl('email') && hasError('user', 'required')">User Role is required</em>
+              <em *ngIf="validateControl('email') && hasError('user', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              <em *ngIf="validateControl('email') && hasError('user', 'maxlength')">Must be a valid Email <Address></Address>.</em>
+            </div>
+          </div>
+          <div class="form-group required">
+            <Label>Name</Label>
+            <input class="form-control" formControlName="User_Name">
+            <div class="col-md-5">
+              <em *ngIf="validateControl('User_Name') && hasError('User_Name', 'required')">Name is required</em>
+              <em *ngIf="validateControl('User_Name') && hasError('User_Name', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+          </div>
+          <div class="form-group required">
+            <Label>Surname</Label>
+            <input class="form-control" formControlName="User_Surname">
+            <div class="col-md-5">
+              <em *ngIf="validateControl('User_Surname') && hasError('User_Surname', 'required')">Surname is required</em>
+              <em *ngIf="validateControl('User_Surname') && hasError('User_Surname', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+          </div>
+          <div class="form-group required">
+            <Label>Contact Number</Label>
+            <input class="form-control" formControlName="User_Contact_Number">
+            <div class="col-md-5">
+              <em *ngIf="validateControl('User_Contact_Number') && hasError('User_Contact_Number', 'required')">Contact Number is required</em>
+              <em *ngIf="validateControl('User_Contact_Number') && hasError('User_Contact_Number', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+          </div>
+          <div formGroupName="Passwords">
+            <div class="form-group required">
+              <Label>Password</Label>
+              <input class="form-control" formControlName="Password" type="password">
+              <div class="col-md-5">
+                <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+                <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              </div>
+            </div>
+            <div class="form-group required">
+              <Label>Confirm Password</Label>
+              <input class="form-control" formControlName="ConfirmPassword" type="password">
+              <div class="col-md-5">
+                <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+                <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8 offset-md-2">
+              <button type="submit" class="btn btn-lg btn-block" [disabled]="!formModel.valid">
+                Create User
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

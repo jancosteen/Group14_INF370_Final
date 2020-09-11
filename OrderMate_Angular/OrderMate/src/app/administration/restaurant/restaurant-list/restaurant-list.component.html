@@ -1,0 +1,61 @@
+<div class="row"> 
+    <div class="offset-8 col-md-4" style="padding-top: 10px;">
+      <a class="btn btn-primary small" [routerLink]="['/restaurantfacility/create']">Add Restaurant</a>
+    </div>
+  </div>
+  <br> 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Url</th>
+              <th>Description</th>
+              <th>restaurantCoordinates</th>
+              <th>DateCreated</th>
+              <th>AddressLine1</th>
+              <th>AddressLine2</th>
+              <th>AddressLine3</th>
+              <th>restaurantCity</th>
+              <th>restaurantPostalCode</th>
+              <th>restaurantProvince</th>
+              <th>restaurantCountry</th>
+              <th>restaurantStatus</th>
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of restaurant">
+              <td>{{x.restaurantId}}</td>
+              <td>{{x.restaurantUrl}}</td>
+              <td>{{x.restaurantDescription}}</td>
+              <td>{{x.restaurantCoordinates}}</td>
+              <td>{{x.restaurantDateCreated}}</td>
+              <td>{{x.restaurantAddressLine1}}</td>
+              <td>{{x.restaurantAddressLine2}}</td>
+              <td>{{x.restaurantAddressLine3}}</td>
+              <td>{{x.restaurantCity}}</td>
+              <td>{{x.restaurantPostalCode}}</td>
+              <td>{{x.restaurantProvince}}</td>
+              <td>{{x.restaurantCountry}}</td>
+              <td>{{x.restaurantStatus}}</td>
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.restaurantId)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.restaurantId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.restaurantId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

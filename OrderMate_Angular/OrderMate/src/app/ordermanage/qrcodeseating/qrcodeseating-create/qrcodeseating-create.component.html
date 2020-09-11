@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <form [formGroup]="QrCodeSeatingForm" autocomplete="off" novalidate (ngSubmit)="create(QrCodeSeatingForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+              <div class="form-group row">
+                  <label for="numberOfPeople" class="control-label col-md-2">Number Of People: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="numberOfPeople" id="numberOfPeople" class="form-control" />
+                  </div>
+                  <div class="col-md-5"> 
+                    <em *ngIf="validateControl('numberOfPeople') && hasError('numberOfPeople', 'required')">Number Of People is required</em>
+                    <em *ngIf="validateControl('numberOfPeople') && hasError('numberOfPeople', 'required')">Must be 100 chars</em>
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="qrCode" class="control-label col-md-2">Qr Code: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="qrCode" id="qrCode" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('qrCode') && hasError('qrCode', 'required')">Qr Code is required</em>
+                  <em *ngIf="validateControl('qrCode') && hasError('qrCode', 'required')">Must be 100 chars</em>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Seating" class="control-label col-md-2">Seating: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="Seating" id="Seating" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('Seating') && hasError('Seating', 'required')">Seating is required</em>
+                  <em *ngIf="validateControl('Seating') && hasError('Seating', 'required')">Must be 100 chars</em>
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="Order" class="control-label col-md-2">Order: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="Order" id="Order" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('Order') && hasError('Order', 'required')">Order is required</em>
+                  <em *ngIf="validateControl('Order') && hasError('Order', 'required')">Must be 100 chars</em>
+                </div>
+            </div>
+               
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!QrCodeSeatingForm.valid">Update</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectToList()">Cancel</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectToList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>

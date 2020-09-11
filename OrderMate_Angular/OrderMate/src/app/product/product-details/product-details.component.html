@@ -1,0 +1,68 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Product Name:</strong>
+      </div>
+      <div class="col-md-4">
+        {{product?.productName}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Description:</strong>
+      </div>
+      <div class="col-md-4">
+        {{product?.productDescription}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Reorder Level:</strong>
+      </div>
+      <div class="col-md-4">
+        {{product?.productReorderLevel}}
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-md-3">
+        <strong>Product Onhand:</strong>
+      </div>
+      <div class="col-md-4">
+        {{product?.productOnHand}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Product Type:</strong>
+      </div>
+      <div class="col-md-4">
+        {{product?.productTypeIdFk}},
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Product Category:</strong>
+        </div>
+        <div class="col-md-4">
+          {{product?.productCategoryIdFk}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>ReorderFreq:</strong>
+        </div>
+        <div class="col-md-4">
+          {{product?.productReorderFreqIdFk}}
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(product.productId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(product.productId)">Delete</button>
+    </div>
+</div>

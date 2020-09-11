@@ -1,0 +1,73 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Shift Id:</strong>
+        </div>
+        <div class="col-md-4">
+          {{shift?.shiftId}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Start Date Time:</strong>
+        </div>
+        <div class="col-md-4">
+          {{shift?.shiftStartDateTime}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>End Date Time:</strong>
+        </div>
+        <div class="col-md-4">
+          {{shift?.shiftEndDateTime}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Capacity:</strong>
+        </div>
+        <div class="col-md-4">
+          {{shift?.shiftCapacity}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Name:</strong>
+        </div>
+        <div class="col-md-4">
+          {{shift?.shiftName}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Shift Status:</strong>
+        </div>
+        <div class="col-md-4">
+          {{shift?.shiftStatus}}
+        </div>
+      </div>
+    </div> 
+  
+  <div class="row">
+    <div class="col-md-offset-8 col-md-2">
+      <button type="submit" class="btn btn-info" (click)="deleteshift()">Delete</button>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-danger" (click)="redirectToshiftList()">Cancel</button>
+    </div>
+  </div>
+  
+  
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" 
+    [okButtonText]="'OK'"
+    (redirectOnOK)="redirectToshiftList()">
+  </app-success-modal>
+   
+  <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" 
+    [okButtonText]="'OK'">
+  </app-error-modal>
+  
+  

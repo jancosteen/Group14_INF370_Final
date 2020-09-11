@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-around" style="padding-top: 20px;">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Shifts
+        </div>
+        <ul class="list-group list-group-flush">
+            <a [routerLink]="['/shift/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Shifts</li>
+            </a>
+            <a [routerLink]="['/shiftstatus/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Shift Status</li>
+            </a>
+            <a [routerLink]="['/attendancesheet/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Attendance Sheet</li>
+            </a>
+            
+        </ul>
+    </div>
+</div>
+

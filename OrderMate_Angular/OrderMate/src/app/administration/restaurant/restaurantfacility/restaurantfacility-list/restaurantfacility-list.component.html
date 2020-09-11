@@ -1,0 +1,39 @@
+<div class="row"> 
+    <div class="offset-8 col-md-4" style="padding-top: 10px;">
+      <a class="btn btn-primary small" [routerLink]="['/restaurantfacility/create']">Add Restaurant Facility</a>
+    </div>
+  </div>
+  <br> 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Restaurant Facility</th>
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of restaurantFacility">
+              <td>{{x.restaurantFacilityId}}</td>
+              <td>{{x.restaurantFacility}}</td>
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.restaurantFacilityId)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.restaurantFacilityId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.restaurantFacilityId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

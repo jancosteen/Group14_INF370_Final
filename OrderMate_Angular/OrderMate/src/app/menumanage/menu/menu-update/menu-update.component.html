@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <form [formGroup]="menuForm" autocomplete="off" novalidate (ngSubmit)="update(menuForm.value)">
+   
+      <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+        <div class="form-group row">
+            <label for="menuId" class="control-label col-md-2">Menu Id: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="menuId" id="menuId" class="form-control" readonly/>
+            </div>
+          </div>
+        <div class="form-group row">
+          <label for="menuName" class="control-label col-md-2">Menu Name: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="menuName" id="menuName" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('menuName') && hasError('menuName', 'required')">Menu Name is required</em>
+            <em *ngIf="validateControl('menuName') && hasError('menuName', 'maxlength')">Maximum allowed length is 100 characters.</em>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="menuDescription" class="control-label col-md-2">Menu Description: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="menuDescription" id="menuDescription" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('menuDescription') && hasError('menuDescription', 'required')">Menu Description is required</em>
+              <em *ngIf="validateControl('menuDescription') && hasError('menuDescription', 'maxlength')">Maximum allowed length is 100 characters.</em>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="menuDateCreated" class="control-label col-md-2">Date Created: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="menuDateCreated" id="menuDateCreated" class="form-control" type="date"/>
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('menuDateCreated') && hasError('menuDateCreated', 'required')">Date Created is required</em>
+  
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="menuTimeActiveFrom" class="control-label col-md-2">Time Active From: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="menuTimeActiveFrom" id="menuTimeActiveFrom" class="form-control" type="time"/>
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('menuTimeActiveFrom') && hasError('menuTimeActiveFrom', 'required')">Time Active From is required</em>
+          
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="menuTimeActiveTo" class="control-label col-md-2">Time Active To: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="menuTimeActiveTo" id="menuTimeActiveTo" class="form-control" type="time"/>
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('menuTimeActiveTo') && hasError('menuTimeActiveTo', 'required')">Time Active To is required</em>
+         
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="restaurant" class="control-label col-md-2">Restaurant: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="restaurant" id="restaurant" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('restaurant') && hasError('restaurant', 'required')">Restaurant is required</em>
+              <em *ngIf="validateControl('restaurant') && hasError('restaurant', 'maxlength')">Maximum allowed length is 100 characters.</em>
+            </div>
+          </div>
+       
+        <div class="form-group row">
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!menuForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" [routerLink]="['/menu/list']">Cancel</button>
+            </div>
+        </div> 
+        
+      </div>
+    </form>
+   
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
+    (redirectOnOK)="redirectToList()">
+  </app-success-modal>
+   
+    <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" [okButtonText]="'OK'">
+  </app-error-modal>
+   
+  </div>
+  

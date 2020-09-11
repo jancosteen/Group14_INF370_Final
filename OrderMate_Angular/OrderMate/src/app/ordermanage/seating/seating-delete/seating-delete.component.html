@@ -1,0 +1,59 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Seating Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{seating?.seatingId}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Date:</strong>
+        </div>
+        <div class="col-md-4">
+          {{seating?.seatingDate}}
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Time:</strong>
+      </div>
+      <div class="col-md-4">
+        {{seating?.seatingTime}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Reservation:</strong>
+      </div>
+      <div class="col-md-4">
+        {{seating?.reservation}}
+      </div>
+    </div>
+    
+    
+</div>
+
+
+<div class="row">
+    <div class="col-md-offset-8 col-md-1">
+      <button type="submit" class="btn btn-info" (click)="delete()">Delete</button>
+    </div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-danger" (click)="redirectToList()">Cancel</button>
+    </div>
+  </div>
+  
+  
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" 
+    [okButtonText]="'OK'"
+    (redirectOnOK)="redirectToList()">
+  </app-success-modal>
+   
+  <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" 
+    [okButtonText]="'OK'">
+  </app-error-modal> 

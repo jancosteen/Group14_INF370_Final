@@ -1,0 +1,39 @@
+<div class="row"> 
+    <div class="offset-10 col-md-2" style="padding-top: 10px;">
+      <a class="btn btn-primary small" [routerLink]="['/prodCategory/create']">Add Product Category</a>
+    </div>
+  </div>
+  <br> 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of productcategories">
+              <td>{{x.ProductCategoryId}}</td>
+              <td>{{x.ProductCategoryId1}}</td>
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.ProductCategoryId)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.ProductCategoryId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.ProductCategoryId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

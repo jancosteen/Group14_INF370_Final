@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-around" style="padding-top: 20px;">
+     <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Employee
+        </div>
+        <ul class="list-group list-group-flush">
+            <a [routerLink]="['/employee/create']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Register Employee</li>
+            </a>
+            <a [routerLink]="['/employee/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Manage Employees</li>
+            </a>
+        </ul>
+    </div>
+
+</div>
+

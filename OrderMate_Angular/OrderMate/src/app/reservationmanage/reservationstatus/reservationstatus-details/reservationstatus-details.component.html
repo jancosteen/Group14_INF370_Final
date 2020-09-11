@@ -1,0 +1,28 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Reservation Status Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{reservationStatus?.reservationStatusId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Reservation Status:</strong>
+      </div>
+      <div class="col-md-4">
+        {{reservationStatus?.reservationStatus1}}
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(reservationStatus.reservationStatusId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(reservationStatus.reservationStatusId)">Delete</button>
+    </div>
+</div>

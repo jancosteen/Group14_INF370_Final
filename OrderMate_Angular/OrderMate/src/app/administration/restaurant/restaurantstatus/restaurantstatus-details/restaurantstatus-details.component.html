@@ -1,0 +1,28 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Restaurant Status Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurantStatus?.restaurantstatusId}} 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Restaurant Status:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurantStatus?.restaurantStatus}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(restaurantStatus?.restaurantstatusId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(restaurantStatus?.restaurantstatusId)">Delete</button>
+    </div>
+</div>

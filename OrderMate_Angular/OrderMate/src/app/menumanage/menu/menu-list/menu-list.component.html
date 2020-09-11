@@ -1,0 +1,53 @@
+
+  
+  <div class="row"> 
+    <div class="offset-10 col-md-2" style="padding-top: 10px;">
+      <a class="btn btn-primary small" [routerLink]="['/menu/create']">Add Menu</a>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="offset-2 col-md-8">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Descripition</th>
+              <th>Date Created</th>
+              <th>Time Active From</th>
+              <th>Time Active To</th>
+              <th>Restaurant</th>
+              <th>Details</th> 
+              <th>Update</th>
+              <th>Delete</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of menu">
+              <td>{{x.menuId}}</td>
+              <td>{{x.menuName}}</td> 
+              <td>{{x.menuDescription}}</td> 
+              <td>{{x.menuDateCreated}}</td> 
+              <td>{{x.menuTimeActiveFrom}}</td> 
+              <td>{{x.menuTimeActiveTo}}</td> 
+              <td>{{x.restaurant}}</td> 
+   
+  
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.menuId)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.menuId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.menuId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

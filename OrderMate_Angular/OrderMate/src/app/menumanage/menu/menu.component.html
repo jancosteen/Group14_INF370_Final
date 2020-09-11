@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-3 mx-auto my-5" *ngFor="let x of menu">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{x.menuName}}</h5>
+            <p class="card-text">{{x.menuDescription}}</p>
+            <a (click)="redirectToItemsPage(x.menuId)">See Menu Items</a>
+          </div>
+      </div>
+    </div>
+  </div>
+

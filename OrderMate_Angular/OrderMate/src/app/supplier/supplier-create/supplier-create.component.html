@@ -1,0 +1,142 @@
+<div class="container-fluid">
+    <form [formGroup]="supplierForm" autocomplete="off" novalidate (ngSubmit)="createSupplier(supplierForm.value)">
+   
+      <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+        
+        <div class="form-group row">
+          <label for="Name" class="control-label col-md-2">Name: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="Name" id="Name" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('Name') && hasError('Name', 'required')">Name is required</em>
+            <em *ngIf="validateControl('Name') && hasError('Name', 'maxlength')">Maximum allowed length is 20 characters.</em>
+          </div> 
+        </div>
+        <div class="form-group row">
+            <label for="Description" class="control-label col-md-2">Description: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="Description" id="Description" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('Description') && hasError('Description', 'required')">Description is required</em>
+              <em *ngIf="validateControl('Description') && hasError('Description', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Email" class="control-label col-md-2">Email: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="Email" id="Email" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('Email') && hasError('Email', 'required')">Email is required</em>
+              <em *ngIf="validateControl('Email') && hasError('Email', 'maxlength')">Maximum allowed length is 30 characters.</em>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ContactNumber" class="control-label col-md-2">Contact Number: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="ContactNumber" id="ContactNumber" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('ContactNumber') && hasError('ContactNumber', 'required')">Contact Number is required</em>
+              <em *ngIf="validateControl('ContactNumber') && hasError('ContactNumber', 'maxlength')">Maximum allowed length is 10 characters.</em>
+            </div>
+        </div>
+   <!--
+        <div class="form-group row">
+          <label for="dateOfBirth" class="control-label col-md-2">Date of birth: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="dateOfBirth" id="dateOfBirth" class="form-control" appDatepicker 
+                  (change)="executeDatePicker($event)" readonly/>
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('dateOfBirth') && hasError('dateOfBirth', 'required')">Date of birth is required</em>
+          </div>
+        </div>
+    -->
+        <div class="form-group row">
+          <label for="address1" class="control-label col-md-2">Address Line 1: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="address1" id="address1" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('address1') && hasError('address1', 'required')">Address line 1 is required</em>
+            <em *ngIf="validateControl('address1') && hasError('address1', 'maxlength')">Maximum allowed length is 50 characters.</em>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="address2" class="control-label col-md-2">Address Line 2: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="address2" id="address2" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('address2') && hasError('address2', 'required')">Address line 2 is required</em>
+              <em *ngIf="validateControl('address2') && hasError('address2', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="address3" class="control-label col-md-2">Address Line 3: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="address3" id="address3" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('address3') && hasError('address3', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="City" class="control-label col-md-2">City: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="City" id="City" class="form-control" />
+            </div>
+            <div class="col-md-5">
+                <em *ngIf="validateControl('City') && hasError('City', 'required')">City is required</em>
+                <em *ngIf="validateControl('City') && hasError('City', 'maxlength')">Maximum allowed length is 25 characters.</em>
+              </div>
+        </div>
+        <div class="form-group row">
+            <label for="PostalCode" class="control-label col-md-2">Postal Code: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="PostalCode" id="PostalCode" class="form-control" />
+            </div>
+            <div class="col-md-5">
+                <em *ngIf="validateControl('PostalCode') && hasError('PostalCode', 'required')">Postal Code is required</em>
+                <em *ngIf="validateControl('PostalCode') && hasError('PostalCode', 'maxlength')">Maximum allowed length is 5 characters.</em>
+              </div>
+        </div>
+        <div class="form-group row">
+            <label for="Country" class="control-label col-md-2">Country: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="Country" id="Country" class="form-control" />
+            </div>
+            <div class="col-md-5">
+                <em *ngIf="validateControl('Country') && hasError('Country', 'required')">Country is required</em>
+                <em *ngIf="validateControl('Country') && hasError('Country', 'maxlength')">Maximum allowed length is 25 characters.</em>
+              </div>
+        </div>
+        <br><br>
+   
+        <div class="form-group row">
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!supplierForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" [routerLink]="['/supplier/list']">Cancel</button>
+            </div>
+        </div>
+        
+      </div>
+    </form>
+   
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
+    (redirectOnOK)="redirectToSupplierList()">
+  </app-success-modal>
+   
+    <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" [okButtonText]="'OK'">
+  </app-error-modal>
+   
+  </div>
+  

@@ -1,0 +1,39 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Special Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{orderStatus?.orderStatusId}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Order Status:</strong>
+        </div>
+        <div class="col-md-4">
+          {{orderStatus?.orderStatus}}
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Order:</strong>
+      </div>
+      <div class="col-md-4">
+        {{orderStatus?.orderId}}
+      </div>
+    </div>
+    
+    
+  
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(orderStatus.orderStatusId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(orderStatus.orderStatusId)">Delete</button>
+    </div>
+</div>

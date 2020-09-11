@@ -1,0 +1,81 @@
+
+<div class="container-fluid offset-3 col-md-8">
+    <form [formGroup]="reservationForm" autocomplete="off" novalidate (ngSubmit)="create(reservationForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+
+              <div class="form-group row">
+                <label for="reservationDateReserved" class="control-label col-md-2">Date Reserved: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="reservationDateReserved" id="reservationDateReserved" class="form-control" type="datetime-local" min="Date.Now()" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('reservationDateReserved') && hasError('reservationDateReserved', 'required')">Date Reserved is required</em>
+                  <em *ngIf="validateControl('reservationDateReserved') && hasError('reservationDateReserved', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="reservationPartyQty" class="control-label col-md-2">Number of Party: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="reservationPartyQty" id="reservationPartyQty" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('reservationPartyQty') && hasError('reservationPartyQty', 'required')">PartyQuantity is required</em>
+                  <em *ngIf="validateControl('reservationPartyQty') && hasError('reservationPartyQty', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="reservationStatusName" class="control-label col-md-2">Reservation Status: </label>
+                <div class="col-md-5">
+                  <select formControlName="reservationStatusName" id="reservationStatusName" class="form-control" [(ngModel)]="selectedStatus"  placeholder="select" >
+                    <option *ngFor=" let x of statuses" [ngvalue]="x.reservationStatusId">{{x.reservationStatus1}}</option>
+                  </select>
+                </div> 
+            </div>
+            <div class="form-group row">
+                <label for="reservationNumberOfBills" class="control-label col-md-2">Number Of Bills: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="reservationNumberOfBills" id="reservationNumberOfBills" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('reservationNumberOfBills') && hasError('reservationNumberOfBills', 'required')">Number Of Bills is required</em>
+                  <em *ngIf="validateControl('reservationNumberOfBills') && hasError('reservationNumberOfBills', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="user" class="control-label col-md-2">User: </label>
+                <div class="col-md-5">
+                  <select formControlName="user" id="user" class="form-control" [(ngModel)]="selectedUser"  placeholder="select" >
+                    <option *ngFor=" let x of users" [ngvalue]="x.id">{{x.userName}}</option>
+                  </select>
+                </div> 
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('user') && hasError('user', 'required')">user is required</em>
+              
+                </div>
+            </div>
+              
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!reservationForm.valid">Save</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectToList()">Cancel</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectToList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>
+
+

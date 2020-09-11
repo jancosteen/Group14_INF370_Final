@@ -1,0 +1,41 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Restaurant Facility Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurantFacility?.restaurantFacilityId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Restaurant Facility:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurantFacility?.restaurantFacility}} 
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-offset-8 col-md-1">
+      <button type="submit" class="btn btn-info" (click)="deleterestaurantFacility()">Delete</button>
+    </div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-danger" (click)="redirectTorestaurantFacilityList()">Cancel</button>
+    </div>
+  </div>
+  
+  
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" 
+    [okButtonText]="'OK'"
+    (redirectOnOK)="redirectTorestaurantFacilityList()">
+  </app-success-modal>
+   
+  <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" 
+    [okButtonText]="'OK'">
+  </app-error-modal>
+  
+  

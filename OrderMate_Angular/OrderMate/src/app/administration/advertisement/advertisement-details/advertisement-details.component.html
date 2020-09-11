@@ -1,0 +1,45 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Advertisement Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{advertisement?.advertisementId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Name:</strong>
+      </div>
+      <div class="col-md-4">
+        {{advertisement?.advertisementName}}
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-md-3">
+        <strong>Description:</strong>
+      </div>
+      <div class="col-md-4">
+        {{advertisement?.advertisementDescription}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>File:</strong>
+      </div>
+      <div class="col-md-4">
+        {{advertisement?.advertisementFile}}
+      </div>
+    </div>
+   
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(advertisement.advertisementId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(advertisement.advertisementId)">Delete</button>
+    </div>
+</div>

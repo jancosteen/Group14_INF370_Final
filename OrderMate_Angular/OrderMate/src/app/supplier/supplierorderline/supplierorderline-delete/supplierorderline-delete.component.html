@@ -1,0 +1,85 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Supplier OrderLine Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplierOrderLine?.supplierOrderLineId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Supplier Order:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplierOrderLine?.supplierOrder.supplierOrderId}}
+      </div>
+    </div>
+    <div class="row"> <!-- *ngIf='owner?.accounts.length <= 2; else advancedUser'> -->
+      <div class="col-md-3">
+        <strong>elivery Lead Time:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplierOrderLine?.deliveryLeadTime}}
+      </div>
+    </div>
+    <div class="row"> <!-- *ngIf='owner?.accounts.length <= 2; else advancedUser'> -->
+      <div class="col-md-3">
+        <strong>Product Standard Price:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplierOrderLine?.productStandardPrice}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Discount Agreement:</strong>
+      </div>
+      <div class="col-md-4">
+        {{supplierOrderLine?.discountAgreement}},
+
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Quantity:</strong>
+        </div>
+        <div class="col-md-4">
+          {{supplierOrderLine?.orderedQty}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Product:</strong>
+        </div>
+        <div class="col-md-4">
+          {{supplierOrderLine?.product.productId}}
+        </div>
+    </div>
+
+    
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-md-offset-8 col-md-1">
+      <button type="submit" class="btn btn-info" (click)="delete()">Delete</button>
+    </div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-danger" (click)="redirectToList()">Cancel</button>
+    </div>
+  </div>
+  
+  
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" 
+    [okButtonText]="'OK'"
+    (redirectOnOK)="redirectToList()">
+  </app-success-modal>
+   
+  <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" 
+    [okButtonText]="'OK'">
+  </app-error-modal>
+  
+  

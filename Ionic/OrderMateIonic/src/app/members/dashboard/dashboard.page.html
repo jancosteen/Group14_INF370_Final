@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>      
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="cards-bg">
+  <!--Profile Info-->
+  <ion-item lines="none">
+    <ion-card style="width: 100%; text-align: center;"> 
+      <img src="./../../../assets/dashboard-bg.png">     
+      <ion-card-header>        
+        <ion-card-title>{{loggedInUser?.userName}}</ion-card-title>
+        <ion-card-subtitle>{{loggedInUser?.email}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          {{loggedInUser?.user_Name}}
+        </p>
+        <p>
+          {{loggedInUser?.user_Surname}}
+        </p>
+        <p>
+          {{loggedInUser?.user_Contact_Number}}
+        </p>
+      </ion-card-content>
+    </ion-card>    
+  </ion-item>
+
+
+  <!--View Reservations-->
+  <ion-button color="primary" expand="block" (click)="toReservationPage()">
+    <ion-icon name="book-outline" slot="start"></ion-icon>
+    <ion-label>My Reservations</ion-label>
+  </ion-button>
+  <ion-button color="primary" expand="block" (click)="toCheckInPage()">
+    <ion-icon name="camera-outline" slot="start"></ion-icon>
+    <ion-label>Check In</ion-label>
+  </ion-button>
+
+  <ion-button color="primary" expand="block" (click)="toCurrentOrders()">
+    <ion-icon name="receipt-outline" slot="start"></ion-icon>
+    <ion-label>My Current Orders</ion-label>
+  </ion-button>
+  
+    
+  
+</ion-content>
+
+
+ 

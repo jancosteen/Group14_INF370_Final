@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>      
+    </ion-buttons>
+    <ion-title>
+      
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card style="text-align: center;">
+  <img src="./../../../assets/orders-bg.png" style="width:auto; height:auto;">
+  <ion-card-header>
+    <ion-card-title>Current Order</ion-card-title>
+    <ion-card-subtitle>This is your current order</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card *ngFor="let ol of orderLine" style="text-align: center;">
+    <h3>Date Created</h3>
+    <ion-card-subtitle>{{order.orderDateCreated}}</ion-card-subtitle>     
+      <h3>Menu Item Id</h3>
+      <ion-card-subtitle>{{ol.menuItemIdFk}}</ion-card-subtitle>  
+      <h3>Quantity</h3>
+      <ion-card-subtitle>{{ol.itemQty}}</ion-card-subtitle>  
+      <h3>Item Comments</h3>
+      <ion-card-subtitle>{{ol.itemComments}}</ion-card-subtitle> 
+    
+       
+  </ion-card>
+</ion-card>
+</ion-content>

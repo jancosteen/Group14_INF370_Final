@@ -1,0 +1,41 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Price</th>
+              <th>Price Date Update</th> 
+              <th>Name</th>
+      
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of specialPrices">
+              <td>{{x.specialPriceId}}</td>
+              <td>{{x.specialPrice}}</td>
+              <td>{{x.specialPriceDateUpdate}}</td>
+              <td>{{x.special.specialName}}</td>
+             
+  
+              <td><button type="button" id="details" class="btn btn-light" 
+                (click)="getDetailsPage(x.specialPriceId)">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success" 
+                (click)="redirectToUpdatePage(x.specialPriceId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" 
+                (click)="redirectToDeletePage(x.specialPriceId)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  

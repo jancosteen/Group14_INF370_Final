@@ -1,0 +1,28 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Shift Status Id:</strong>
+    </div>
+    <div class="col-md-4">
+      {{shiftstatus?.shiftstatusId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Shift Status:</strong>
+    </div>
+    <div class="col-md-4">
+      {{shiftstatus?.shiftstatus}}
+    </div>
+  </div>
+</div> 
+<div class="row">
+  <div class="col-md-3">
+      <button type="button" id="update" class="btn btn-success" 
+      (click)="redirectToUpdatePage(shiftstatus.shiftstatusId)">Update</button>
+  </div>
+  <div class="col-md-3">
+      <button type="button" id="delete" class="btn btn-danger" 
+      (click)="redirectToDeletePage(shiftstatus.shiftstatusId)">Delete</button>
+  </div>
+</div>

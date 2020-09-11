@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-around" style="padding-top: 20px;">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Restuarant
+        </div>
+        <ul class="list-group list-group-flush">
+            <a [routerLink]="['/restuarant/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Restuarant</li>
+            </a>
+            <a [routerLink]="['/restaurantfacility/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Restaurant Facility</li>
+            </a>   
+        </ul>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Advertisements
+        </div>
+        <ul class="list-group list-group-flush">
+            <a [routerLink]="['/advertisement/list']" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">
+                <li class="list-group-item">Advertisments</li>
+            </a>
+            
+        </ul>
+    </div>
+
+</div>
+

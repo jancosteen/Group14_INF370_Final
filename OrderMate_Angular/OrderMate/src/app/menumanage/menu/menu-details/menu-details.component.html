@@ -1,0 +1,68 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{menu?.menuId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Name:</strong>
+      </div>
+      <div class="col-md-4">
+        {{menu?.menuName}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Description:</strong>
+        </div>
+        <div class="col-md-4">
+          {{menu?.menuDescription}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Menu Item Description:</strong>
+        </div>
+        <div class="col-md-4">
+          {{menu?.menuDateCreated}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Time Active From:</strong>
+        </div>
+        <div class="col-md-4">
+          {{menu?.menuTimeActiveFrom}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Time Active To:</strong>
+        </div>
+        <div class="col-md-4">
+          {{menu?.menuTimeActiveTo}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Restaurant:</strong>
+        </div>
+        <div class="col-md-4">
+          {{menu?.restaurant}}
+        </div>
+      </div>
+  </div>  
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(menu.menuId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(menu.menuId)">Delete</button>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Qr Code SeatingId:</strong>
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.qrCodeSeatingId}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Number Of People:</strong>
+        </div>
+        <div class="col-md-4">
+          {{qrCodeSeating?.numberOfPeople}}
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Qr Code:</strong> 
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.qrCode}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Seating:</strong>
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.Seating.seatingId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Seating:</strong>
+      </div>
+      <div class="col-md-4">
+        {{qrCodeSeating?.Order.orderId}}
+      </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-offset-8 col-md-1">
+          <button type="submit" class="btn btn-info" (click)="delete()">Delete</button>
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-danger" (click)="redirectToList()">Cancel</button>
+        </div>
+      </div>
+      
+      
+      <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'"
+        (redirectOnOK)="redirectToList()">
+      </app-success-modal>
+       
+      <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+      </app-error-modal> 

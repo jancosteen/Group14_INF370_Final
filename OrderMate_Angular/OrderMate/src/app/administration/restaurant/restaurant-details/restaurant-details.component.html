@@ -1,0 +1,102 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Restaurant Id:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurant?.restaurantId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Url:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurant?.restaurantUrl}}
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-md-3">
+        <strong>Description:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurant?.restaurantDescription}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Coordinates:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurant?.restaurantCoordinates}}
+      </div>
+    </div>
+    <div class="row"> 
+        <div class="col-md-3">
+          <strong>Date Created:</strong>
+        </div>
+        <div class="col-md-4">
+          {{restaurant?.restaurantDateCreated}}
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Address:</strong>
+      </div>
+      <div class="col-md-4">
+        {{restaurant?.restaurantAddressLine1}},
+        {{restaurant?.restaurantAddressLine2}},
+        {{restaurant?.restaurantAddressLine3}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>City:</strong>
+        </div>
+        <div class="col-md-4">
+          {{restaurant?.restaurantCity}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Postal Code:</strong>
+        </div>
+        <div class="col-md-4">
+          {{restaurant?.restaurantPostalCode}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Country:</strong>
+        </div>
+        <div class="col-md-4">
+          {{restaurant?.restaurantProvince}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Country:</strong>
+        </div>
+        <div class="col-md-4">
+          {{restaurant?.restaurantCountry}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Country:</strong>
+        </div>
+        <div class="col-md-4">
+          {{restaurant?.restaurantStatus}}
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(restaurant.restaurantId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(restaurant.restaurantId)">Delete</button>
+    </div>
+</div>

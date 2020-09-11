@@ -1,0 +1,45 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Special Price Id</strong>
+      </div>
+      <div class="col-md-4">
+        {{specialPrice?.specialPriceId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>specialPrice:</strong>
+      </div>
+      <div class="col-md-4">
+        {{specialPrice?.specialPrice}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Price Date Update:</strong>
+        </div>
+        <div class="col-md-4">
+          {{specialPrice?.specialPriceDateUpdate}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Special:</strong>
+        </div>
+        <div class="col-md-4">
+          {{specialPrice?.special.specialName}}
+        </div>
+      </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+        <button type="button" id="update" class="btn btn-success" 
+        (click)="redirectToUpdatePage(specialPrice.specialPriceId)">Update</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="delete" class="btn btn-danger" 
+        (click)="redirectToDeletePage(specialPrice.specialPriceId)">Delete</button>
+    </div>
+</div>

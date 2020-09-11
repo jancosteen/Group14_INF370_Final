@@ -1,0 +1,45 @@
+<h3>Update Supplier</h3>
+<div class="container-fluid">
+    <form [formGroup]="productcategoryForm" autocomplete="off" novalidate (ngSubmit)="updateProductCategory(productcategoryForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+            <div class="form-group row">
+                <label for="ProductCategoryId" class="control-label col-md-2">Id: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="ProductCategoryId" id="ProductCategoryId" class="form-control" readonly/>
+                </div>
+        
+              </div>
+              <div class="form-group row">
+                  <label for="ProductCategoryId1" class="control-label col-md-2">Description: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="ProductCategoryId1" id="ProductCategoryId1" class="form-control" />
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('ProductCategoryId1') && hasError('ProductCategoryId1', 'required')">Description is required</em>
+                    <em *ngIf="validateControl('ProductCategoryId1') && hasError('ProductCategoryId1', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                  </div>
+              </div>
+              
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!productcategoryForm.valid">Update</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectToList()">Cancel</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectToList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>

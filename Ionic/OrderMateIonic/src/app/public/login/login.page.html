@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="cards-bg">
+  <ion-card>
+    <img src="./../../../assets/robotChef-square.png"><img>
+    <ion-card-content style="text-align: center;">
+      <ion-card-title >OrderMate</ion-card-title>
+      <ion-card-subtitle >Ordering with no distractions</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/register']" expand="block" color="primary">Register</ion-button>
+
+        <span class="divider line one-line">or</span>
+
+        <span class="already">Already a user?</span>
+
+        <ion-button (click)="openLoginModal()" expand="block" color="secondary">Log In</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- Username and password-->
+

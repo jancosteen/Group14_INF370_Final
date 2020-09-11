@@ -1,0 +1,66 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Product Written Off Id:</strong>
+    </div>
+    <div class="col-md-4">
+      {{productwrittenoff?.ProductWrittenOffId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Quantity:</strong>
+    </div>
+    <div class="col-md-4">
+      {{productwrittenoff?.WrittenOffQty}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Written Off Stock:</strong>
+    </div>
+    <div class="col-md-4">
+      {{productwrittenoff?.WrittenOffStockIdFk}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Product Written Off:</strong>
+    </div>
+    <div class="col-md-4">
+      {{productwrittenoff?.ProductIdFk}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Employee:</strong>
+    </div>
+    <div class="col-md-4">
+      {{productwrittenoff?.Employee}}
+    </div>
+  </div>
+  
+</div>
+  
+  <div class="row">
+    <div class="col-md-offset-8 col-md-1">
+      <button type="submit" class="btn btn-info" (click)="deleteProductWrittenOff()">Delete</button>
+    </div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-danger" (click)="redirectToProductWrittenOffList()">Cancel</button>
+    </div>
+  </div>
+  
+  
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" 
+    [okButtonText]="'OK'"
+    (redirectOnOK)="redirectToProductWrittenOffList()">
+  </app-success-modal>
+   
+  <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" 
+    [okButtonText]="'OK'">
+  </app-error-modal>
+  
+  

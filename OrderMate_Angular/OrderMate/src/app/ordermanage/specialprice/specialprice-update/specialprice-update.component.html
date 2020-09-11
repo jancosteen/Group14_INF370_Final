@@ -1,0 +1,64 @@
+<h3>Update Supplier</h3>
+<div class="container-fluid">
+    <form [formGroup]="specialPriceForm" autocomplete="off" novalidate (ngSubmit)="update(specialPriceForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+            <div class="form-group row">
+                <label for="specialPriceId" class="control-label col-md-2">Id: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="specialPriceId" id="specialPriceId" class="form-control" readonly/>
+                </div>
+        
+              </div>
+              <div class="form-group row">
+                <label for="special" class="control-label col-md-2">Special: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="special" id="special" class="form-control" readonly/>
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('special') && hasError('special', 'required')">Special is required</em>
+                  <em *ngIf="validateControl('special') && hasError('special', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                </div>
+            </div>
+              <div class="form-group row">
+                  <label for="specialPrice" class="control-label col-md-2">Price: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="specialPrice" id="specialPrice" class="form-control" />
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('specialPrice') && hasError('specialPrice', 'required')">Description is required</em>
+                    <em *ngIf="validateControl('specialPrice') && hasError('specialPrice', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="specialPriceDateUpdate" class="control-label col-md-2">Updated Date: </label>
+                <div class="col-md-5">
+                  <input type="text" formControlName="specialPriceDateUpdate" id="specialPriceDateUpdate" class="form-control" type="datetime-local" readonly/>
+                </div>
+                <div class="col-md-5">
+                  <em *ngIf="validateControl('specialPriceDateUpdate') && hasError('specialPriceDateUpdate', 'required')">Date is required</em>
+                </div>
+            </div>
+               
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!specialPriceForm.valid">Update</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectTospecialPriceList()">Cancel</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectTospecialPriceList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>

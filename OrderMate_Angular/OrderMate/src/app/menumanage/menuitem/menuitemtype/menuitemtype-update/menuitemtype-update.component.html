@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <form [formGroup]="menuItemTypeForm" autocomplete="off" novalidate (ngSubmit)="update(menuItemTypeForm.value)">
+   
+      <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+        <div class="form-group row">
+            <label for="menuItemTypeId" class="control-label col-md-2">Menu Item Type: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="menuItemTypeId" id="menuItemTypeId" class="form-control" readonly />
+            </div>
+          </div>
+        <div class="form-group row">
+          <label for="menuItemType" class="control-label col-md-2">Menu Item Type: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="menuItemType" id="menuItemType" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('menuItemType') && hasError('menuItemType', 'required')">Menu Item Type is required</em>
+            <em *ngIf="validateControl('menuItemType') && hasError('menuItemType', 'maxlength')">Maximum allowed length is 100 characters.</em>
+          </div>
+        </div>
+       
+        <div class="form-group row"> 
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!menuItemTypeForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" [routerLink]="['/menuitemtype/list']">Cancel</button>
+            </div>
+        </div> 
+        
+      </div>
+    </form>
+   
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
+    (redirectOnOK)="redirectToList()">
+  </app-success-modal>
+   
+    <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" [okButtonText]="'OK'">
+  </app-error-modal>
+   
+  </div>
+  

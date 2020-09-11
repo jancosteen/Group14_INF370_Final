@@ -1,0 +1,113 @@
+<div class="container-fluid">
+    <form [formGroup]="productForm" autocomplete="off" novalidate (ngSubmit)="createProduct(productForm.value)">
+   
+      <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+        
+        <div class="form-group row">
+          <label for="productName" class="control-label col-md-2">Name: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="productName" id="productName" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('productName') && hasError('productName', 'required')">Name is required</em>
+            <em *ngIf="validateControl('productName') && hasError('productName', 'maxlength')">Maximum allowed length is 20 characters.</em>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="productDescription" class="control-label col-md-2">Description: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="productDescription" id="Description" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('productDescription') && hasError('productDescription', 'required')">Description is required</em>
+              <em *ngIf="validateControl('productDescription') && hasError('productDescription', 'maxlength')">Maximum allowed length is 50 characters.</em>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="productReorderLevel" class="control-label col-md-2">Reorder Level: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="productReorderLevel" id="productReorderLevel" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('productReorderLevel') && hasError('productReorderLevel', 'required')">Reorder Level is required</em>
+              <em *ngIf="validateControl('productReorderLevel') && hasError('productReorderLevel', 'maxlength')">Maximum allowed length is 30 characters.</em>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="productOnHand" class="control-label col-md-2">Product OnHand : </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="productOnHand" id="productOnHand" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('productOnHand') && hasError('productOnHand', 'required')">Product OnHand is required</em>
+              <em *ngIf="validateControl('productOnHand') && hasError('productOnHand', 'maxlength')">Maximum allowed length is 10 characters.</em>
+            </div>
+        </div>
+
+        <!--this is where i need to patch the values into dropdowns-->
+        <div class="form-group row">
+            <label for="productCategory" class="control-label col-md-2">Product Category : </label>
+            <div class="col-md-5">
+                <select formControlName="productCategory" id="productCategory">
+                    <option *ngFor="let x of prodCategories" [value]="x.ProductCategoryId">
+                      {{x.productCategory}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <em *ngIf="validateControl('productCategory') && hasError('productCategory', 'required')">Product Category is required</em>
+            </div>
+        </div>
+        <!--
+        <div class="form-group row">
+            <label for="ProductType" class="control-label col-md-2">Product Type : </label>
+            <div class="col-md-5">
+                <select formControlName="ProductType" id="ProductType">
+                    <option *ngFor="let x of products?productTypes; let i = index" [value]="productTypes[i].id">
+                      {{x.productType1}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <em *ngIf="validateControl('ProductType') && hasError('ProductType', 'required')">Product Type is required</em>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ReorderFreq" class="control-label col-md-2">Product Reorder Frequency : </label>
+            <div class="col-md-5">
+                <select formControlName="ReorderFreq" id="ReorderFreq">
+                    <option *ngFor="let x of products?ReorderFreq; let i = index" [value]="ReorderFreq[i].id">
+                      {{x.ReorderFreq1}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <em *ngIf="validateControl('ReorderFreq') && hasError('ReorderFreq', 'required')">Reorder Frequency is required</em>
+            </div>
+        </div>
+        -->
+        <!--End of Patch-->
+        <br><br>
+   
+        <div class="form-group row">
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!productForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" [routerLink]="['/product/list']">Cancel</button>
+            </div>
+        </div>
+        
+      </div>
+    </form>
+   
+  <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
+    (redirectOnOK)="redirectToProductList()">
+  </app-success-modal>
+   
+    <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" [okButtonText]="'OK'">
+  </app-error-modal>
+   
+  </div>

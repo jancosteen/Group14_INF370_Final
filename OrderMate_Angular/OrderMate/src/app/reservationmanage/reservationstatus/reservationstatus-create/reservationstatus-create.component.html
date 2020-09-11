@@ -1,0 +1,38 @@
+
+<div class="container-fluid offset-2 col-md-8">
+    <form [formGroup]="reservationStatusForm" autocomplete="off" novalidate (ngSubmit)="create(reservationStatusForm.value)">
+        <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+              <div class="form-group row">
+                  <label for="ReservationStatus1" class="control-label col-md-2">Reservation Status: </label>
+                  <div class="col-md-5">
+                    <input type="text" formControlName="ReservationStatus1" id="ReservationStatus1" class="form-control" />
+                  </div>
+                  <div class="col-md-5">
+                    <em *ngIf="validateControl('ReservationStatus1') && hasError('ReservationStatus1', 'required')">Reservation Status is required</em>
+                    <em *ngIf="validateControl('ReservationStatus1') && hasError('ReservationStatus1', 'maxlength')">Maximum allowed length is 50 characters.</em>
+                  </div>
+              </div>
+               
+                <br><br>
+                <div class="form-group row">
+                    <div class="offset-5 col-md-1">
+                        <button type="submit" class="btn btn-info" [disabled]="!reservationStatusForm.valid">Save</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" (click)="redirectToList()">Cancel</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <app-success-modal [modalHeaderText]="'Success message'" 
+        [modalBodyText]="'Action completed successfully'" 
+        [okButtonText]="'OK'" 
+        (redirectOnOK)="redirectToList()">
+    </app-success-modal>
+ 
+    <app-error-modal [modalHeaderText]="'Error message'" 
+        [modalBodyText]="errorMessage" 
+        [okButtonText]="'OK'">
+    </app-error-modal>
+</div>
