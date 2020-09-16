@@ -47,6 +47,7 @@ namespace OrderMate_Server
             services.AddAutoMapper(typeof(Startup));
             services.ConfigureSwagger();
             services.AddIdentity<User, IdentityRole>(opt => {
+                //opt.Password.RequiredLength = 5;
                 opt.Password.RequireDigit = false;
                 opt.Password.RequireUppercase = false;
                 opt.User.RequireUniqueEmail = true;
