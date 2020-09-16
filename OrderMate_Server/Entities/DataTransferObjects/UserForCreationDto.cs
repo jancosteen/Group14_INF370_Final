@@ -6,11 +6,9 @@ using System.Text;
 
 namespace Entities.DataTransferObjects 
 {
-    public class UserForCreationDto :IdentityUser
+    public class UserForCreationDto 
     {
-        [Required(ErrorMessage = "Email is required")]
-        [EmailAddress]
-        public override string Email { get; set; }
+       
 
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]

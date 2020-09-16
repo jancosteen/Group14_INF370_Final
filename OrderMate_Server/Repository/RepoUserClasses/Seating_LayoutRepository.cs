@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Seating_LayoutRepository: RepositoryBase<SeatingLayout>, ISeating_LayoutRepository
     {
-        public Seating_LayoutRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Seating_LayoutRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

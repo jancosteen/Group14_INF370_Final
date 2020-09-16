@@ -11,6 +11,7 @@ namespace Entities.Models
         public double ProductStandardPrice { get; set; }
         public double DiscountAgreement { get; set; }
         public int OrderedQty { get; set; }
+        public int SupplierOrderLineId { get; set; }
 
         public virtual Product ProductIdFkNavigation { get; set; }
         public virtual SupplierOrder SupplierOrderIdFkNavigation { get; set; }

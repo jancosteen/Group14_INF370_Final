@@ -7,6 +7,7 @@ namespace Entities.Models
     {
         public int ShiftIdFk { get; set; }
         public int EmployeeIdFk { get; set; }
+        public int EmployeeShiftId { get; set; }
 
         public virtual Employee EmployeeIdFkNavigation { get; set; }
         public virtual Shift ShiftIdFkNavigation { get; set; }

@@ -22,9 +22,9 @@ namespace OrderMate_Server.Controllers
         private IMapper _mapper;
 
 
-        protected OrderMateDbFinalContext RepositoryContext { get; set; }
+        protected OrderMateDbDel08Context RepositoryContext { get; set; }
 
-        public ReportingController(OrderMateDbFinalContext repositoryContext, ILoggerManager logger, IMapper mapper, IRepositoryWrapper repository)
+        public ReportingController(OrderMateDbDel08Context repositoryContext, ILoggerManager logger, IMapper mapper, IRepositoryWrapper repository)
         {
             this.RepositoryContext = repositoryContext;
             _logger = logger;            
@@ -60,7 +60,7 @@ namespace OrderMate_Server.Controllers
             }
         }
         
-
+        /*
         [HttpGet("salesByMenuItem/{menuItemId}/{Datefrom}/{DateTo}", Name = "salesByMenuItem")]
         [Route("salesByMenuItem")]
         public IActionResult GetSalesByMenuItemReport(int menuItemId, DateTime Datefrom, DateTime DateTo)
@@ -125,5 +125,7 @@ namespace OrderMate_Server.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        */
     }
 }

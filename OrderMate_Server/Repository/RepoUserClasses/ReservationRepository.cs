@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class ReservationRepository: RepositoryBase<Reservation>, IReservationRepository
     {
-        public ReservationRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public ReservationRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

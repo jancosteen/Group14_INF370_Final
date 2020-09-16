@@ -5,10 +5,14 @@ namespace Entities.Models
 {
     public partial class OrderStatus
     {
+        public OrderStatus()
+        {
+            Order = new HashSet<Order>();
+        }
+
         public int OrderStatusId { get; set; }
         public string OrderStatus1 { get; set; }
-        public int? OrderIdFk { get; set; }
 
-        public virtual Order OrderIdFkNavigation { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

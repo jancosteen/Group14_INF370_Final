@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class MenuRepository: RepositoryBase<Menu>, IMenuRepository
     {
-        public MenuRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public MenuRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -28,7 +28,7 @@ namespace Repository.RepoUserClasses
         public IEnumerable<Menu> GetAllMenus()
         {
             return FindAll()
-                .OrderBy(m => m.RestaurantIdFk)
+                .OrderBy(m => m.MenuRestaurant)
                 .ToList();
         }
 
@@ -41,7 +41,7 @@ namespace Repository.RepoUserClasses
         public Menu GetMenuWithDetails(int menuId)
         {
             return FindByCondition(m => m.MenuId.Equals(menuId))
-                .Include(m => m.RestaurantIdFkNavigation)
+                .Include(m => m.MenuRestaurant)
                 .FirstOrDefault();
         }
 

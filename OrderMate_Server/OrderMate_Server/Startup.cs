@@ -53,8 +53,8 @@ namespace OrderMate_Server
                 opt.Password.RequireNonAlphanumeric = false;
             })
                 .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<OrderMateDbFinalContext>();
-            services.AddDbContext<OrderMateDbFinalContext>(opts =>
+                .AddEntityFrameworkStores<OrderMateDbDel08Context>();
+            services.AddDbContext<OrderMateDbDel08Context>(opts =>
             opts.UseSqlServer(Configuration["ConnectionSrings:sqlConnectionString"]));
 
 

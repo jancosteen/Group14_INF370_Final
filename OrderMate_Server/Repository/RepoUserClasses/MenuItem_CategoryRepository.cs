@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class MenuItem_CategoryRepository: RepositoryBase<MenuItemCategory>, IMenuItem_CategoryRepository
     {
-        public MenuItem_CategoryRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public MenuItem_CategoryRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

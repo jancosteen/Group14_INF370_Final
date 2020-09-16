@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class EmployeeRepository: RepositoryBase<Employee>, IEmployeeRepository
     {
-        public EmployeeRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public EmployeeRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -41,7 +41,7 @@ namespace Repository.RepoUserClasses
         public Employee GetEmployeeDetails(int employeeId)
         {
             return FindByCondition(em => em.EmployeeId.Equals(employeeId))
-                .Include( em => em.OrderLine)
+                .Include( em => em.RestaurantIdFk)
                 .Include(em => em.ProductStockTake)
                 .Include(em => em.RestaurantIdFkNavigation)
                 .Include(em => em.User)

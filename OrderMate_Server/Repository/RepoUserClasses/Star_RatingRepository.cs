@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Star_RatingRepository: RepositoryBase<StarRating>, IStar_RatingRepository
     {
-        public Star_RatingRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Star_RatingRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

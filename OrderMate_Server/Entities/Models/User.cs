@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models
 {
@@ -9,20 +8,21 @@ namespace Entities.Models
     {
         public User()
         {
-            Reservation = new HashSet<Reservation>(); 
+            OrderLine = new HashSet<OrderLine>();
+            Reservation = new HashSet<Reservation>();
+            UserUserImage = new HashSet<UserUserImage>();
+            UserUserRole = new HashSet<UserUserRole>();
         }
 
-
-        public string User_Name { get; set; } 
-        public string User_Surname { get; set; }
-        public string User_Contact_Number { get; set; }
-       // public string? UserRole { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string ContactNumber { get; set; }
         public int? EmployeeIdFk { get; set; }
 
         public virtual Employee EmployeeIdFkNavigation { get; set; }
+        public virtual ICollection<OrderLine> OrderLine { get; set; }
         public virtual ICollection<Reservation> Reservation { get; set; }
-
-       
-        
+        public virtual ICollection<UserUserImage> UserUserImage { get; set; }
+        public virtual ICollection<UserUserRole> UserUserRole { get; set; }
     }
 }

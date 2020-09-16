@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class MenuItemRepository: RepositoryBase<MenuItem>, IMenuItemRepository
     {
-        public MenuItemRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public MenuItemRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
         }
 
@@ -41,7 +41,7 @@ namespace Repository.RepoUserClasses
         {
             return FindByCondition(m => m.MenuItemId.Equals(menuItemId))
                 .Include(m => m.ItemTypeMenuMenuItem)
-                .Include(m => m.MenuIdFkNavigation)
+                .Include(m => m.MenuRestaurant)
                 .Include(m => m.MenuItemAllergy)
                 .Include(m => m.MenuItemCategoryIdFkNavigation)
                 .Include(m => m.MenuItemSpecial)

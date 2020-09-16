@@ -11,7 +11,7 @@ namespace Repository.RepoUserClasses
 {
     public class Employee_ShiftRepository:RepositoryBase<EmployeeShift>, IEmployee_ShiftRepository
     {
-        public Employee_ShiftRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Employee_ShiftRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

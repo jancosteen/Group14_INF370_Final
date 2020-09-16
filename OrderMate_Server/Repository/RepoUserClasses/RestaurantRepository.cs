@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class RestaurantRepository: RepositoryBase<Restaurant>, IRestaurantRepository
     {
-        public RestaurantRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public RestaurantRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -42,7 +42,7 @@ namespace Repository.RepoUserClasses
         {
             return FindByCondition(r => r.RestaurantId.Equals(restaurantId))
                 .Include(r => r.Employee)
-                .Include(r => r.Menu)
+                .Include(r => r.MenuRestaurant)
                 .Include(r => r.ResaurantFacilityRef)
                 .Include(r => r.RestaurantAdvertisement)
                 .Include(r => r.RestaurantImage)

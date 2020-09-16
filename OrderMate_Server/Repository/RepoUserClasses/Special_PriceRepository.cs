@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Special_PriceRepository:RepositoryBase<SpecialPrice>, ISpecial_PriceRepository 
     {
-        public Special_PriceRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Special_PriceRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

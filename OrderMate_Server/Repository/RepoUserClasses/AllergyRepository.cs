@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class AllergyRepository: RepositoryBase<Allergy>, IAllergyRepository
     {
-        public AllergyRepository(OrderMateDbFinalContext repositoryContext): base(repositoryContext)
+        public AllergyRepository(OrderMateDbDel08Context repositoryContext): base(repositoryContext)
         {
 
         }

@@ -8,7 +8,7 @@ namespace Repository.RepoUserClasses
 {
     public class SeatingRepository: RepositoryBase<Seating>, ISeatingRepository
     {
-        public SeatingRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public SeatingRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

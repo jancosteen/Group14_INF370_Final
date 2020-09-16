@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Order_LineRepository: RepositoryBase<OrderLine>, IOrder_LineRepository
     {
-        public Order_LineRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Order_LineRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -41,7 +41,7 @@ namespace Repository.RepoUserClasses
         public OrderLine GetOrderLineWithDetails(int orderLineId)
         {
             return FindByCondition(ol => ol.OrderLineId.Equals(orderLineId))
-                .Include(ol => ol.EmployeeIdFkNavigation)
+                .Include(ol => ol.UserIdFk)
                 .Include(ol => ol.MenuItemIdFkNavigation)
                 .Include( ol => ol.OrderIdFkNavigation)
                 .Include( ol => ol.SpecialIdFkNavigation)

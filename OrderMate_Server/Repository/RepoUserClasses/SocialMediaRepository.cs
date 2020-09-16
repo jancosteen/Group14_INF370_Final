@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class SocialMediaRepository: RepositoryBase<SocialMedia>, ISocialMediaRepository
     {
-        public SocialMediaRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public SocialMediaRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -41,7 +41,7 @@ namespace Repository.RepoUserClasses
         public SocialMedia GetSocialMediaDetails(int socialMediaId)
         {
             return FindByCondition(sm => sm.SocialMediaId.Equals(socialMediaId))
-                .Include(sm => sm.RestaurantIdFkNavigation)
+                .Include(sm => sm.Restaurant)
                 .Include(sm => sm.SocialMediaTypeIdFkNavigation)
                 .FirstOrDefault();
         }

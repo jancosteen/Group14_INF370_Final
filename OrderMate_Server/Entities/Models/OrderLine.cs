@@ -11,11 +11,11 @@ namespace Entities.Models
         public int? SpecialIdFk { get; set; }
         public int? MenuItemIdFk { get; set; }
         public int? OrderIdFk { get; set; }
-        public int? EmployeeIdFk { get; set; }
+        public string UserIdFk { get; set; }
 
-        public virtual Employee EmployeeIdFkNavigation { get; set; }
         public virtual MenuItem MenuItemIdFkNavigation { get; set; }
         public virtual Order OrderIdFkNavigation { get; set; }
         public virtual Special SpecialIdFkNavigation { get; set; }
+        public virtual User UserIdFkNavigation { get; set; }
     }
 }

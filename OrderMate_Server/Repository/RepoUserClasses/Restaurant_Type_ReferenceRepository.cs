@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Restaurant_Type_ReferenceRepository: RepositoryBase<RestaurantTypeReference>, IRestaurant_Type_ReferenceRepository
     {
-        public Restaurant_Type_ReferenceRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Restaurant_Type_ReferenceRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class MenuItem_PriceRepository: RepositoryBase<MenuItemPrice>, IMenuItem_PriceRepository
     {
-        public MenuItem_PriceRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public MenuItem_PriceRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -28,7 +28,7 @@ namespace Repository.RepoUserClasses
         public IEnumerable<MenuItemPrice> GetAllMenuItemPrices()
         {
             return FindAll()
-                .OrderBy(mip => mip.MenuItemIdFk)
+                .OrderBy(mip => mip.MenuItem)
                 .ToList();
         }
 
@@ -41,7 +41,7 @@ namespace Repository.RepoUserClasses
         public MenuItemPrice GetMenuItemPriceWithDetails(int menuItemPriceId)
         {
             return FindByCondition(mip => mip.MenuItemPriceId.Equals(menuItemPriceId))
-                .Include(mip => mip.MenuItemIdFkNavigation)
+                .Include(mip => mip.MenuItem)
                 .FirstOrDefault();
         }
 

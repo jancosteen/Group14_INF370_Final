@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Product_Written_OffRepository: RepositoryBase<ProductWrittenOff>, IProduct_Written_OffRepository
     {
-        public Product_Written_OffRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Product_Written_OffRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

@@ -7,6 +7,7 @@ namespace Entities.Models
     {
         public Reservation()
         {
+            ReservationRestaurant = new HashSet<ReservationRestaurant>();
             Seating = new HashSet<Seating>();
         }
 
@@ -20,6 +21,7 @@ namespace Entities.Models
 
         public virtual ReservationStatus ReservationStatusIdFkNavigation { get; set; }
         public virtual User UserIdFkNavigation { get; set; }
+        public virtual ICollection<ReservationRestaurant> ReservationRestaurant { get; set; }
         public virtual ICollection<Seating> Seating { get; set; }
     }
 }

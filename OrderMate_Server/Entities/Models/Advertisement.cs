@@ -7,8 +7,6 @@ namespace Entities.Models
     {
         public Advertisement()
         {
-            AdvertisementDate = new HashSet<AdvertisementDate>();
-            AdvertisementPrice = new HashSet<AdvertisementPrice>();
             RestaurantAdvertisement = new HashSet<RestaurantAdvertisement>();
         }
 
@@ -16,9 +14,11 @@ namespace Entities.Models
         public string AdvertisementName { get; set; }
         public string AdvertisementDescription { get; set; }
         public byte[] AdvertisementFile { get; set; }
+        public int? AdvertisementDateIdFk { get; set; }
+        public int? AdvertisementPriceIdFk { get; set; }
 
-        public virtual ICollection<AdvertisementDate> AdvertisementDate { get; set; }
-        public virtual ICollection<AdvertisementPrice> AdvertisementPrice { get; set; }
+        public virtual AdvertisementDate AdvertisementDateIdFkNavigation { get; set; }
+        public virtual AdvertisementPrice AdvertisementPriceIdFkNavigation { get; set; }
         public virtual ICollection<RestaurantAdvertisement> RestaurantAdvertisement { get; set; }
     }
 }

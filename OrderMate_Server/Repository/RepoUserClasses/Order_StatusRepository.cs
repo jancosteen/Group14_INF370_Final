@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Order_StatusRepository: RepositoryBase<OrderStatus>, IOrder_StatusRepository
     {
-        public Order_StatusRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Order_StatusRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -41,7 +41,7 @@ namespace Repository.RepoUserClasses
         public OrderStatus GetOrderStatusWithDetails(int orderStatusId)
         {
             return FindByCondition(os => os.OrderStatusId.Equals(orderStatusId))
-                .Include(os => os.OrderIdFkNavigation)
+                .Include(os => os.Order)
                 .FirstOrDefault();
         }
 

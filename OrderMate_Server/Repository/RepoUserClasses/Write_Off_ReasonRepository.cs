@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Write_Off_ReasonRepository: RepositoryBase<WriteOffReason>, IWrite_Off_ReasonRepository
     {
-        public Write_Off_ReasonRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Write_Off_ReasonRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

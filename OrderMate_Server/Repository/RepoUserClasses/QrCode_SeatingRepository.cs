@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class QrCode_SeatingRepository: RepositoryBase<QrCodeSeating>, IQrCode_SeatingRepository
     {
-        public QrCode_SeatingRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public QrCode_SeatingRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

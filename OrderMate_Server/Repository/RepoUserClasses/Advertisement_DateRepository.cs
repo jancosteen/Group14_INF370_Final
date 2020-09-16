@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Advertisement_DateRepository: RepositoryBase<AdvertisementDate>, IAdvertisement_DateRepository
     {
-        public Advertisement_DateRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Advertisement_DateRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -34,7 +34,7 @@ namespace Repository.RepoUserClasses
         public AdvertisementDate GetAdvDateWithDetails(int advDateId)
         {
             return FindByCondition(ad => ad.AdvertisementDateId.Equals(advDateId))
-                .Include(ad => ad.AdvertisementIdFkNavigation)
+                .Include(ad => ad.Advertisement)
                 .FirstOrDefault();
         }
 

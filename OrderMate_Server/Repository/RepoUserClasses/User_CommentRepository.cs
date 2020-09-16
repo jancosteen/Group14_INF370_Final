@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class User_CommentRepository: RepositoryBase<UserComment>, IUser_CommentRepository
     {
-        public User_CommentRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public User_CommentRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

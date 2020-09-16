@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class AdvertisementRepository: RepositoryBase<Advertisement>, IAdvertisementRepository
     {
-        public AdvertisementRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public AdvertisementRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -34,9 +34,9 @@ namespace Repository.RepoUserClasses
         public Advertisement GetAdvertisementWithDetails(int advId)
         {
             return FindByCondition(ad => ad.AdvertisementId.Equals(advId))
-                .Include(ad => ad.AdvertisementPrice)
+                .Include(ad => ad.AdvertisementPriceIdFk)
                 .Include(ad => ad.RestaurantAdvertisement)
-                .Include(ad => ad.AdvertisementDate)
+                .Include(ad => ad.AdvertisementDateIdFk)
                 .FirstOrDefault();
         }
 

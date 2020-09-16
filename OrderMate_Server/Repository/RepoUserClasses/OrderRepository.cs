@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class OrderRepository: RepositoryBase<Order>, IOrderRepository
     {
-        public OrderRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public OrderRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -42,7 +42,7 @@ namespace Repository.RepoUserClasses
         {
             return FindByCondition(o => o.OrderId.Equals(orderId))
                 .Include(o => o.OrderLine)
-                .Include( o=> o.OrderStatus)
+                .Include( o=> o.OrderStatusIdFk)
                 .Include( o => o.QrCodeSeating)
                 .FirstOrDefault();
         }

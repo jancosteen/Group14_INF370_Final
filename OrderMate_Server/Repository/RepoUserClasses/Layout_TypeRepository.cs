@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Layout_TypeRepository: RepositoryBase<LayoutType>, ILayout_TypeRepository
     {
-        public Layout_TypeRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Layout_TypeRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

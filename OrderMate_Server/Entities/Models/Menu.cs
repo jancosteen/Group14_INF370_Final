@@ -7,7 +7,7 @@ namespace Entities.Models
     {
         public Menu()
         {
-            MenuItem = new HashSet<MenuItem>();
+            MenuRestaurant = new HashSet<MenuRestaurant>();
         }
 
         public int MenuId { get; set; }
@@ -16,9 +16,7 @@ namespace Entities.Models
         public DateTime MenuDateCreated { get; set; }
         public TimeSpan? MenuTimeActiveFrom { get; set; }
         public TimeSpan? MenuTimeActiveTo { get; set; }
-        public int? RestaurantIdFk { get; set; }
 
-        public virtual Restaurant RestaurantIdFkNavigation { get; set; }
-        public virtual ICollection<MenuItem> MenuItem { get; set; }
+        public virtual ICollection<MenuRestaurant> MenuRestaurant { get; set; }
     }
 }

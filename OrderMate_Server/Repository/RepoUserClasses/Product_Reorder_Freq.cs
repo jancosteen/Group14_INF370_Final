@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Product_Reorder_Freq: RepositoryBase<ProductReorderFreq>, IProduct_Reorder_FreqRepository
     {
-        public Product_Reorder_Freq(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Product_Reorder_Freq(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
         }
 

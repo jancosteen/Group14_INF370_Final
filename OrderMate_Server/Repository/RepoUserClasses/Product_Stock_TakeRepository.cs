@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Product_Stock_TakeRepository: RepositoryBase<ProductStockTake>, IProduct_Stock_TakeRepository
     {
-        public Product_Stock_TakeRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Product_Stock_TakeRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

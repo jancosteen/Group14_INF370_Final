@@ -7,6 +7,7 @@ namespace Entities.Models
     {
         public int SpecialIdFk { get; set; }
         public int MenuItemIdFk { get; set; }
+        public int MenuItemSpecialId { get; set; }
 
         public virtual MenuItem MenuItemIdFkNavigation { get; set; }
         public virtual Special SpecialIdFkNavigation { get; set; }

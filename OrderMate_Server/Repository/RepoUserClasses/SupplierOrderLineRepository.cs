@@ -12,7 +12,7 @@ namespace Repository.RepoUserClasses
 {
     public class SupplierOrderLineRepository: RepositoryBase<SupplierOrderLine>, ISupplierOrderLineRepository
     {
-        public SupplierOrderLineRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public SupplierOrderLineRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

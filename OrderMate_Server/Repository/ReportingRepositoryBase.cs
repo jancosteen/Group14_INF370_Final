@@ -11,9 +11,9 @@ namespace Repository
 {
     public class ReportingRepositoryBase<T> : IReportingRepositoryBase<T> where T : class
     {
-        protected OrderMateDbFinalContext RepositoryContext { get; set; }
+        protected OrderMateDbDel08Context RepositoryContext { get; set; }
 
-        public ReportingRepositoryBase(OrderMateDbFinalContext repositoryContext)
+        public ReportingRepositoryBase(OrderMateDbDel08Context repositoryContext)
         {
             this.RepositoryContext = repositoryContext;
         }

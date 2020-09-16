@@ -12,7 +12,7 @@ namespace Repository.RepoUserClasses
 {
     public class Product_CategoryRepository: RepositoryBase<ProductCategory>, IProduct_CategoryRepository
     {
-        public Product_CategoryRepository(OrderMateDbFinalContext repositoryContext): base(repositoryContext)
+        public Product_CategoryRepository(OrderMateDbDel08Context repositoryContext): base(repositoryContext)
         {
 
         }

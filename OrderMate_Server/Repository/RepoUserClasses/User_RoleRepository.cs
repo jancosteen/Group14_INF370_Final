@@ -11,7 +11,7 @@ namespace Repository.RepoUserClasses
 {
     public class User_RoleRepository: RepositoryBase<IdentityRole>, IUser_RoleRepository
     {
-        public User_RoleRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public User_RoleRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }

@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class Advertisement_PriceRepository: RepositoryBase<AdvertisementPrice>, IAdvertisement_PriceRepository
     {
-        public Advertisement_PriceRepository(OrderMateDbFinalContext repositoryContext) : base(repositoryContext)
+        public Advertisement_PriceRepository(OrderMateDbDel08Context repositoryContext) : base(repositoryContext)
         {
 
         }
@@ -34,7 +34,7 @@ namespace Repository.RepoUserClasses
         public AdvertisementPrice GetAdvertisementPriceWithDetails(int advPriceId)
         {
             return FindByCondition(ad => ad.AdvertisementPriceId.Equals(advPriceId))
-                .Include(ad => ad.AdvertisementIdFkNavigation)
+                .Include(ad => ad.Advertisement)
                 .FirstOrDefault();
         }
 

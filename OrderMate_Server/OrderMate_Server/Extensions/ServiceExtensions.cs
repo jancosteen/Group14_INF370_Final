@@ -42,7 +42,7 @@ namespace OrderMate_Server.Extensions
         public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config["ConnectionSrings:sqlConnectionStringJanco"];
-            services.AddDbContext<OrderMateDbFinalContext>(o => o.UseSqlServer(connectionString));
+            services.AddDbContext<OrderMateDbDel08Context>(o => o.UseSqlServer(connectionString));
         }
 
         public static void ConfigureRepositoryWrapper(this IServiceCollection services)

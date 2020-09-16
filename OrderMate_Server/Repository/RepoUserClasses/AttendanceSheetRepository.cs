@@ -10,7 +10,7 @@ namespace Repository.RepoUserClasses
 {
     public class AttendanceSheetRepository: RepositoryBase<AttendanceSheet>, IAttendanceSheetRepository
     {
-        public AttendanceSheetRepository(OrderMateDbFinalContext repositoryContext): base(repositoryContext)
+        public AttendanceSheetRepository(OrderMateDbDel08Context repositoryContext): base(repositoryContext)
         {
 
         }
